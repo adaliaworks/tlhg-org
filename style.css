@@ -376,6 +376,10 @@ body {
     font-weight:normal; margin:0; line-height:1.05em; font-family:Helvetica,Arial,sans-serif; }
 #header h1.title a { color:#1D1801; text-decoration:none; }
 #header h1.title a:hover { text-decoration:underline; }
+/* the black bar links home; the nav links ride on top and keep their own targets */
+#header .bar { position:relative; }
+#header .bar a.bar-home { position:absolute; top:0; left:0; right:0; bottom:0; display:block; z-index:1; }
+#header .bar .bar-links { position:relative; z-index:2; }
 .video-embed { position:relative; }
 .video-embed iframe { max-width:100%; }
 .postnav { width:488px; font-family:Verdana,Arial,sans-serif; font-size:0.75em; color:#9C9C9C;
