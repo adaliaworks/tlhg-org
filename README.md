@@ -7,24 +7,26 @@ and images you can edit directly.
 - **Every entry is its own page** under `entry/<slug>/` (going forward) or `post/…`
   (the archived 2006–2016 Tumblr posts).
 - Each name in the header links to that person's page at their **initial**:
-  **TREY → /t**, **LORI → /l**, **HUCK → /h**, **GUS → /g**. A page tagged `trey`
-  shows up on `/t` as well as the home page.
-- The full chronological list of everything is on the **Archive** page.
+  **TREY → t/**, **LORI → l/**, **HUCK → h/**, **GUS → g/**. An entry tagged `trey`
+  also shows on `t/`.
+- The full chronological list is on the **Archive** page.
+
+Every page has a `<base href>` in its head pointing at the site root, so all links are
+written plain and resolve from any depth. That's what lets you paste an entry block onto
+any page unchanged — and it's why pages render correctly even when you open the files
+directly (no server needed just to look).
 
 ## Adding a page
 
 See **[HOW-TO-ADD-A-PAGE.md](HOW-TO-ADD-A-PAGE.md)**. Short version: copy
-`entry-template.html`, fill it in, drop it at `entry/<slug>/index.html`, paste its
-entry block at the top of `index.html` (and trim the oldest), then commit & push.
+`entry-template.html`, fill it in, drop it at `entry/<slug>/index.html`, paste its entry
+block at the top of `index.html` (and trim the oldest), then commit & push.
 
-## Previewing locally
+## Previewing
 
-The site uses absolute paths (`/style.css`, `/entry/…`), so serve it rather than
-opening files directly:
-
-```bash
-python3 -m http.server 8000   # then open http://localhost:8000
-```
+Open any `.html` file in your browser — it's styled correctly on a plain double-click.
+To click *between* pages locally, run a quick server (`python3 -m http.server 8000` from
+this folder); when hosted, navigation works normally.
 
 ## Hosting on GitHub Pages
 
