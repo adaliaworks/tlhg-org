@@ -15,9 +15,10 @@
   --card:#FFFFFF;
   --rule:#e2ded1;
   --tint:#f6f4ec;
-  --yes:#2f6b4f;
-  --no:#9a3b2f;
-  --maybe:#8a6d1f;
+  --lived:#2f6b4f;
+  --reaching:#2f5c8a;
+  --inherited:#8a6d1f;
+  --notmine:#9a3b2f;
   --radius:14px;
   --shadow:0 1px 2px rgba(29,24,1,.08), 0 8px 28px rgba(29,24,1,.10);
 }
@@ -34,7 +35,7 @@ body{
   :root{
     --ink:#f2eee2; --ink-soft:#b9b3a1; --ink-faint:#8b8574;
     --paper:#14130f; --card:#1e1c16; --rule:#332f25; --tint:#1b1913;
-    --yes:#79c39b; --no:#e08b7c; --maybe:#d9b95c;
+    --lived:#79c39b; --reaching:#8fb8e0; --inherited:#d9b95c; --notmine:#e08b7c;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.45);
   }
 }
@@ -42,7 +43,6 @@ button{font:inherit;color:inherit;cursor:pointer}
 .wrap{max-width:720px;margin:0 auto;padding:0 16px}
 .app{min-height:100svh;display:flex;flex-direction:column}
 
-/* ---------- top bar ---------- */
 header.bar{
   border-bottom:1px solid var(--rule);
   padding:10px 0; position:sticky; top:0; z-index:20;
@@ -51,7 +51,7 @@ header.bar{
 .bar .wrap{display:flex;align-items:center;gap:12px;justify-content:space-between}
 .brand{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
 .stepper{display:flex;gap:5px;align-items:center;flex:1;justify-content:center}
-.step{width:26px;height:4px;border-radius:2px;background:var(--rule)}
+.step{width:20px;height:4px;border-radius:2px;background:var(--rule)}
 .step.done{background:var(--ink-soft)}
 .step.now{background:var(--ink)}
 .linkbtn{background:none;border:0;padding:6px;color:var(--ink-soft);font-size:13px;text-decoration:underline}
@@ -59,7 +59,8 @@ header.bar{
 main{flex:1;display:flex;flex-direction:column;padding:20px 0 28px}
 h1{font-size:30px;line-height:1.18;letter-spacing:-.02em;margin:0 0 14px}
 h2{font-size:21px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
-p{margin:0 0 14px;max-width:60ch}
+h3{font-size:16px;margin:22px 0 4px}
+p{margin:0 0 14px;max-width:62ch}
 .lede{color:var(--ink-soft)}
 .small{font-size:14px;color:var(--ink-soft)}
 .tiny{font-size:12.5px;color:var(--ink-faint)}
@@ -72,15 +73,15 @@ p{margin:0 0 14px;max-width:60ch}
 .btn:disabled{opacity:.35;cursor:default}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
-/* ---------- welcome ---------- */
-.themelist{border-top:1px solid var(--rule);margin:18px 0 22px}
-.themerow{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule);align-items:baseline}
-.themerow b{font-size:15px;flex:1}
-.themerow span{font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.quadkey{border-top:1px solid var(--rule);margin:18px 0 22px}
+.quadrow{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.quadrow b{font-size:15px;white-space:nowrap;min-width:96px}
+.quadrow span{font-size:14px;color:var(--ink-soft)}
+.k-lived{color:var(--lived)} .k-reaching{color:var(--reaching)}
+.k-inherited{color:var(--inherited)} .k-notmine{color:var(--notmine)}
 
-/* ---------- triage ---------- */
-.deckarea{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:340px;padding:6px 0 4px}
-.stack{position:relative;width:100%;max-width:400px;height:min(56svh,430px);min-height:300px}
+.deckarea{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:320px;padding:6px 0 4px}
+.stack{position:relative;width:100%;max-width:400px;height:min(50svh,400px);min-height:280px}
 .tcard{
   position:absolute;inset:0;background:var(--card);border:1px solid var(--rule);
   border-radius:var(--radius);box-shadow:var(--shadow);
@@ -90,7 +91,7 @@ p{margin:0 0 14px;max-width:60ch}
 }
 .tcard.under{pointer-events:none}
 .tcard .themetag{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint)}
-.tcard .word{font-size:clamp(30px,8vw,42px);line-height:1.08;letter-spacing:-.025em;margin:auto 0 0;font-weight:bold}
+.tcard .word{font-size:clamp(28px,7.5vw,40px);line-height:1.08;letter-spacing:-.025em;margin:auto 0 0;font-weight:bold}
 .tcard .term{font-style:italic;color:var(--ink-faint);font-size:15px;margin-top:6px;min-height:1.4em}
 .tcard .gloss{font-size:17px;color:var(--ink-soft);margin:14px 0 auto;line-height:1.45}
 .tcard .flipnote{font-size:12.5px;color:var(--ink-faint);margin-top:14px}
@@ -104,24 +105,31 @@ p{margin:0 0 14px;max-width:60ch}
 .back .nearlist b{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:5px}
 .back .nearlist span{font-size:14px;color:var(--ink-soft)}
 .verdict{
-  position:absolute;top:18px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  position:absolute;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
   font-weight:bold;padding:6px 11px;border-radius:6px;border:2px solid currentColor;opacity:0;
+  pointer-events:none;
 }
-.v-yes{right:18px;color:var(--yes)} .v-no{left:18px;color:var(--no)}
-.v-maybe{left:50%;transform:translateX(-50%);color:var(--maybe)}
-.controls{display:flex;gap:10px;justify-content:center;align-items:center;padding-top:14px}
+.v-lived{top:50%;right:16px;transform:translateY(-50%);color:var(--lived)}
+.v-notmine{top:50%;left:16px;transform:translateY(-50%);color:var(--notmine)}
+.v-reaching{top:16px;left:50%;transform:translateX(-50%);color:var(--reaching)}
+.v-inherited{bottom:16px;left:50%;transform:translateX(-50%);color:var(--inherited)}
+
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;max-width:420px;margin:0 auto;width:100%}
 .cbtn{
-  border:1px solid var(--rule);background:var(--card);border-radius:999px;
-  padding:11px 16px;font-size:15px;font-weight:bold;display:flex;gap:7px;align-items:center;
+  border:1px solid var(--rule);background:var(--card);border-radius:12px;
+  padding:10px 12px;text-align:left;line-height:1.2;
 }
-.cbtn.yes{color:var(--yes)} .cbtn.no{color:var(--no)} .cbtn.maybe{color:var(--maybe)}
-.cbtn.big{padding:13px 22px}
-.counts{display:flex;gap:16px;justify-content:center;padding-top:12px;font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.cbtn b{display:block;font-size:15px}
+.cbtn i{display:block;font-style:normal;font-size:11.5px;color:var(--ink-faint);margin-top:3px}
+.cbtn[data-v="lived"] b{color:var(--lived)}
+.cbtn[data-v="reaching"] b{color:var(--reaching)}
+.cbtn[data-v="inherited"] b{color:var(--inherited)}
+.cbtn[data-v="notmine"] b{color:var(--notmine)}
+.counts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding-top:12px;font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
 .progress{height:3px;background:var(--rule);border-radius:2px;overflow:hidden;margin:0 0 14px}
 .progress i{display:block;height:100%;background:var(--ink-soft);transition:width .2s}
 
-/* ---------- grids ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px;margin:12px 0}
 .chip{
   border:1px solid var(--rule);background:var(--card);border-radius:10px;
   padding:11px 12px;text-align:left;line-height:1.25;
@@ -129,26 +137,24 @@ p{margin:0 0 14px;max-width:60ch}
 .chip b{display:block;font-size:15px}
 .chip span{display:block;font-size:12px;color:var(--ink-faint);margin-top:3px}
 .chip.on{border-color:var(--ink);background:var(--tint);box-shadow:inset 0 0 0 1px var(--ink)}
-.chip.sel{border-color:var(--yes);box-shadow:inset 0 0 0 2px var(--yes)}
+.chip.sel{border-color:var(--lived);box-shadow:inset 0 0 0 2px var(--lived)}
 .sticky{
   position:sticky;bottom:0;background:var(--paper);border-top:1px solid var(--rule);
   padding:12px 0;margin-top:auto;
 }
 .sticky .wrap{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 
-/* ---------- duel ---------- */
 .duel{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
 @media (max-width:520px){ .duel{grid-template-columns:1fr} }
 .duelcard{
   border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);
-  padding:20px;text-align:left;min-height:150px;display:flex;flex-direction:column;box-shadow:var(--shadow);
+  padding:20px;text-align:left;min-height:140px;display:flex;flex-direction:column;box-shadow:var(--shadow);
 }
 .duelcard:hover{border-color:var(--ink)}
 .duelcard b{font-size:23px;letter-spacing:-.02em;line-height:1.1}
 .duelcard i{font-style:italic;color:var(--ink-faint);font-size:13.5px;margin-top:4px}
 .duelcard span{font-size:14.5px;color:var(--ink-soft);margin-top:10px}
 
-/* ---------- clusters ---------- */
 .cluster{border:1px solid var(--rule);border-radius:12px;padding:12px;margin-bottom:10px;background:var(--card)}
 .cluster header{display:flex;gap:8px;align-items:center;margin-bottom:8px}
 .cluster input{
@@ -160,14 +166,23 @@ p{margin:0 0 14px;max-width:60ch}
 .member{border:1px solid var(--rule);border-radius:999px;padding:5px 10px;font-size:13.5px;background:var(--tint)}
 .member button{border:0;background:none;padding:0 0 0 6px;color:var(--ink-faint)}
 .drop{border:1px dashed var(--rule);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--ink-faint);background:transparent}
-.drop.armed{border-color:var(--yes);color:var(--yes)}
+.drop.armed{border-color:var(--lived);color:var(--lived)}
 
-/* ---------- result ---------- */
+.attrib{border-bottom:1px solid var(--rule);padding:14px 0}
+.attrib b{font-size:18px;display:block}
+.attrib em{font-style:normal;font-size:14px;color:var(--ink-soft);display:block;margin:2px 0 8px}
+.attrib input{
+  font:inherit;font-size:15px;width:100%;border:1px solid var(--rule);border-radius:8px;
+  padding:9px 11px;background:var(--card);color:inherit;
+}
+.attrib input:focus{outline:none;border-color:var(--ink)}
+
 .top5{counter-reset:t;margin:16px 0 26px;border-top:1px solid var(--rule)}
 .top5 li{list-style:none;counter-increment:t;display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:flex-start}
 .top5 li::before{content:counter(t);font-size:13px;color:var(--ink-faint);width:16px;padding-top:6px;font-variant-numeric:tabular-nums}
 .top5 b{font-size:20px;letter-spacing:-.02em;display:block}
 .top5 em{font-style:normal;font-size:15px;color:var(--ink-soft);display:block;margin-top:3px}
+.top5 .who{font-size:13.5px;color:var(--ink-faint);display:block;margin-top:5px}
 .tally{margin:8px 0 22px}
 .tallyrow{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:14px}
 .tallyrow b{width:78px;font-weight:normal}
@@ -175,10 +190,11 @@ p{margin:0 0 14px;max-width:60ch}
 .tallybar i{display:block;height:100%;background:var(--ink-soft)}
 .tallyrow span{width:34px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-faint)}
 ul.plain{margin:0 0 18px;padding-left:18px}
-ul.plain li{margin-bottom:5px}
+ul.plain li{margin-bottom:6px}
+.pilewrap{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 22px}
+.note{border-left:2px solid var(--rule);padding-left:14px;margin:0 0 18px}
 
 footer.foot{border-top:1px solid var(--rule);padding:16px 0 30px;font-size:12.5px;color:var(--ink-faint)}
-footer.foot a{color:var(--ink-faint)}
 .hidden{display:none !important}
 
 @media print{
@@ -202,8 +218,7 @@ footer.foot a{color:var(--ink-faint)}
 <main id="main" class="wrap"><p class="lede">Loading the deck…</p></main>
 
 <footer class="foot noprint"><div class="wrap">
-  Everything you sort stays in this browser. Nothing is uploaded.
-  <span id="savenote"></span>
+  Everything you sort stays in this browser. Nothing you sort is uploaded, saved, or stored beyond your device.
 </div></footer>
 
 </div>
@@ -212,53 +227,51 @@ footer.foot a{color:var(--ink-faint)}
 (function(){
 "use strict";
 
-var KEY = "dp-cards-v1";
-var KEEP = 15;
+var KEY = "dp-cards-v2";
+var CAP_LIVED = 10;
+var CAP_REACH = 5;
 var DECK = null, CARDS = {}, THEMES = {};
 var S = null;
 var main = document.getElementById("main");
 
-/* ---------------- state ---------------- */
+var BUCKETS = [
+  { id:"lived",     label:"Lived",     hint:"Someone could point at the evidence.", key:"→" },
+  { id:"reaching",  label:"Reaching",  hint:"I want this. The evidence is thin.",   key:"↑" },
+  { id:"inherited", label:"Inherited", hint:"It is in me. I am not sure I chose it.", key:"↓" },
+  { id:"notmine",   label:"Not my path", hint:"Someone else's good, honestly.",     key:"←" }
+];
 
 function freshState(){
   return {
-    stage: "welcome",
-    order: [], i: 0,
-    mine: [], maybe: [], not: [],
-    history: [],
-    keep: [],
-    rank: null,
-    clusters: [],
-    picked: [],
-    started: null
+    stage:"welcome",
+    order:[], i:0,
+    lived:[], reaching:[], inherited:[], notmine:[],
+    history:[],
+    keepL:[], keepR:[],
+    rank:null,
+    clusters:[], picked:[],
+    attrib:{},
+    started:null
   };
 }
-function save(){
-  try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){}
-}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 function load(){
-  try {
-    var raw = localStorage.getItem(KEY);
-    if(!raw) return null;
-    var o = JSON.parse(raw);
-    return (o && o.stage) ? o : null;
-  } catch(e){ return null; }
+  try{ var raw = localStorage.getItem(KEY); if(!raw) return null;
+    var o = JSON.parse(raw); return (o && o.stage) ? o : null; }catch(e){ return null; }
 }
 function shuffle(a){
   for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
   return a;
 }
-function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
   return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]; }); }
+function capL(){ return Math.min(CAP_LIVED, S.lived.length + S.inherited.length); }
+function capR(){ return Math.min(CAP_REACH, S.reaching.length); }
 
-/* ---------------- shell ---------------- */
-
-var STAGES = ["welcome","triage","cut","duel","cluster","result"];
+var STAGES = ["welcome","triage","cutlived","cutreach","duel","cluster","attribute","result"];
 function drawStepper(){
-  var el = document.getElementById("stepper"), now = STAGES.indexOf(S.stage), h = "";
-  for(var i=1;i<STAGES.length;i++){
-    h += '<i class="step'+(i<now?" done":i===now?" now":"")+'"></i>';
-  }
+  var el = document.getElementById("stepper"), now = STAGES.indexOf(S.stage), h="";
+  for(var i=1;i<STAGES.length;i++){ h += '<i class="step'+(i<now?" done":i===now?" now":"")+'"></i>'; }
   el.innerHTML = h;
 }
 function go(stage){ S.stage = stage; save(); render(); }
@@ -267,53 +280,46 @@ var lastStage = null;
 function render(){
   drawStepper();
   if(S.stage !== lastStage){ window.scrollTo(0,0); lastStage = S.stage; }
-  var f = ({welcome:vWelcome, triage:vTriage, cut:vCut, duel:vDuel, cluster:vCluster, result:vResult})[S.stage];
-  if(!f){ S.stage="welcome"; f = vWelcome; }
+  var f = ({ welcome:vWelcome, triage:vTriage, cutlived:vCutLived, cutreach:vCutReach,
+             duel:vDuel, cluster:vCluster, attribute:vAttribute, result:vResult })[S.stage];
+  if(!f){ S.stage="welcome"; f=vWelcome; }
   main.innerHTML = "";
   f();
 }
 
-/* ---------------- 0. welcome ---------------- */
+/* ---------------- welcome ---------------- */
 
 function vWelcome(){
-  var counts = {};
-  DECK.cards.forEach(function(c){ counts[c.theme] = (counts[c.theme]||0)+1; });
-  var rows = DECK.themes.map(function(t){
-    return '<div class="themerow"><b>'+esc(t.name)+'</b><span>'+counts[t.id]+'</span></div>';
-  }).join("");
-
   var resumable = S.order.length && S.stage !== "welcome";
   main.innerHTML =
-    '<h1>What do you actually hold?</h1>'+
-    '<p class="lede">'+DECK.cards.length+' values drawn from the classical tradition, one per card. '+
-      'You will sort them down to five, and name the groups yourself.</p>'+
-    '<ul class="plain small">'+
-      '<li><b>Sort.</b> One card at a time. Right for mine, left for not mine, up for maybe.</li>'+
-      '<li><b>Read.</b> Tap a card to turn it over for the definition and the nearby cards.</li>'+
-      '<li><b>Cut.</b> Take what is left down to '+KEEP+'.</li>'+
-      '<li><b>Choose.</b> Two at a time, keep one, until the '+KEEP+' are in order.</li>'+
-      '<li><b>Cluster.</b> Group them and give each group your own name.</li>'+
-    '</ul>'+
-    '<p class="small">Fifteen to twenty minutes, and it works better in one sitting.</p>'+
-    '<div class="themelist">'+rows+'</div>'+
+    '<h1>What is actually true of you?</h1>'+
+    '<p class="lede">'+DECK.cards.length+' values from the classical tradition, one per card. '+
+      'Every one of them is a good, so approving of them proves nothing. '+
+      'This sort is looking for evidence instead.</p>'+
+    '<p class="lede">Each card goes in one of four places:</p>'+
+    '<div class="quadkey">'+ BUCKETS.map(function(b){
+      return '<div class="quadrow"><b class="k-'+b.id+'">'+b.label+'</b><span>'+esc(b.hint)+'</span></div>';
+    }).join("") +'</div>'+
+    '<p class="lede small">Then you cut the Lived pile to '+CAP_LIVED+' and the Reaching pile to '+
+      CAP_REACH+'. Those caps are the point. A value you hold above every other is worth something; '+
+      'ninety values you approve of are worth very little.</p>'+
+    '<p class="small">Twenty minutes or so, and it works better in one sitting.</p>'+
     '<div class="row">'+
       '<button class="btn" id="begin">'+(resumable?"Start a new sort":"Begin")+'</button>'+
       (resumable?'<button class="btn ghost" id="resume">Pick up where I left off</button>':'')+
     '</div>';
 
   document.getElementById("begin").onclick = function(){
-    var keepStage = S.stage;
     S = freshState();
     S.order = shuffle(DECK.cards.map(function(c){ return c.id; }));
     S.started = Date.now();
-    void keepStage;
     go("triage");
   };
   var r = document.getElementById("resume");
   if(r) r.onclick = function(){ render(); };
 }
 
-/* ---------------- 1. triage ---------------- */
+/* ---------------- triage ---------------- */
 
 function cardFace(c){
   var t = THEMES[c.theme];
@@ -331,34 +337,34 @@ function cardFace(c){
     '<div class="themetag">'+esc(c.word)+'</div>'+
     '<div class="line">'+esc(c.line)+'</div>'+
     '<div class="meta">'+esc(c.gloss)+'</div>'+
-    '<div class="meta">'+(c.term?'<i>'+esc(c.term)+'</i> · ':'')+
-      'carried by '+esc(c.srcName)+'</div>'+
+    '<div class="meta">'+(c.term?'<i>'+esc(c.term)+'</i> · ':'')+'carried by '+esc(c.srcName)+'</div>'+
     (near?'<div class="nearlist"><b>Close to</b><span>'+esc(near)+'</span></div>':'')+
   '</div>'+
-  '<div class="verdict v-yes">Mine</div>'+
-  '<div class="verdict v-no">Not mine</div>'+
-  '<div class="verdict v-maybe">Maybe</div>';
+  BUCKETS.map(function(b){ return '<div class="verdict v-'+b.id+'">'+b.label+'</div>'; }).join("");
 }
 
 function vTriage(){
-  if(S.i >= S.order.length){ return go("cut"); }
-
+  if(S.i >= S.order.length){ return go("cutlived"); }
   var pct = Math.round(S.i / S.order.length * 100);
+
   main.innerHTML =
     '<div class="progress"><i style="width:'+pct+'%"></i></div>'+
+    '<p class="tiny" style="text-align:center;margin:0 0 6px">'+
+      'Where would someone who has watched you for thirty days put this?</p>'+
     '<div class="deckarea"><div class="stack" id="stack"></div></div>'+
-    '<div class="controls">'+
-      '<button class="cbtn no" data-v="not">&#10005; Not mine</button>'+
-      '<button class="cbtn maybe" data-v="maybe">? Maybe</button>'+
-      '<button class="cbtn yes" data-v="mine">&#10003; Mine</button>'+
-    '</div>'+
+    // laid out so each button sits where that swipe sends the card
+    '<div class="controls">'+ ["notmine","lived","reaching","inherited"].map(function(id){
+      var b = BUCKETS.filter(function(x){ return x.id===id; })[0];
+      return '<button class="cbtn" data-v="'+b.id+'"><b>'+b.key+' '+b.label+'</b><i>'+esc(b.hint)+'</i></button>';
+    }).join("") +'</div>'+
     '<div class="counts">'+
       '<span>'+(S.i+1)+' of '+S.order.length+'</span>'+
-      '<span>Mine '+S.mine.length+'</span>'+
-      '<span>Maybe '+S.maybe.length+'</span>'+
+      '<span>Lived '+S.lived.length+'</span>'+
+      '<span>Reaching '+S.reaching.length+'</span>'+
+      '<span>Inherited '+S.inherited.length+'</span>'+
       '<button class="linkbtn" id="undo"'+(S.history.length?"":" disabled")+'>Undo</button>'+
     '</div>'+
-    '<p class="tiny" style="text-align:center;margin-top:10px">Drag the card, use the buttons, or press &larr; &uarr; &rarr;. Space turns it over.</p>';
+    '<p class="tiny" style="text-align:center;margin-top:10px">Drag the card, use the buttons, or press the arrow keys. Space turns it over.</p>';
 
   var stack = document.getElementById("stack");
   var nextId = S.order[S.i+1];
@@ -369,10 +375,9 @@ function vTriage(){
     u.innerHTML = cardFace(CARDS[nextId]);
     stack.appendChild(u);
   }
-  var c = CARDS[S.order[S.i]];
   var el = document.createElement("div");
   el.className = "tcard";
-  el.innerHTML = cardFace(c);
+  el.innerHTML = cardFace(CARDS[S.order[S.i]]);
   stack.appendChild(el);
   wireCard(el);
 
@@ -384,9 +389,8 @@ function vTriage(){
 
   document.onkeydown = function(e){
     if(S.stage !== "triage") return;
-    if(e.key === "ArrowRight"){ e.preventDefault(); fly(el,"mine"); }
-    else if(e.key === "ArrowLeft"){ e.preventDefault(); fly(el,"not"); }
-    else if(e.key === "ArrowUp"){ e.preventDefault(); fly(el,"maybe"); }
+    var map = { ArrowRight:"lived", ArrowUp:"reaching", ArrowDown:"inherited", ArrowLeft:"notmine" };
+    if(map[e.key]){ e.preventDefault(); fly(el, map[e.key]); }
     else if(e.key === " "){ e.preventDefault(); el.classList.toggle("flipped"); }
     else if(e.key.toLowerCase() === "u"){ e.preventDefault(); undo(); }
   };
@@ -394,35 +398,38 @@ function vTriage(){
 
 function wireCard(el){
   var sx=0, sy=0, dx=0, dy=0, dragging=false, moved=false, pid=null;
-  var vy = el.querySelector(".v-yes"), vn = el.querySelector(".v-no"), vm = el.querySelector(".v-maybe");
+  var v = {};
+  BUCKETS.forEach(function(b){ v[b.id] = el.querySelector(".v-"+b.id); });
 
   el.addEventListener("pointerdown", function(e){
     if(e.button) return;
-    dragging = true; moved = false; pid = e.pointerId;
-    sx = e.clientX; sy = e.clientY; dx = dy = 0;
+    dragging=true; moved=false; pid=e.pointerId;
+    sx=e.clientX; sy=e.clientY; dx=dy=0;
     el.setPointerCapture(pid);
-    el.style.transition = "none";
+    el.style.transition="none";
   });
   el.addEventListener("pointermove", function(e){
-    if(!dragging || e.pointerId !== pid) return;
-    dx = e.clientX - sx; dy = e.clientY - sy;
-    if(Math.abs(dx) > 6 || Math.abs(dy) > 6) moved = true;
+    if(!dragging || e.pointerId!==pid) return;
+    dx=e.clientX-sx; dy=e.clientY-sy;
+    if(Math.abs(dx)>6 || Math.abs(dy)>6) moved=true;
     el.style.transform = "translate("+dx+"px,"+dy+"px) rotate("+(dx*0.045)+"deg)";
-    var up = (dy < -40 && Math.abs(dx) < Math.abs(dy));
-    vy.style.opacity = up ? 0 : Math.max(0, Math.min(1, dx/90));
-    vn.style.opacity = up ? 0 : Math.max(0, Math.min(1, -dx/90));
-    vm.style.opacity = up ? Math.max(0, Math.min(1, -dy/90)) : 0;
+    var horizontal = Math.abs(dx) >= Math.abs(dy);
+    v.lived.style.opacity     = horizontal ? Math.max(0,Math.min(1, dx/90)) : 0;
+    v.notmine.style.opacity   = horizontal ? Math.max(0,Math.min(1,-dx/90)) : 0;
+    v.reaching.style.opacity  = horizontal ? 0 : Math.max(0,Math.min(1,-dy/90));
+    v.inherited.style.opacity = horizontal ? 0 : Math.max(0,Math.min(1, dy/90));
   });
   function end(e){
-    if(!dragging || (e && e.pointerId !== pid)) return;
-    dragging = false;
-    el.style.transition = "transform .22s ease-out, opacity .22s ease-out";
-    var up = (dy < -90 && Math.abs(dx) < Math.abs(dy));
-    if(up) return fly(el,"maybe");
-    if(dx > 95) return fly(el,"mine");
-    if(dx < -95) return fly(el,"not");
-    el.style.transform = "";
-    vy.style.opacity = vn.style.opacity = vm.style.opacity = 0;
+    if(!dragging || (e && e.pointerId!==pid)) return;
+    dragging=false;
+    el.style.transition="transform .22s ease-out, opacity .22s ease-out";
+    var horizontal = Math.abs(dx) >= Math.abs(dy);
+    if(horizontal && dx >  95) return fly(el,"lived");
+    if(horizontal && dx < -95) return fly(el,"notmine");
+    if(!horizontal && dy < -95) return fly(el,"reaching");
+    if(!horizontal && dy >  95) return fly(el,"inherited");
+    el.style.transform="";
+    BUCKETS.forEach(function(b){ v[b.id].style.opacity = 0; });
     if(!moved) el.classList.toggle("flipped");
   }
   el.addEventListener("pointerup", end);
@@ -431,8 +438,8 @@ function wireCard(el){
 
 function fly(el, verdict){
   var id = S.order[S.i];
-  var x = verdict === "mine" ? 520 : verdict === "not" ? -520 : 0;
-  var y = verdict === "maybe" ? -620 : 0;
+  var x = verdict==="lived" ? 520 : verdict==="notmine" ? -520 : 0;
+  var y = verdict==="reaching" ? -620 : verdict==="inherited" ? 620 : 0;
   el.style.transition = "transform .24s ease-in, opacity .24s ease-in";
   el.style.transform = "translate("+x+"px,"+y+"px) rotate("+(x*0.03)+"deg)";
   el.style.opacity = "0";
@@ -446,158 +453,177 @@ function fly(el, verdict){
 function undo(){
   var last = S.history.pop();
   if(!last) return;
-  var arr = S[last[1]];
-  var k = arr.lastIndexOf(last[0]);
+  var arr = S[last[1]], k = arr.lastIndexOf(last[0]);
   if(k > -1) arr.splice(k,1);
   S.i = Math.max(0, S.i-1);
   save(); document.onkeydown = null; render();
 }
 
-/* ---------------- 2. cut to fifteen ---------------- */
+/* ---------------- the two cuts ---------------- */
 
-function vCut(){
+function cutScreen(opts){
   document.onkeydown = null;
-  if(!S.keep.length){ S.keep = S.mine.slice(); }
-  var pool = S.mine.concat(S.maybe);
-  // keep only ids still in the pool
-  S.keep = S.keep.filter(function(id){ return pool.indexOf(id) > -1; });
+  var pool = opts.pool();
+  S[opts.field] = S[opts.field].filter(function(id){ return pool.indexOf(id) > -1; });
+  var cap = opts.cap();
 
-  var n = S.keep.length;
-  var ready = (n === KEEP);
+  if(!pool.length){
+    main.innerHTML = '<h2>'+opts.title+'</h2>'+
+      '<p class="small">'+opts.empty+'</p>'+
+      '<div class="row"><button class="btn" id="next">Continue</button>'+
+      '<button class="btn ghost" id="again">Sort again</button></div>';
+    document.getElementById("next").onclick = opts.onNext;
+    document.getElementById("again").onclick = function(){ S=freshState(); save(); go("welcome"); };
+    return;
+  }
+
   main.innerHTML =
-    '<h2>Cut to '+KEEP+'</h2>'+
-    '<p class="lede small">Your pile, with the maybes underneath it. Tap to drop a card or bring one back. '+
-      'The cards you let go of are still true. These '+KEEP+' are the ones you would defend.</p>'+
+    '<h2>'+opts.title+'</h2>'+
+    '<p class="lede small">'+opts.blurb+'</p>'+
     '<div id="sections"></div>'+
     '<div class="sticky noprint"><div class="wrap">'+
-      '<div class="small"><b id="cnt">'+n+'</b> of '+KEEP+' chosen</div>'+
-      '<button class="btn" id="next"'+(ready?"":" disabled")+'>Continue</button>'+
+      '<div class="small"><b id="cnt">'+S[opts.field].length+'</b> of '+cap+' chosen</div>'+
+      '<button class="btn" id="next"'+(S[opts.field].length===cap?"":" disabled")+'>Continue</button>'+
     '</div></div>';
 
   var sec = document.getElementById("sections");
-  sec.appendChild(chipBlock("Mine", S.mine));
-  if(S.maybe.length) sec.appendChild(chipBlock("Maybe", S.maybe));
-  if(!S.mine.length && !S.maybe.length){
-    sec.innerHTML = '<p class="small">Nothing landed in the keep piles. '+
-      '<button class="linkbtn" id="again">Sort again</button></p>';
-    var a = document.getElementById("again");
-    if(a) a.onclick = function(){ S = freshState(); save(); go("welcome"); };
-  }
-
-  document.getElementById("next").onclick = function(){ S.rank = null; go("duel"); };
+  opts.blocks().forEach(function(blk){
+    if(blk.ids.length) sec.appendChild(chipBlock(blk.label, blk.ids));
+  });
+  document.getElementById("next").onclick = opts.onNext;
 
   function chipBlock(label, ids){
     var box = document.createElement("div");
-    var h = '<h3 class="tiny" style="letter-spacing:.11em;text-transform:uppercase;margin:18px 0 0">'+
-            label+' &middot; '+ids.length+'</h3><div class="grid">';
-    h += ids.map(function(id){
-      var c = CARDS[id];
-      return '<button class="chip'+(S.keep.indexOf(id)>-1?" on":"")+'" data-id="'+id+'">'+
-             '<b>'+esc(c.word)+'</b><span>'+esc(THEMES[c.theme].name)+'</span></button>';
-    }).join("");
-    h += '</div>';
-    box.innerHTML = h;
+    box.innerHTML =
+      '<h3 class="tiny" style="letter-spacing:.11em;text-transform:uppercase;margin:18px 0 0">'+
+        esc(label)+' · '+ids.length+'</h3><div class="grid">'+
+      ids.map(function(id){
+        var c = CARDS[id];
+        return '<button class="chip'+(S[opts.field].indexOf(id)>-1?" on":"")+'" data-id="'+id+'">'+
+               '<b>'+esc(c.word)+'</b><span>'+esc(c.line)+'</span></button>';
+      }).join("")+'</div>';
     Array.prototype.forEach.call(box.querySelectorAll(".chip"), function(b){
       b.onclick = function(){
-        var id = b.getAttribute("data-id"), k = S.keep.indexOf(id);
-        if(k > -1){ S.keep.splice(k,1); b.classList.remove("on"); }
+        var id = b.getAttribute("data-id"), k = S[opts.field].indexOf(id);
+        if(k > -1){ S[opts.field].splice(k,1); b.classList.remove("on"); }
         else {
-          if(S.keep.length >= KEEP){ b.animate([{transform:"translateX(0)"},{transform:"translateX(-4px)"},{transform:"translateX(4px)"},{transform:"translateX(0)"}],{duration:180}); return; }
-          S.keep.push(id); b.classList.add("on");
+          if(S[opts.field].length >= cap){
+            b.animate([{transform:"translateX(0)"},{transform:"translateX(-4px)"},
+                       {transform:"translateX(4px)"},{transform:"translateX(0)"}],{duration:180});
+            return;
+          }
+          S[opts.field].push(id); b.classList.add("on");
         }
         save();
-        document.getElementById("cnt").textContent = S.keep.length;
-        document.getElementById("next").disabled = (S.keep.length !== KEEP);
+        document.getElementById("cnt").textContent = S[opts.field].length;
+        document.getElementById("next").disabled = (S[opts.field].length !== cap);
       };
     });
     return box;
   }
 }
 
-/* ---------------- 3. duel (binary-insertion ranking) ---------------- */
+function vCutLived(){
+  cutScreen({
+    field:"keepL",
+    title:"Cut the Lived pile to "+capL(),
+    blurb:"You called "+S.lived.length+" of them lived. Keep the "+capL()+
+          " you would defend with a specific story. The Inherited pile sits underneath, "+
+          "in case something there turns out to be yours after all.",
+    empty:"Nothing landed in the Lived or Inherited piles, so there is nothing to cut here.",
+    pool:function(){ return S.lived.concat(S.inherited); },
+    cap:capL,
+    blocks:function(){ return [ {label:"Lived", ids:S.lived}, {label:"Inherited", ids:S.inherited} ]; },
+    onNext:function(){ S.rank=null; go("cutreach"); }
+  });
+}
+
+function vCutReach(){
+  cutScreen({
+    field:"keepR",
+    title:"Cut the Reaching pile to "+capR(),
+    blurb:"These are the ones you want and cannot yet evidence. Keep "+capR()+
+          ". This becomes your gap, and the gap is what the next ninety days are for.",
+    empty:"Nothing landed in the Reaching pile, so there is no gap list to build.",
+    pool:function(){ return S.reaching; },
+    cap:capR,
+    blocks:function(){ return [ {label:"Reaching", ids:S.reaching} ]; },
+    onNext:function(){ go(S.keepL.length > 1 ? "duel" : "cluster"); }
+  });
+}
+
+/* ---------------- duels ---------------- */
 
 function initRank(){
-  var pool = shuffle(S.keep.slice());
-  S.rank = { sorted: [pool[0]], queue: pool.slice(1), cur: null, lo: 0, hi: 0, asked: 0,
-             total: Math.ceil(pool.slice(1).reduce(function(a,_,i){ return a + Math.log2(i+2); },0)) };
+  var pool = shuffle(S.keepL.slice());
+  S.rank = { sorted:[pool[0]], queue:pool.slice(1), cur:null, lo:0, hi:0, asked:0 };
   nextItem();
 }
 function nextItem(){
   var r = S.rank;
   if(!r.queue.length){ r.cur = null; return; }
-  r.cur = r.queue.shift();
-  r.lo = 0; r.hi = r.sorted.length;
+  r.cur = r.queue.shift(); r.lo = 0; r.hi = r.sorted.length;
 }
 function answer(preferCur){
-  var r = S.rank;
-  var mid = (r.lo + r.hi) >> 1;
+  var r = S.rank, mid = (r.lo + r.hi) >> 1;
   if(preferCur) r.hi = mid; else r.lo = mid + 1;
   r.asked++;
-  if(r.lo >= r.hi){
-    r.sorted.splice(r.lo, 0, r.cur);
-    nextItem();
-  }
+  if(r.lo >= r.hi){ r.sorted.splice(r.lo, 0, r.cur); nextItem(); }
   save(); render();
 }
 
 function vDuel(){
   document.onkeydown = null;
-  if(!S.rank) { initRank(); }
+  if(!S.rank) initRank();
   var r = S.rank;
-  if(!r.cur){ return go("cluster"); }
+  if(!r.cur) return go("cluster");
 
   var mid = (r.lo + r.hi) >> 1;
   var A = CARDS[r.cur], B = CARDS[r.sorted[mid]];
-  var placed = r.sorted.length, all = S.keep.length;
-  var pct = Math.round((placed-1)/(all-1)*100);
+  var placed = r.sorted.length, all = S.keepL.length;
 
   main.innerHTML =
-    '<div class="progress"><i style="width:'+pct+'%"></i></div>'+
+    '<div class="progress"><i style="width:'+Math.round((placed-1)/(all-1)*100)+'%"></i></div>'+
     '<h2>Keep one</h2>'+
-    '<p class="lede small">If you could carry only one of these two into the next ten years, which one? '+
+    '<p class="lede small">If you could carry only one of these into the next ten years, which one? '+
       'Answer quickly. The first instinct is usually the honest one.</p>'+
-    '<div class="duel">'+
-      duelCard(A, "a")+
-      duelCard(B, "b")+
-    '</div>'+
-    '<p class="tiny" style="text-align:center">'+(placed)+' of '+all+' placed. Press 1 or 2.</p>';
+    '<div class="duel">'+ dc(A,"a") + dc(B,"b") +'</div>'+
+    '<p class="tiny" style="text-align:center">'+placed+' of '+all+' placed. Press 1 or 2.</p>';
 
-  function pick(which){ answer(which === "a"); }
-  document.getElementById("d-a").onclick = function(){ pick("a"); };
-  document.getElementById("d-b").onclick = function(){ pick("b"); };
+  document.getElementById("d-a").onclick = function(){ answer(true); };
+  document.getElementById("d-b").onclick = function(){ answer(false); };
   document.onkeydown = function(e){
     if(S.stage !== "duel") return;
-    if(e.key === "1"){ e.preventDefault(); pick("a"); }
-    if(e.key === "2"){ e.preventDefault(); pick("b"); }
+    if(e.key === "1"){ e.preventDefault(); answer(true); }
+    if(e.key === "2"){ e.preventDefault(); answer(false); }
   };
-
-  function duelCard(c, k){
-    return '<button class="duelcard" id="d-'+k+'">'+
-      '<b>'+esc(c.word)+'</b>'+
-      (c.term?'<i>'+esc(c.term)+'</i>':'')+
-      '<span>'+esc(c.line)+'</span></button>';
+  function dc(c,k){
+    return '<button class="duelcard" id="d-'+k+'"><b>'+esc(c.word)+'</b>'+
+      (c.term?'<i>'+esc(c.term)+'</i>':'')+'<span>'+esc(c.line)+'</span></button>';
   }
 }
 
-/* ---------------- 4. cluster ---------------- */
+/* ---------------- cluster ---------------- */
+
+function ranked(){ return (S.rank && S.rank.sorted.length) ? S.rank.sorted : S.keepL; }
 
 function vCluster(){
   document.onkeydown = null;
-  var ranked = S.rank.sorted;
+  var all = ranked();
   var assigned = {};
-  S.clusters.forEach(function(g){ g.ids.forEach(function(id){ assigned[id] = true; }); });
-  var loose = ranked.filter(function(id){ return !assigned[id]; });
+  S.clusters.forEach(function(g){ g.ids.forEach(function(id){ assigned[id]=true; }); });
+  var loose = all.filter(function(id){ return !assigned[id]; });
 
   main.innerHTML =
     '<h2>Name your groups</h2>'+
-    '<p class="lede small">Tap cards to select them, then drop them into a group. '+
-      'Use your own words for the group names, not mine. Four or five groups is usually the shape of it.</p>'+
+    '<p class="lede small">Your '+all.length+' lived values. Tap cards to select them, then drop them '+
+      'into a group. Use your own words for the group names. Three or four groups is usually the shape of it.</p>'+
     '<div id="loose"><div class="grid" id="loosegrid"></div></div>'+
     '<div id="groups"></div>'+
     '<div class="row" style="margin:6px 0 20px"><button class="btn ghost" id="addgroup">+ New group</button></div>'+
     '<div class="sticky noprint"><div class="wrap">'+
       '<div class="small" id="left">'+loose.length+' still loose</div>'+
-      '<button class="btn" id="done"'+(loose.length?" disabled":"")+'>See the result</button>'+
+      '<button class="btn" id="done"'+(loose.length?" disabled":"")+'>Continue</button>'+
     '</div></div>';
 
   var lg = document.getElementById("loosegrid");
@@ -612,27 +638,21 @@ function vCluster(){
       var id = b.getAttribute("data-id"), k = S.picked.indexOf(id);
       if(k>-1){ S.picked.splice(k,1); b.classList.remove("sel"); }
       else { S.picked.push(id); b.classList.add("sel"); }
-      save();
-      refreshDrops();
+      save(); refreshDrops();
     };
   });
-
-  // keeps the "drop N here" targets current without redrawing the page,
-  // so selecting a card never moves the ground under you
   function refreshDrops(){
     Array.prototype.forEach.call(document.querySelectorAll("[data-drop]"), function(d){
       if(S.picked.length){ d.textContent = "Drop "+S.picked.length+" here"; d.classList.remove("hidden"); }
-      else { d.classList.add("hidden"); }
+      else d.classList.add("hidden");
     });
   }
 
   var gs = document.getElementById("groups");
   gs.innerHTML = S.clusters.map(function(g, gi){
-    return '<div class="cluster">'+
-      '<header>'+
-        '<input value="'+esc(g.name)+'" placeholder="Name this group" data-gi="'+gi+'">'+
-        '<button class="linkbtn" data-del="'+gi+'">remove</button>'+
-      '</header>'+
+    return '<div class="cluster"><header>'+
+      '<input value="'+esc(g.name)+'" placeholder="Name this group" data-gi="'+gi+'">'+
+      '<button class="linkbtn" data-del="'+gi+'">remove</button></header>'+
       '<div class="members">'+
         g.ids.map(function(id){
           return '<span class="member">'+esc(CARDS[id].word)+
@@ -664,61 +684,103 @@ function vCluster(){
   Array.prototype.forEach.call(gs.querySelectorAll("[data-del]"), function(b){
     b.onclick = function(){ S.clusters.splice(+b.getAttribute("data-del"),1); save(); render(); };
   });
-
   refreshDrops();
 
   document.getElementById("addgroup").onclick = function(){
-    S.clusters.push({ name:"", ids: S.picked.slice() });
-    S.picked = []; save(); render();
+    S.clusters.push({ name:"", ids:S.picked.slice() }); S.picked=[]; save(); render();
   };
+  document.getElementById("done").onclick = function(){ go("attribute"); };
+}
+
+/* ---------------- attribution ---------------- */
+
+function vAttribute(){
+  document.onkeydown = null;
+  var top = ranked().slice(0,5);
+  main.innerHTML =
+    '<h2>Who gets a say?</h2>'+
+    '<p class="lede small">Your top five, and the second half of the Identity question. '+
+      'A person, a place, a job, a tradition, a failure. Name whatever put each one in you. '+
+      'Leave any of them blank and keep going.</p>'+
+    top.map(function(id){
+      var c = CARDS[id];
+      return '<div class="attrib"><b>'+esc(c.word)+'</b><em>'+esc(c.line)+'</em>'+
+        '<input data-id="'+id+'" value="'+esc(S.attrib[id]||"")+'" '+
+        'placeholder="Who or what put this in you?"></div>';
+    }).join("")+
+    '<div class="sticky noprint"><div class="wrap">'+
+      '<button class="btn ghost" id="skip">Skip this</button>'+
+      '<button class="btn" id="done">See the result</button>'+
+    '</div></div>';
+
+  Array.prototype.forEach.call(document.querySelectorAll(".attrib input"), function(inp){
+    inp.oninput = function(){ S.attrib[inp.getAttribute("data-id")] = inp.value; save(); };
+  });
+  document.getElementById("skip").onclick = function(){ go("result"); };
   document.getElementById("done").onclick = function(){ go("result"); };
 }
 
-/* ---------------- 5. result ---------------- */
+/* ---------------- result ---------------- */
 
 function vResult(){
   document.onkeydown = null;
-  var ranked = S.rank.sorted;
-  var top5 = ranked.slice(0,5);
+  var all = ranked(), top5 = all.slice(0,5);
 
   var tally = {}, order = ["Plato","Aristotle","Augustine","Aquinas"];
   order.forEach(function(k){ tally[k]=0; });
-  ranked.forEach(function(id){ tally[CARDS[id].srcName]++; });
+  all.forEach(function(id){ tally[CARDS[id].srcName]++; });
   var max = Math.max.apply(null, order.map(function(k){ return tally[k]; })) || 1;
 
-  var themeCount = {};
-  ranked.forEach(function(id){ var t = CARDS[id].theme; themeCount[t]=(themeCount[t]||0)+1; });
-  var leadTheme = Object.keys(themeCount).sort(function(a,b){ return themeCount[b]-themeCount[a]; })[0];
+  var claimed = S.lived.length;
+  var pct = Math.round(claimed / DECK.cards.length * 100);
 
   main.innerHTML =
     '<h1>Your five</h1>'+
-    '<p class="lede small">Out of '+DECK.cards.length+' cards, you kept these. '+
-      'Read the sentences straight through. That is a description of a person.</p>'+
+    '<p class="lede small">You called '+claimed+' of '+DECK.cards.length+' cards lived ('+pct+'%). '+
+      'Here is what survived the cut.</p>'+
     '<ol class="top5">'+ top5.map(function(id){
-        var c = CARDS[id];
-        return '<li><div><b>'+esc(c.word)+'</b><em>'+esc(c.line)+'</em></div></li>';
-      }).join("") +'</ol>'+
+      var c = CARDS[id], who = S.attrib[id];
+      return '<li><div><b>'+esc(c.word)+'</b><em>'+esc(c.line)+'</em>'+
+        (who?'<span class="who">Put there by '+esc(who)+'</span>':'')+'</div></li>';
+    }).join("") +'</ol>'+
 
-    '<h2>Your groups</h2>'+
-    '<p class="lede small">In your words.</p>'+
-    S.clusters.map(function(g){
-      return '<div class="cluster"><header><b style="font-size:17px">'+
-        esc(g.name || "Unnamed group")+'</b></header><div class="members">'+
-        g.ids.map(function(id){ return '<span class="member">'+esc(CARDS[id].word)+'</span>'; }).join("")+
-        '</div></div>';
-    }).join("")+
+    (S.keepR.length ?
+      '<h2>The gap</h2>'+
+      '<p class="lede small">Wanted, and not yet evidenced. Each of these implies a practice, '+
+        'which is what the next ninety days are for.</p>'+
+      '<div class="pilewrap">'+ S.keepR.map(function(id){
+        return '<span class="member">'+esc(CARDS[id].word)+'</span>'; }).join("") +'</div>'
+      : '')+
+
+    (S.inherited.length ?
+      '<h2>What you inherited</h2>'+
+      '<p class="lede small">'+S.inherited.length+' values that are operating in you without your '+
+        'particular enthusiasm. Somebody put them there. Worth knowing which ones you would keep on purpose.</p>'+
+      '<div class="pilewrap">'+ S.inherited.slice(0,24).map(function(id){
+        return '<span class="member">'+esc(CARDS[id].word)+'</span>'; }).join("")+
+        (S.inherited.length>24?'<span class="member">and '+(S.inherited.length-24)+' more</span>':'')+
+      '</div>'
+      : '')+
+
+    (S.clusters.length ?
+      '<h2>Your groups</h2><p class="lede small">In your words.</p>'+
+      S.clusters.map(function(g){
+        return '<div class="cluster"><header><b style="font-size:17px">'+
+          esc(g.name||"Unnamed group")+'</b></header><div class="members">'+
+          g.ids.map(function(id){ return '<span class="member">'+esc(CARDS[id].word)+'</span>'; }).join("")+
+          '</div></div>';
+      }).join("")
+      : '')+
 
     '<h2 style="margin-top:26px">Who shaped this</h2>'+
-    '<p class="lede small">Where your '+KEEP+' came from. Rough attribution, since these traditions borrow from each other constantly.</p>'+
+    '<p class="lede small">Where your '+all.length+' lived values came from. Rough attribution, '+
+      'since these traditions borrow from each other constantly.</p>'+
     '<div class="tally">'+ order.map(function(k){
       return '<div class="tallyrow"><b>'+k+'</b><div class="tallybar"><i style="width:'+
-             Math.round(tally[k]/max*100)+'%"></i></div><span>'+tally[k]+'</span></div>';
+        Math.round(tally[k]/max*100)+'%"></i></div><span>'+tally[k]+'</span></div>';
     }).join("") +'</div>'+
-    '<p class="small">Your heaviest theme is <b>'+esc(THEMES[leadTheme].name)+'</b>, with '+
-      themeCount[leadTheme]+' of your '+KEEP+'.</p>'+
 
-    '<h2 style="margin-top:26px">Take it with you</h2>'+
-    '<div class="row noprint" style="margin-bottom:24px">'+
+    '<div class="row noprint" style="margin:24px 0">'+
       '<button class="btn ghost" id="print">Print or save as PDF</button>'+
       '<button class="btn ghost" id="copy">Copy as text</button>'+
       '<button class="btn ghost" id="back">Back to the groups</button>'+
@@ -728,8 +790,7 @@ function vResult(){
   document.getElementById("print").onclick = function(){ window.print(); };
   document.getElementById("back").onclick = function(){ go("cluster"); };
   document.getElementById("copy").onclick = function(){
-    var txt = asText(ranked, top5, tally, order);
-    navigator.clipboard.writeText(txt).then(function(){
+    navigator.clipboard.writeText(asText(all, top5, tally, order)).then(function(){
       document.getElementById("copied").textContent = "Copied.";
     }, function(){
       document.getElementById("copied").textContent = "Copying is blocked here. Use print instead.";
@@ -737,22 +798,35 @@ function vResult(){
   };
 }
 
-function asText(ranked, top5, tally, order){
+function asText(all, top5, tally, order){
   var L = [];
   L.push("VALUES CARD SORT — Desire Path, Session One");
   L.push(new Date().toLocaleDateString());
   L.push("");
   L.push("MY FIVE");
-  top5.forEach(function(id,i){ L.push((i+1)+". "+CARDS[id].word+" — "+CARDS[id].line); });
-  L.push("");
-  L.push("MY GROUPS");
-  S.clusters.forEach(function(g){
-    L.push((g.name||"Unnamed")+": "+g.ids.map(function(id){ return CARDS[id].word; }).join(", "));
+  top5.forEach(function(id,i){
+    L.push((i+1)+". "+CARDS[id].word+" — "+CARDS[id].line+
+           (S.attrib[id] ? "  [put there by "+S.attrib[id]+"]" : ""));
   });
   L.push("");
-  L.push("ALL "+ranked.length+", IN ORDER");
-  ranked.forEach(function(id,i){ L.push((i+1)+". "+CARDS[id].word); });
+  L.push("ALL "+all.length+" LIVED, IN ORDER");
+  all.forEach(function(id,i){ L.push((i+1)+". "+CARDS[id].word); });
+  if(S.keepR.length){
+    L.push(""); L.push("THE GAP");
+    S.keepR.forEach(function(id){ L.push("- "+CARDS[id].word+" — "+CARDS[id].line); });
+  }
+  if(S.clusters.length){
+    L.push(""); L.push("MY GROUPS");
+    S.clusters.forEach(function(g){
+      L.push((g.name||"Unnamed")+": "+g.ids.map(function(id){ return CARDS[id].word; }).join(", "));
+    });
+  }
+  if(S.inherited.length){
+    L.push(""); L.push("INHERITED ("+S.inherited.length+")");
+    L.push(S.inherited.map(function(id){ return CARDS[id].word; }).join(", "));
+  }
   L.push("");
+  L.push("CLAIMED AS LIVED: "+S.lived.length+" of "+DECK.cards.length);
   L.push("SOURCES: "+order.map(function(k){ return k+" "+tally[k]; }).join(", "));
   return L.join("\n");
 }
@@ -769,14 +843,11 @@ fetch("cards.json", {cache:"no-cache"}).then(function(r){
   return r.json();
 }).then(function(d){
   DECK = d;
-  d.cards.forEach(function(c){ CARDS[c.id] = c; });
-  d.themes.forEach(function(t){ THEMES[t.id] = t; });
+  d.cards.forEach(function(c){ CARDS[c.id]=c; });
+  d.themes.forEach(function(t){ THEMES[t.id]=t; });
   S = load() || freshState();
-  // guard against a saved state built on an older deck
   S.order = (S.order||[]).filter(function(id){ return CARDS[id]; });
-  if(S.stage !== "welcome" && !S.order.length){ S = freshState(); }
-  var note = document.getElementById("savenote");
-  if(note && S.started) note.textContent = " Your progress is saved as you go.";
+  if(S.stage !== "welcome" && !S.order.length) S = freshState();
   render();
 }).catch(function(e){
   main.innerHTML = '<h2>The deck did not load</h2><p class="small">'+esc(e.message)+
