@@ -1,0 +1,1935 @@
+{
+ "version": "0.1",
+ "title": "Values Card Sort",
+ "subtitle": "Desire Path · Session One: Identity",
+ "sources": {
+  "P": "Plato",
+  "AR": "Aristotle",
+  "AU": "Augustine",
+  "TH": "Aquinas"
+ },
+ "themes": [
+  {
+   "id": "hinges",
+   "name": "The Four Hinges",
+   "note": "The cardinal virtues, from Plato through Aristotle to Aquinas. Everything downstream hangs on one of these."
+  },
+  {
+   "id": "given",
+   "name": "The Three That Are Given",
+   "note": "Augustine and Aquinas treat these as received rather than achieved, which makes them sort differently from the rest."
+  },
+  {
+   "id": "seeing",
+   "name": "Seeing Clearly",
+   "note": "Aquinas breaks prudence into parts, and Aristotle names five intellectual virtues. Together they give a person a vocabulary for how they think."
+  },
+  {
+   "id": "owe",
+   "name": "What I Owe",
+   "note": "Aquinas gathers a large family of virtues under justice, because each one names a debt."
+  },
+  {
+   "id": "firm",
+   "name": "Standing Firm",
+   "note": "The parts of fortitude, which split cleanly into attacking and enduring."
+  },
+  {
+   "id": "large",
+   "name": "Largeness of Soul",
+   "note": "Aristotle's megalopsychia and megaloprepeia, which have no clean modern English and are worth reclaiming for owner-operators."
+  },
+  {
+   "id": "govern",
+   "name": "Governing Myself",
+   "note": "The parts of temperance. Aquinas puts humility here, which surprises people and is worth surfacing in the room."
+  },
+  {
+   "id": "heart",
+   "name": "The Restless Heart",
+   "note": "Augustinian interior life. These cards do the most work on the second half of the Identity question."
+  },
+  {
+   "id": "bound",
+   "name": "Bound to Others",
+   "note": "Aristotle gives two full books of the Ethics to friendship, which earns this its own theme."
+  },
+  {
+   "id": "work",
+   "name": "Work and Craft",
+   "note": "Where the classical tradition meets the owner-operator, and where most of your participants live."
+  },
+  {
+   "id": "rest",
+   "name": "Rest and Delight",
+   "note": "Josef Pieper's recovery of schole belongs here, and these cards tend to be the ones people are surprised to find themselves reaching for."
+  },
+  {
+   "id": "good",
+   "name": "The Things Worth Wanting",
+   "note": "Platonic transcendentals. These play differently from the rest, and they may serve better as the handoff into the Desire session's third pass than as sortable values."
+  }
+ ],
+ "cards": [
+  {
+   "id": "prudence",
+   "word": "Prudence",
+   "term": "phronesis · prudentia",
+   "gloss": "Seeing a situation as it actually is and knowing the right next move.",
+   "line": "I decide well in the moment, on the facts in front of me.",
+   "theme": "hinges",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "discernment",
+    "judgment",
+    "wisdom"
+   ]
+  },
+  {
+   "id": "justice",
+   "word": "Justice",
+   "term": "dikaiosyne · iustitia",
+   "gloss": "Giving each person what is genuinely theirs.",
+   "line": "I give people what they are actually owed.",
+   "theme": "hinges",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "equity",
+    "honesty",
+    "the-common-good"
+   ]
+  },
+  {
+   "id": "fortitude",
+   "word": "Fortitude",
+   "term": "andreia · fortitudo",
+   "gloss": "Holding position when holding costs something.",
+   "line": "I hold my ground when it costs me.",
+   "theme": "hinges",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "courage",
+    "endurance",
+    "constancy"
+   ]
+  },
+  {
+   "id": "temperance",
+   "word": "Temperance",
+   "term": "sophrosyne · temperantia",
+   "gloss": "Governing my appetites so they serve what I love.",
+   "line": "I govern my appetites instead of being governed by them.",
+   "theme": "hinges",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "self-control",
+    "moderation",
+    "discipline"
+   ]
+  },
+  {
+   "id": "faith",
+   "word": "Faith",
+   "term": "pistis · fides",
+   "gloss": "Trusting what I cannot yet see.",
+   "line": "I stake my life on things I cannot prove.",
+   "theme": "given",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "hope",
+    "reverence",
+    "trustworthiness"
+   ]
+  },
+  {
+   "id": "hope",
+   "word": "Hope",
+   "term": "elpis · spes",
+   "gloss": "Expecting good I have no power to guarantee.",
+   "line": "I expect good I cannot guarantee.",
+   "theme": "given",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "faith",
+    "joy",
+    "longing"
+   ]
+  },
+  {
+   "id": "love",
+   "word": "Love",
+   "term": "agape · caritas",
+   "gloss": "Willing the good of another for their sake.",
+   "line": "I want what is good for people, for their sake.",
+   "theme": "given",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "ordered-love",
+    "friendship",
+    "service"
+   ]
+  },
+  {
+   "id": "grace",
+   "word": "Grace",
+   "term": "gratia",
+   "gloss": "Receiving what I did not earn and could not produce.",
+   "line": "I live on what I did not earn.",
+   "theme": "given",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "gratitude",
+    "mercy",
+    "humility"
+   ]
+  },
+  {
+   "id": "ordered-love",
+   "word": "Ordered Love",
+   "term": "ordo amoris",
+   "gloss": "Loving each good thing in its right proportion.",
+   "line": "I love good things in the right order.",
+   "theme": "given",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "love",
+    "order",
+    "moderation"
+   ]
+  },
+  {
+   "id": "discernment",
+   "word": "Discernment",
+   "term": "diakrisis",
+   "gloss": "Telling the good option from the merely attractive one.",
+   "line": "I can tell a good option from an appealing one.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "prudence",
+    "judgment",
+    "circumspection"
+   ]
+  },
+  {
+   "id": "foresight",
+   "word": "Foresight",
+   "term": "providentia",
+   "gloss": "Reasoning forward to where a decision lands.",
+   "line": "I think a decision all the way to where it lands.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "prudence",
+    "circumspection",
+    "governance"
+   ]
+  },
+  {
+   "id": "circumspection",
+   "word": "Circumspection",
+   "term": "circumspectio",
+   "gloss": "Reading the circumstances around a choice, not only the choice.",
+   "line": "I read the room and the moment, not only the decision.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "foresight",
+    "discernment",
+    "attention"
+   ]
+  },
+  {
+   "id": "counsel",
+   "word": "Counsel",
+   "term": "euboulia",
+   "gloss": "Deliberating well, and seeking people who tell me the truth.",
+   "line": "I deliberate well, and I keep people around me who tell me the truth.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "docility",
+    "judgment",
+    "mentorship"
+   ]
+  },
+  {
+   "id": "docility",
+   "word": "Docility",
+   "term": "docilitas",
+   "gloss": "Staying genuinely teachable by someone who knows more.",
+   "line": "I stay teachable.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "counsel",
+    "humility",
+    "mentorship"
+   ]
+  },
+  {
+   "id": "memory",
+   "word": "Memory",
+   "term": "memoria",
+   "gloss": "Carrying my own history accurately, including the parts I would revise.",
+   "line": "I keep my history honestly, including the parts I would revise.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "self-knowledge",
+    "confession",
+    "honesty"
+   ]
+  },
+  {
+   "id": "judgment",
+   "word": "Judgment",
+   "term": "synesis · iudicium",
+   "gloss": "Deciding without endless deferral.",
+   "line": "I decide, and I decide in time.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "discernment",
+    "prudence",
+    "counsel"
+   ]
+  },
+  {
+   "id": "understanding",
+   "word": "Understanding",
+   "term": "nous",
+   "gloss": "Grasping first principles directly.",
+   "line": "I see the principle underneath the particulars.",
+   "theme": "seeing",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "wisdom",
+    "knowledge",
+    "contemplation"
+   ]
+  },
+  {
+   "id": "knowledge",
+   "word": "Knowledge",
+   "term": "episteme",
+   "gloss": "Holding demonstrated truth about how things work.",
+   "line": "I do the work to actually know.",
+   "theme": "seeing",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "understanding",
+    "studiousness",
+    "truth"
+   ]
+  },
+  {
+   "id": "wisdom",
+   "word": "Wisdom",
+   "term": "sophia · sapientia",
+   "gloss": "Knowing how the pieces fit into the whole.",
+   "line": "I see how things fit together.",
+   "theme": "seeing",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "understanding",
+    "prudence",
+    "contemplation"
+   ]
+  },
+  {
+   "id": "craft-knowledge",
+   "word": "Craft-Knowledge",
+   "term": "techne",
+   "gloss": "Knowing how to make a thing well.",
+   "line": "I know how to make the thing, not only describe it.",
+   "theme": "seeing",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "craftsmanship",
+    "excellence",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "studiousness",
+   "word": "Studiousness",
+   "term": "studiositas",
+   "gloss": "Disciplining my attention toward what deserves it.",
+   "line": "I point my attention at what deserves it.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "curiosity",
+    "attention",
+    "discipline"
+   ]
+  },
+  {
+   "id": "wonder",
+   "word": "Wonder",
+   "term": "thaumazein",
+   "gloss": "Letting reality surprise me before I explain it.",
+   "line": "I let things astonish me before I explain them.",
+   "theme": "seeing",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "awe",
+    "curiosity",
+    "contemplation"
+   ]
+  },
+  {
+   "id": "curiosity",
+   "word": "Curiosity",
+   "term": "curiositas",
+   "gloss": "Following a question because it interests me. Aquinas separates this from studiousness and treats undisciplined curiosity warily, which is why the two sit next to each other here.",
+   "line": "I follow a question wherever it goes.",
+   "theme": "seeing",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "studiousness",
+    "wonder",
+    "knowledge"
+   ]
+  },
+  {
+   "id": "honesty",
+   "word": "Honesty",
+   "term": "veracitas",
+   "gloss": "Telling the truth when it costs me.",
+   "line": "I tell the truth when it costs me.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "transparency",
+    "integrity",
+    "justice"
+   ]
+  },
+  {
+   "id": "transparency",
+   "word": "Transparency",
+   "term": "",
+   "gloss": "Letting people see how I actually decided.",
+   "line": "I let people see how I actually decided.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "honesty",
+    "accountability",
+    "integrity"
+   ]
+  },
+  {
+   "id": "fidelity",
+   "word": "Fidelity",
+   "term": "fidelitas",
+   "gloss": "Staying with what I have committed to.",
+   "line": "I stay with what I have committed to.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "promise-keeping",
+    "loyalty",
+    "constancy"
+   ]
+  },
+  {
+   "id": "promise-keeping",
+   "word": "Promise-Keeping",
+   "term": "",
+   "gloss": "Doing the specific thing I said I would do.",
+   "line": "I do the specific thing I said I would do.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "fidelity",
+    "trustworthiness",
+    "responsibility"
+   ]
+  },
+  {
+   "id": "gratitude",
+   "word": "Gratitude",
+   "term": "gratitudo",
+   "gloss": "Acknowledging what came to me through someone else.",
+   "line": "I name what came to me through someone else.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "thanksgiving",
+    "grace",
+    "humility"
+   ]
+  },
+  {
+   "id": "piety",
+   "word": "Piety",
+   "term": "pietas",
+   "gloss": "Honoring family, place, and origin.",
+   "line": "I honor the family and the place I came from.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "reverence",
+    "household",
+    "belonging"
+   ]
+  },
+  {
+   "id": "reverence",
+   "word": "Reverence",
+   "term": "religio",
+   "gloss": "Giving God, or the sacred, its due.",
+   "line": "I give the sacred its due.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "piety",
+    "awe",
+    "holiness"
+   ]
+  },
+  {
+   "id": "obedience",
+   "word": "Obedience",
+   "term": "oboedientia",
+   "gloss": "Submitting to authority I have judged legitimate.",
+   "line": "I submit to authority I have judged worth submitting to.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "humility",
+    "docility",
+    "fidelity"
+   ]
+  },
+  {
+   "id": "generosity",
+   "word": "Generosity",
+   "term": "liberalitas",
+   "gloss": "Giving freely from what is mine.",
+   "line": "I give freely from what is mine.",
+   "theme": "owe",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "magnificence",
+    "hospitality",
+    "service"
+   ]
+  },
+  {
+   "id": "hospitality",
+   "word": "Hospitality",
+   "term": "philoxenia",
+   "gloss": "Making room at my table for someone with no claim on it.",
+   "line": "I make room for people who have no claim on me.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "generosity",
+    "friendliness",
+    "household"
+   ]
+  },
+  {
+   "id": "mercy",
+   "word": "Mercy",
+   "term": "misericordia",
+   "gloss": "Withholding a penalty I have every right to impose.",
+   "line": "I withhold penalties I have every right to impose.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "clemency",
+    "forgiveness",
+    "gentleness"
+   ]
+  },
+  {
+   "id": "forgiveness",
+   "word": "Forgiveness",
+   "term": "",
+   "gloss": "Releasing a debt owed to me.",
+   "line": "I release debts owed to me.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "mercy",
+    "reconciliation",
+    "peacemaking"
+   ]
+  },
+  {
+   "id": "reconciliation",
+   "word": "Reconciliation",
+   "term": "",
+   "gloss": "Doing the work of restoring a broken relationship.",
+   "line": "I do the work of repair.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "forgiveness",
+    "peacemaking",
+    "restitution"
+   ]
+  },
+  {
+   "id": "restitution",
+   "word": "Restitution",
+   "term": "restitutio",
+   "gloss": "Repairing what I damaged, at my own expense.",
+   "line": "I pay to fix what I broke.",
+   "theme": "owe",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "reconciliation",
+    "accountability",
+    "justice"
+   ]
+  },
+  {
+   "id": "friendliness",
+   "word": "Friendliness",
+   "term": "affabilitas",
+   "gloss": "Treating ordinary people well in ordinary moments.",
+   "line": "I treat ordinary people well in ordinary moments.",
+   "theme": "owe",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "hospitality",
+    "gentleness",
+    "good-humor"
+   ]
+  },
+  {
+   "id": "honor-given",
+   "word": "Honor Given",
+   "term": "honor",
+   "gloss": "Giving people the regard their office or character earns.",
+   "line": "I give people the regard they have earned.",
+   "theme": "owe",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "honor-worth-having",
+    "reverence",
+    "piety"
+   ]
+  },
+  {
+   "id": "equity",
+   "word": "Equity",
+   "term": "epieikeia",
+   "gloss": "Bending the rule where the rule would produce injustice.",
+   "line": "I bend a rule when the rule would do harm.",
+   "theme": "owe",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "justice",
+    "mercy",
+    "judgment"
+   ]
+  },
+  {
+   "id": "courage",
+   "word": "Courage",
+   "term": "andreia",
+   "gloss": "Acting when I am afraid.",
+   "line": "I act while I am afraid.",
+   "theme": "firm",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "moral-courage",
+    "daring",
+    "fortitude"
+   ]
+  },
+  {
+   "id": "moral-courage",
+   "word": "Moral Courage",
+   "term": "parrhesia",
+   "gloss": "Saying the unwelcome thing in the room where it matters.",
+   "line": "I say the unwelcome thing in the room where it matters.",
+   "theme": "firm",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "courage",
+    "honesty",
+    "boldness"
+   ]
+  },
+  {
+   "id": "endurance",
+   "word": "Endurance",
+   "term": "hypomone",
+   "gloss": "Staying under a weight that is not lifting.",
+   "line": "I stay under a weight that is not lifting.",
+   "theme": "firm",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "patience",
+    "perseverance",
+    "longsuffering"
+   ]
+  },
+  {
+   "id": "patience",
+   "word": "Patience",
+   "term": "patientia",
+   "gloss": "Bearing delay without turning sour.",
+   "line": "I bear delay without turning sour.",
+   "theme": "firm",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "endurance",
+    "longsuffering",
+    "gentleness"
+   ]
+  },
+  {
+   "id": "longsuffering",
+   "word": "Longsuffering",
+   "term": "longanimitas",
+   "gloss": "Absorbing another person's difficulty over years.",
+   "line": "I carry other people's difficulty for the long haul.",
+   "theme": "firm",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "patience",
+    "endurance",
+    "mercy"
+   ]
+  },
+  {
+   "id": "perseverance",
+   "word": "Perseverance",
+   "term": "perseverantia",
+   "gloss": "Finishing what stopped being interesting.",
+   "line": "I finish what stopped being interesting.",
+   "theme": "firm",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "constancy",
+    "diligence",
+    "endurance"
+   ]
+  },
+  {
+   "id": "constancy",
+   "word": "Constancy",
+   "term": "constantia",
+   "gloss": "Being the same person on the bad days.",
+   "line": "I am the same person on the bad days.",
+   "theme": "firm",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "perseverance",
+    "integrity",
+    "fidelity"
+   ]
+  },
+  {
+   "id": "resilience",
+   "word": "Resilience",
+   "term": "",
+   "gloss": "Recovering after a real loss.",
+   "line": "I come back after real loss.",
+   "theme": "firm",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "endurance",
+    "hope",
+    "constancy"
+   ]
+  },
+  {
+   "id": "loyalty",
+   "word": "Loyalty",
+   "term": "",
+   "gloss": "Staying with people when leaving would be easier.",
+   "line": "I stay when leaving would be easier.",
+   "theme": "firm",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "fidelity",
+    "friendship",
+    "solidarity"
+   ]
+  },
+  {
+   "id": "confidence",
+   "word": "Confidence",
+   "term": "fiducia",
+   "gloss": "Acting from settled assurance.",
+   "line": "I act from settled assurance.",
+   "theme": "firm",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "boldness",
+    "courage",
+    "magnanimity"
+   ]
+  },
+  {
+   "id": "sacrifice",
+   "word": "Sacrifice",
+   "term": "",
+   "gloss": "Giving up a real good for a greater one.",
+   "line": "I give up real goods for greater ones.",
+   "theme": "firm",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "service",
+    "love",
+    "detachment"
+   ]
+  },
+  {
+   "id": "daring",
+   "word": "Daring",
+   "term": "audacia",
+   "gloss": "Moving toward the risk on purpose.",
+   "line": "I move toward risk on purpose.",
+   "theme": "firm",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "boldness",
+    "courage",
+    "initiative"
+   ]
+  },
+  {
+   "id": "magnanimity",
+   "word": "Magnanimity",
+   "term": "megalopsychia",
+   "gloss": "Judging myself worthy of great things, and being right.",
+   "line": "I take on things large enough to be worth doing.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "magnificence",
+    "confidence",
+    "nobility"
+   ]
+  },
+  {
+   "id": "magnificence",
+   "word": "Magnificence",
+   "term": "megaloprepeia",
+   "gloss": "Spending greatly on something worth building.",
+   "line": "I spend greatly on what is worth building.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "magnanimity",
+    "generosity",
+    "legacy"
+   ]
+  },
+  {
+   "id": "ambition",
+   "word": "Ambition",
+   "term": "philotimia",
+   "gloss": "Wanting more, for reasons that hold up.",
+   "line": "I want more, for reasons that hold up.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "magnanimity",
+    "honor-worth-having",
+    "initiative"
+   ]
+  },
+  {
+   "id": "honor-worth-having",
+   "word": "Honor Worth Having",
+   "term": "time",
+   "gloss": "Caring about the good opinion of people who are themselves good.",
+   "line": "I care what good people think of me.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "honor-given",
+    "ambition",
+    "nobility"
+   ]
+  },
+  {
+   "id": "excellence",
+   "word": "Excellence",
+   "term": "arete",
+   "gloss": "Doing the thing as well as the thing can be done.",
+   "line": "I do the thing as well as it can be done.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "craftsmanship",
+    "craft-knowledge",
+    "diligence"
+   ]
+  },
+  {
+   "id": "nobility",
+   "word": "Nobility",
+   "term": "to kalon",
+   "gloss": "Choosing the beautiful act over the advantageous one.",
+   "line": "I choose the beautiful act.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "magnanimity",
+    "beauty",
+    "sacrifice"
+   ]
+  },
+  {
+   "id": "boldness",
+   "word": "Boldness",
+   "term": "",
+   "gloss": "Beginning something before I am certain it will work.",
+   "line": "I begin before I am certain.",
+   "theme": "large",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "daring",
+    "initiative",
+    "confidence"
+   ]
+  },
+  {
+   "id": "self-control",
+   "word": "Self-Control",
+   "term": "enkrateia",
+   "gloss": "Doing what I decided instead of what I feel.",
+   "line": "I do what I decided.",
+   "theme": "govern",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "discipline",
+    "temperance",
+    "moderation"
+   ]
+  },
+  {
+   "id": "moderation",
+   "word": "Moderation",
+   "term": "metriotes",
+   "gloss": "Taking enough and stopping.",
+   "line": "I take enough and stop.",
+   "theme": "govern",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "self-control",
+    "contentment",
+    "simplicity"
+   ]
+  },
+  {
+   "id": "simplicity",
+   "word": "Simplicity",
+   "term": "simplicitas",
+   "gloss": "Keeping my life small enough to carry.",
+   "line": "I keep my life small enough to carry.",
+   "theme": "govern",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "detachment",
+    "frugality",
+    "moderation"
+   ]
+  },
+  {
+   "id": "sobriety",
+   "word": "Sobriety",
+   "term": "sobrietas",
+   "gloss": "Staying clear-headed.",
+   "line": "I stay clear-headed.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "self-control",
+    "attention",
+    "moderation"
+   ]
+  },
+  {
+   "id": "sexual-integrity",
+   "word": "Sexual Integrity",
+   "term": "castitas",
+   "gloss": "Keeping my body's loyalties aligned with my stated ones.",
+   "line": "My body keeps the promises I made.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "fidelity",
+    "integrity",
+    "self-control"
+   ]
+  },
+  {
+   "id": "modesty",
+   "word": "Modesty",
+   "term": "modestia",
+   "gloss": "Declining to make myself the display.",
+   "line": "I decline to make myself the display.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "humility",
+    "simplicity",
+    "interiority"
+   ]
+  },
+  {
+   "id": "humility",
+   "word": "Humility",
+   "term": "humilitas",
+   "gloss": "Holding an accurate estimate of myself.",
+   "line": "I hold an accurate estimate of myself.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "modesty",
+    "docility",
+    "self-knowledge"
+   ]
+  },
+  {
+   "id": "meekness",
+   "word": "Meekness",
+   "term": "praotes",
+   "gloss": "Keeping real strength under control.",
+   "line": "I keep real strength under control.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "gentleness",
+    "clemency",
+    "humility"
+   ]
+  },
+  {
+   "id": "clemency",
+   "word": "Clemency",
+   "term": "clementia",
+   "gloss": "Softening a punishment I am entitled to give.",
+   "line": "I soften punishments I am entitled to give.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "mercy",
+    "meekness",
+    "gentleness"
+   ]
+  },
+  {
+   "id": "gentleness",
+   "word": "Gentleness",
+   "term": "mansuetudo",
+   "gloss": "Handling people and things without force.",
+   "line": "I handle people gently.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "meekness",
+    "patience",
+    "friendliness"
+   ]
+  },
+  {
+   "id": "contentment",
+   "word": "Contentment",
+   "term": "autarkeia",
+   "gloss": "Being satisfied with the portion I have.",
+   "line": "I am satisfied with my portion.",
+   "theme": "govern",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "moderation",
+    "detachment",
+    "joy"
+   ]
+  },
+  {
+   "id": "detachment",
+   "word": "Detachment",
+   "term": "",
+   "gloss": "Owning things without being owned by them.",
+   "line": "I own things without being owned by them.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "simplicity",
+    "contentment",
+    "freedom"
+   ]
+  },
+  {
+   "id": "order",
+   "word": "Order",
+   "term": "ordo",
+   "gloss": "Keeping my days, tools, and commitments arranged.",
+   "line": "I keep my days and my tools in order.",
+   "theme": "govern",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "discipline",
+    "ordered-love",
+    "peace"
+   ]
+  },
+  {
+   "id": "discipline",
+   "word": "Discipline",
+   "term": "askesis",
+   "gloss": "Building the habit that makes the virtue automatic.",
+   "line": "I build the habit until it runs without me.",
+   "theme": "govern",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "self-control",
+    "order",
+    "diligence"
+   ]
+  },
+  {
+   "id": "good-humor",
+   "word": "Good Humor",
+   "term": "eutrapelia",
+   "gloss": "Playing and joking well. Aristotle counts this as a virtue, sitting between buffoonery and dourness.",
+   "line": "I play and joke well.",
+   "theme": "govern",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "play",
+    "friendliness",
+    "joy"
+   ]
+  },
+  {
+   "id": "longing",
+   "word": "Longing",
+   "term": "desiderium",
+   "gloss": "Living with a want that nothing available satisfies.",
+   "line": "I live with a want nothing available satisfies.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "hope",
+    "calling",
+    "pilgrimage"
+   ]
+  },
+  {
+   "id": "self-knowledge",
+   "word": "Self-Knowledge",
+   "term": "gnothi seauton",
+   "gloss": "Knowing my own interior accurately.",
+   "line": "I know my own interior accurately.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "confession",
+    "humility",
+    "interiority"
+   ]
+  },
+  {
+   "id": "confession",
+   "word": "Confession",
+   "term": "confessio",
+   "gloss": "Saying out loud what is true about me.",
+   "line": "I say out loud what is true about me.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "self-knowledge",
+    "repentance",
+    "vulnerability"
+   ]
+  },
+  {
+   "id": "interiority",
+   "word": "Interiority",
+   "term": "",
+   "gloss": "Having a life inside that is not performed.",
+   "line": "I have a life inside that I do not perform.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "silence",
+    "self-knowledge",
+    "contemplation"
+   ]
+  },
+  {
+   "id": "conversion",
+   "word": "Conversion",
+   "term": "metanoia",
+   "gloss": "Turning, and letting the turn change the route.",
+   "line": "I turn, and I let the turn change my route.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "repentance",
+    "pilgrimage",
+    "calling"
+   ]
+  },
+  {
+   "id": "repentance",
+   "word": "Repentance",
+   "term": "paenitentia",
+   "gloss": "Changing course after naming the wrong one.",
+   "line": "I change course once I have named the wrong one.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "conversion",
+    "confession",
+    "restitution"
+   ]
+  },
+  {
+   "id": "pilgrimage",
+   "word": "Pilgrimage",
+   "term": "peregrinatio",
+   "gloss": "Living as someone on the way somewhere.",
+   "line": "I live as someone on the way somewhere.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "longing",
+    "calling",
+    "conversion"
+   ]
+  },
+  {
+   "id": "delight",
+   "word": "Delight",
+   "term": "delectatio",
+   "gloss": "Taking real pleasure in what is good.",
+   "line": "I take real pleasure in what is good.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "joy",
+    "beauty",
+    "celebration"
+   ]
+  },
+  {
+   "id": "freedom",
+   "word": "Freedom",
+   "term": "libertas",
+   "gloss": "Being able to do what I most deeply want.",
+   "line": "I am free to do what I most deeply want.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "detachment",
+    "integrity",
+    "calling"
+   ]
+  },
+  {
+   "id": "integrity",
+   "word": "Integrity",
+   "term": "integritas",
+   "gloss": "Being one person, in every room.",
+   "line": "I am one person in every room.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "constancy",
+    "honesty",
+    "wholeness"
+   ]
+  },
+  {
+   "id": "calling",
+   "word": "Calling",
+   "term": "vocatio",
+   "gloss": "Living toward the thing I was made to do.",
+   "line": "I live toward the thing I was made to do.",
+   "theme": "heart",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "pilgrimage",
+    "longing",
+    "legacy"
+   ]
+  },
+  {
+   "id": "friendship",
+   "word": "Friendship",
+   "term": "philia",
+   "gloss": "Sharing a life with people I have chosen.",
+   "line": "I share my life with people I have chosen.",
+   "theme": "bound",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "friendship-of-virtue",
+    "belonging",
+    "loyalty"
+   ]
+  },
+  {
+   "id": "friendship-of-virtue",
+   "word": "Friendship of Virtue",
+   "term": "",
+   "gloss": "Loving a friend for who they are, apart from use or pleasure.",
+   "line": "I love my friends for who they are.",
+   "theme": "bound",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "friendship",
+    "love",
+    "communion"
+   ]
+  },
+  {
+   "id": "communion",
+   "word": "Communion",
+   "term": "koinonia",
+   "gloss": "Holding things in common.",
+   "line": "I hold things in common with other people.",
+   "theme": "bound",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "belonging",
+    "solidarity",
+    "the-common-good"
+   ]
+  },
+  {
+   "id": "solidarity",
+   "word": "Solidarity",
+   "term": "",
+   "gloss": "Standing with people whose trouble is not mine.",
+   "line": "I stand with people whose trouble is not mine.",
+   "theme": "bound",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "communion",
+    "service",
+    "loyalty"
+   ]
+  },
+  {
+   "id": "belonging",
+   "word": "Belonging",
+   "term": "",
+   "gloss": "Being known somewhere, by name.",
+   "line": "I am known somewhere, by name.",
+   "theme": "bound",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "communion",
+    "household",
+    "friendship"
+   ]
+  },
+  {
+   "id": "trustworthiness",
+   "word": "Trustworthiness",
+   "term": "fides",
+   "gloss": "Being someone whose word can be built on.",
+   "line": "My word can be built on.",
+   "theme": "bound",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "promise-keeping",
+    "fidelity",
+    "honesty"
+   ]
+  },
+  {
+   "id": "vulnerability",
+   "word": "Vulnerability",
+   "term": "",
+   "gloss": "Letting people see me before I have cleaned up.",
+   "line": "I let people see me before I have cleaned up.",
+   "theme": "bound",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "confession",
+    "interiority",
+    "humility"
+   ]
+  },
+  {
+   "id": "service",
+   "word": "Service",
+   "term": "diakonia",
+   "gloss": "Doing the work that helps without returning to me.",
+   "line": "I do work that helps and does not return to me.",
+   "theme": "bound",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "sacrifice",
+    "generosity",
+    "the-common-good"
+   ]
+  },
+  {
+   "id": "the-common-good",
+   "word": "The Common Good",
+   "term": "bonum commune",
+   "gloss": "Wanting what is good for everyone, myself included.",
+   "line": "I want what is good for everyone, myself included.",
+   "theme": "bound",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "justice",
+    "governance",
+    "solidarity"
+   ]
+  },
+  {
+   "id": "peacemaking",
+   "word": "Peacemaking",
+   "term": "eirenopoios",
+   "gloss": "Building concord where there was conflict.",
+   "line": "I build concord where there was conflict.",
+   "theme": "bound",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "reconciliation",
+    "peace",
+    "forgiveness"
+   ]
+  },
+  {
+   "id": "household",
+   "word": "Household",
+   "term": "oikonomia",
+   "gloss": "Governing a home well.",
+   "line": "I govern my home well.",
+   "theme": "bound",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "governance",
+    "belonging",
+    "hospitality"
+   ]
+  },
+  {
+   "id": "mentorship",
+   "word": "Mentorship",
+   "term": "",
+   "gloss": "Handing on what I know to someone coming behind.",
+   "line": "I hand on what I know.",
+   "theme": "bound",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "docility",
+    "counsel",
+    "legacy"
+   ]
+  },
+  {
+   "id": "diligence",
+   "word": "Diligence",
+   "term": "industria",
+   "gloss": "Working steadily at the thing in front of me.",
+   "line": "I work steadily at the thing in front of me.",
+   "theme": "work",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "perseverance",
+    "discipline",
+    "faithfulness-in-small-things"
+   ]
+  },
+  {
+   "id": "craftsmanship",
+   "word": "Craftsmanship",
+   "term": "",
+   "gloss": "Caring how it is made where no one will look.",
+   "line": "I care how it is made where no one will look.",
+   "theme": "work",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "craft-knowledge",
+    "excellence",
+    "beauty"
+   ]
+  },
+  {
+   "id": "faithfulness-in-small-things",
+   "word": "Faithfulness in Small Things",
+   "term": "",
+   "gloss": "Treating the minor duty as a real one.",
+   "line": "I treat the minor duty as a real one.",
+   "theme": "work",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "diligence",
+    "fidelity",
+    "responsibility"
+   ]
+  },
+  {
+   "id": "stewardship",
+   "word": "Stewardship",
+   "term": "oikonomos",
+   "gloss": "Managing well what belongs to someone else.",
+   "line": "I manage well what belongs to someone else.",
+   "theme": "work",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "responsibility",
+    "frugality",
+    "household"
+   ]
+  },
+  {
+   "id": "frugality",
+   "word": "Frugality",
+   "term": "frugalitas",
+   "gloss": "Wasting little.",
+   "line": "I waste little.",
+   "theme": "work",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "simplicity",
+    "stewardship",
+    "moderation"
+   ]
+  },
+  {
+   "id": "initiative",
+   "word": "Initiative",
+   "term": "",
+   "gloss": "Starting without being told.",
+   "line": "I start without being told.",
+   "theme": "work",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "boldness",
+    "daring",
+    "responsibility"
+   ]
+  },
+  {
+   "id": "responsibility",
+   "word": "Responsibility",
+   "term": "",
+   "gloss": "Owning the outcome I signed up for.",
+   "line": "I own the outcome I signed up for.",
+   "theme": "work",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "accountability",
+    "stewardship",
+    "promise-keeping"
+   ]
+  },
+  {
+   "id": "accountability",
+   "word": "Accountability",
+   "term": "",
+   "gloss": "Standing in front of the result, including the bad one.",
+   "line": "I stand in front of the result, including the bad one.",
+   "theme": "work",
+   "src": "TH",
+   "srcName": "Aquinas",
+   "near": [
+    "responsibility",
+    "transparency",
+    "restitution"
+   ]
+  },
+  {
+   "id": "governance",
+   "word": "Governance",
+   "term": "architektonike",
+   "gloss": "Ordering a whole enterprise toward its end.",
+   "line": "I order the whole enterprise toward its end.",
+   "theme": "work",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "prudence",
+    "the-common-good",
+    "household"
+   ]
+  },
+  {
+   "id": "legacy",
+   "word": "Legacy",
+   "term": "",
+   "gloss": "Building something that outlasts my involvement.",
+   "line": "I build what outlasts me.",
+   "theme": "work",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "magnificence",
+    "mentorship",
+    "calling"
+   ]
+  },
+  {
+   "id": "leisure",
+   "word": "Leisure",
+   "term": "schole",
+   "gloss": "Keeping space that produces nothing.",
+   "line": "I keep space that produces nothing.",
+   "theme": "rest",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "sabbath",
+    "play",
+    "contemplation"
+   ]
+  },
+  {
+   "id": "sabbath",
+   "word": "Sabbath",
+   "term": "shabbat",
+   "gloss": "Stopping on purpose, on a schedule.",
+   "line": "I stop on purpose, on a schedule.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "leisure",
+    "silence",
+    "peace"
+   ]
+  },
+  {
+   "id": "contemplation",
+   "word": "Contemplation",
+   "term": "theoria",
+   "gloss": "Looking at something true for its own sake.",
+   "line": "I look at true things for their own sake.",
+   "theme": "rest",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "wisdom",
+    "silence",
+    "interiority"
+   ]
+  },
+  {
+   "id": "silence",
+   "word": "Silence",
+   "term": "silentium",
+   "gloss": "Staying quiet long enough to hear.",
+   "line": "I stay quiet long enough to hear.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "contemplation",
+    "attention",
+    "interiority"
+   ]
+  },
+  {
+   "id": "attention",
+   "word": "Attention",
+   "term": "prosoche",
+   "gloss": "Giving one thing my whole regard.",
+   "line": "I give one thing my whole regard.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "studiousness",
+    "silence",
+    "circumspection"
+   ]
+  },
+  {
+   "id": "awe",
+   "word": "Awe",
+   "term": "",
+   "gloss": "Standing small in front of something large.",
+   "line": "I stand small in front of large things.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "wonder",
+    "reverence",
+    "beauty"
+   ]
+  },
+  {
+   "id": "beauty",
+   "word": "Beauty",
+   "term": "to kalon",
+   "gloss": "Pursuing the lovely as worth pursuing.",
+   "line": "I pursue beauty as worth pursuing.",
+   "theme": "rest",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "nobility",
+    "delight",
+    "beauty-itself"
+   ]
+  },
+  {
+   "id": "play",
+   "word": "Play",
+   "term": "paidia",
+   "gloss": "Doing something purely because it is fun.",
+   "line": "I do things purely because they are fun.",
+   "theme": "rest",
+   "src": "AR",
+   "srcName": "Aristotle",
+   "near": [
+    "good-humor",
+    "leisure",
+    "celebration"
+   ]
+  },
+  {
+   "id": "celebration",
+   "word": "Celebration",
+   "term": "",
+   "gloss": "Marking the good occasion properly.",
+   "line": "I mark good occasions properly.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "joy",
+    "thanksgiving",
+    "play"
+   ]
+  },
+  {
+   "id": "joy",
+   "word": "Joy",
+   "term": "chara",
+   "gloss": "Carrying gladness that circumstances did not supply.",
+   "line": "I carry gladness circumstances did not supply.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "delight",
+    "celebration",
+    "hope"
+   ]
+  },
+  {
+   "id": "peace",
+   "word": "Peace",
+   "term": "tranquillitas ordinis",
+   "gloss": "Living in the tranquility of things rightly ordered.",
+   "line": "I live in the calm of things rightly ordered.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "order",
+    "peacemaking",
+    "contentment"
+   ]
+  },
+  {
+   "id": "thanksgiving",
+   "word": "Thanksgiving",
+   "term": "eucharistia",
+   "gloss": "Returning thanks as a practice.",
+   "line": "I return thanks as a practice.",
+   "theme": "rest",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "gratitude",
+    "celebration",
+    "reverence"
+   ]
+  },
+  {
+   "id": "the-good",
+   "word": "The Good",
+   "term": "to agathon",
+   "gloss": "What everything else is measured against.",
+   "line": "I measure my life against the good itself.",
+   "theme": "good",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "truth",
+    "beauty-itself",
+    "holiness"
+   ]
+  },
+  {
+   "id": "truth",
+   "word": "Truth",
+   "term": "aletheia",
+   "gloss": "What is actually the case.",
+   "line": "I want what is actually the case.",
+   "theme": "good",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "honesty",
+    "knowledge",
+    "the-good"
+   ]
+  },
+  {
+   "id": "beauty-itself",
+   "word": "Beauty Itself",
+   "term": "to kalon",
+   "gloss": "What draws the eye and the heart at once.",
+   "line": "I want beauty, and I am not embarrassed by that.",
+   "theme": "good",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "beauty",
+    "the-good",
+    "nobility"
+   ]
+  },
+  {
+   "id": "wholeness",
+   "word": "Wholeness",
+   "term": "",
+   "gloss": "Being one thing, undivided.",
+   "line": "I want to be one thing, undivided.",
+   "theme": "good",
+   "src": "P",
+   "srcName": "Plato",
+   "near": [
+    "integrity",
+    "peace",
+    "the-good"
+   ]
+  },
+  {
+   "id": "holiness",
+   "word": "Holiness",
+   "term": "hagiasmos",
+   "gloss": "Being set apart for a purpose.",
+   "line": "I want to be set apart for a purpose.",
+   "theme": "good",
+   "src": "AU",
+   "srcName": "Augustine",
+   "near": [
+    "reverence",
+    "calling",
+    "the-good"
+   ]
+  }
+ ]
+}
