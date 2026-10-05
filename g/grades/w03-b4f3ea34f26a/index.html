@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
 <meta name="referrer" content="no-referrer">
-<title>Gus's Grade Tracker</title>
+<title>Gus's Weekly Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -323,6 +323,16 @@ svg { display: block; width: 100%; height: auto; overflow: visible; }
 .scale-grid div { padding: 5px 0; border-top: 1px solid var(--rule); white-space: nowrap; }
 .scale-grid b { font-weight: 600; color: var(--ink); }
 
+/* ---------- meter ---------- */
+.meter { margin: 11px 0 0; height: 8px; border-radius: 4px; overflow: hidden; }
+.meter span { display: block; height: 100%; border-radius: 4px; }
+.meter-behind { background: color-mix(in oklab, var(--wtd) 16%, var(--surface)); }
+.meter-behind span { background: var(--wtd); }
+.meter-ahead  { background: color-mix(in oklab, var(--good) 16%, var(--surface)); }
+.meter-ahead  span { background: var(--good); }
+.tile-value-date { font-family: var(--sans); font-weight: 600; font-size: 27px; letter-spacing: -0.015em; }
+.chart-title { margin: 0 0 14px; font-size: 12.5px; color: var(--ink-2); max-width: 70ch; }
+
 @media (max-width: 720px) {
   .tiles { grid-template-columns: 1fr; }
   .verdict { flex-direction: column; gap: 12px; }
@@ -337,8 +347,8 @@ svg { display: block; width: 100%; height: auto; overflow: visible; }
 <div class="wrap">
 
   <header>
-    <p class="eyebrow">Caldwell Academy &middot; Dialectic &amp; Rhetoric &middot; Quarter 1</p>
-    <h1>Gus's Grade Tracker</h1>
+    <p class="eyebrow">Caldwell Academy &middot; Quarter 1 &middot; Grades and driving hours</p>
+    <h1>Gus's Weekly Tracker</h1>
     <p class="dek">Weekly reading of the seven graded courses that count toward GPA, scored on Caldwell's own ten-point scale with one extra quality point for each Honors course. The reward settles on the quarter's final grades, so each week shows whether Gus is on track for it.</p>
     <p class="meta">
       <span>Read from the <b>Veracross parent portal</b></span>
@@ -440,12 +450,58 @@ svg { display: block; width: 100%; height: auto; overflow: visible; }
     </div>
   </section>
 
+  <section>
+    <h2 class="sec">Driving hours toward eligibility</h2>
+    <p class="sec-note">Eligibility needs both the daytime and the nighttime requirement met, so whichever one finishes later is what sets the date. The figures come from the Driving Time form log.</p>
+    <div class="tiles">
+      <div class="tile">
+        <p class="tile-label">Eligible at current pace</p>
+        <p class="tile-value tile-value-date" id="d-date"></p>
+        <p class="tile-note" id="d-date-note"></p>
+      </div>
+      <div class="tile">
+        <p class="tile-label">Daytime minutes</p>
+        <p class="tile-value" id="d-day"></p>
+        <div class="meter" id="meter-day"><span></span></div>
+        <p class="tile-note" id="d-day-note"></p>
+      </div>
+      <div class="tile">
+        <p class="tile-label">Nighttime minutes</p>
+        <p class="tile-value" id="d-night"></p>
+        <div class="meter" id="meter-night"><span></span></div>
+        <p class="tile-note" id="d-night-note"></p>
+      </div>
+    </div>
+    <div class="card" id="card-elig">
+      <p class="chart-title" id="elig-title"></p>
+      <div id="chart-elig"></div>
+      <div class="tip" id="tip-elig"></div>
+    </div>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Week</th>
+            <th scope="col">Date</th>
+            <th scope="col" class="num">Day min.</th>
+            <th scope="col" class="num">Night min.</th>
+            <th scope="col" class="num">Day pace</th>
+            <th scope="col" class="num">Night pace</th>
+            <th scope="col">Eligible at that pace</th>
+          </tr>
+        </thead>
+        <tbody id="drive-body"></tbody>
+      </table>
+    </div>
+  </section>
+
   <div class="method">
     <h3>How this is figured</h3>
     <p>Caldwell Academy uses a ten-point scale. Honors courses earn one additional quality point; AP courses earn two, awarded on a C&minus; or better together with sitting for the AP exam. Source: Caldwell Academy 2026&ndash;2027 College Advising School Profile.</p>
     <div class="scale-grid" id="scale-grid"></div>
     <p>Raw GPA is the straight average of the seven courses' quality points. Weighted GPA adds the Honors bump, which comes to <code id="m-bumpmath"></code> across this course load. <b>Team Sports</b> and <b>Advisory&#8209;Siena</b> are left out of both figures.</p>
-    <p>Letter counts roll plus and minus into the base letter, so an A+, an A and an A&minus; all count as one A each. The reward test is all A's and B's with no C, settled on each quarter's <b>final</b> grades. A week's reading is a progress signal toward that, which is why this page says on track or off track instead of earned or missed.</p>
+    <p>The driving figures come from the Driving Time form log and count cumulative minutes as of each week. Each week's projection divides that week's logged minutes by the days since <code id="m-drivestart"></code> to get a pace, then carries that pace forward until each requirement is met. The later of the two dates is the eligibility date, since both have to be satisfied. The <code id="m-drivetarget"></code> target date is inferred from the ledger's own countdown and is worth confirming.</p>
+  <p>Letter counts roll plus and minus into the base letter, so an A+, an A and an A&minus; all count as one A each. The reward test is all A's and B's with no C, settled on each quarter's <b>final</b> grades. A week's reading is a progress signal toward that, which is why this page says on track or off track instead of earned or missed.</p>
   </div>
 
 </div>
@@ -488,6 +544,18 @@ const WEEKS = [
     pct: { hist: 99.35, lit: 91.55, rhet: 85.06, alg: 80.64, chem: 84.89, span: 74.12, sptmd: 95.75 } }
 ];
 
+/* ---- driving ledger. Source: the "Driving Time (Responses)" form sheet. ---- */
+const DRIVE_START  = "2026-02-23";   // first ledger entry
+const DRIVE_TARGET = "2026-11-23";   // the date the ledger counts down to
+const DRIVE_GOAL   = { day: 3000, night: 600 };
+
+/* Cumulative minutes as of each week. Add a row each week and republish. */
+const DRIVING = [
+  { week: 1, date: "2026-09-17", day: 1530, night: 340 },
+  { week: 2, date: "2026-09-21", day: 1635, night: 340 },
+  { week: 3, date: "2026-09-28", day: 1680, night: 355 }
+];
+
 /* ---------------- derivation ---------------- */
 const N    = COURSES.length;
 const BUMP = COURSES.reduce((s, c) => s + c.bump, 0);
@@ -522,6 +590,79 @@ const prettyDate = iso => {
   const [y, m, d] = iso.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 };
+
+/* ---------- driving derivation ---------- */
+const DAY_MS  = 86400000;
+const dnum    = iso => { const [y, m, d] = iso.split("-").map(Number); return new Date(y, m - 1, d); };
+const addDays = (dt, n) => new Date(dt.getTime() + n * DAY_MS);
+const prettyD = dt => dt.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+function evalDrive(w) {
+  const asOf       = dnum(w.date);
+  const daysSoFar  = Math.max(Math.round((asOf - dnum(DRIVE_START)) / DAY_MS), 1);
+  const dayPace    = w.day   / daysSoFar;
+  const nightPace  = w.night / daysSoFar;
+  const dayLeft    = Math.max(DRIVE_GOAL.day   - w.day,   0);
+  const nightLeft  = Math.max(DRIVE_GOAL.night - w.night, 0);
+  const dayDays    = dayPace   > 0 ? Math.ceil(dayLeft   / dayPace)   : Infinity;
+  const nightDays  = nightPace > 0 ? Math.ceil(nightLeft / nightPace) : Infinity;
+  const elig       = addDays(asOf, Math.max(dayDays, nightDays));
+  const target     = dnum(DRIVE_TARGET);
+  const windowDays = Math.max(Math.round((target - asOf) / DAY_MS), 1);
+  return { ...w, asOf, daysSoFar, dayPace, nightPace, dayLeft, nightLeft, dayDays, nightDays, elig,
+           binds: dayDays >= nightDays ? "day" : "night",
+           lateDays: Math.round((elig - target) / DAY_MS),
+           onTime: elig <= target,
+           dayNeed: dayLeft / windowDays, nightNeed: nightLeft / windowDays };
+}
+const DRIVE = DRIVING.map(evalDrive);
+const dcur  = DRIVE[DRIVE.length - 1];
+
+/* ---------- driving tiles ---------- */
+document.getElementById("d-date").textContent = prettyD(dcur.elig);
+document.getElementById("d-date-note").textContent = dcur.onTime
+  ? "That clears the " + prettyD(dnum(DRIVE_TARGET)) + " target with " + Math.abs(dcur.lateDays) + " days to spare."
+  : dcur.lateDays + " days past the " + prettyD(dnum(DRIVE_TARGET)) + " target. The " +
+    (dcur.binds === "day" ? "daytime" : "nighttime") + " requirement is what sets this date.";
+
+[["day", "Daytime"], ["night", "Nighttime"]].forEach(([k, name]) => {
+  const have = dcur[k], goal = DRIVE_GOAL[k];
+  const pace = k === "day" ? dcur.dayPace : dcur.nightPace;
+  const need = k === "day" ? dcur.dayNeed : dcur.nightNeed;
+  const sets = (k === dcur.binds);
+  const gap  = Math.abs(dcur.dayDays - dcur.nightDays);
+  document.getElementById("d-" + k).textContent =
+    have.toLocaleString() + " / " + goal.toLocaleString();
+  const m = document.getElementById("meter-" + k);
+  m.className = "meter " + (sets ? "meter-behind" : "meter-ahead");
+  m.firstElementChild.style.width = Math.min(100, (have / goal) * 100).toFixed(1) + "%";
+  m.setAttribute("role", "progressbar");
+  m.setAttribute("aria-valuemin", "0");
+  m.setAttribute("aria-valuemax", String(goal));
+  m.setAttribute("aria-valuenow", String(have));
+  m.setAttribute("aria-label", name + " minutes logged of " + goal);
+  document.getElementById("d-" + k + "-note").textContent = sets
+    ? "This is the requirement that sets the date. " + pace.toFixed(2) +
+      " min/day so far, " + need.toFixed(2) + " per day needed to finish by the target."
+    : "This one finishes about " + gap + " days before the " +
+      (dcur.binds === "day" ? "daytime" : "nighttime") + " requirement. " +
+      pace.toFixed(2) + " min/day so far.";
+});
+
+/* ---------- driving log table ---------- */
+const dvb = document.getElementById("drive-body");
+DRIVE.forEach(d => {
+  const tr = document.createElement("tr");
+  tr.innerHTML =
+    '<td class="num">' + d.week + '</td>' +
+    '<td>' + prettyDate(d.date) + '</td>' +
+    '<td class="num">' + d.day.toLocaleString() + '</td>' +
+    '<td class="num">' + d.night.toLocaleString() + '</td>' +
+    '<td class="num">' + d.dayPace.toFixed(2) + '</td>' +
+    '<td class="num">' + d.nightPace.toFixed(2) + '</td>' +
+    '<td class="num' + (d.onTime ? '' : ' risk') + '">' + prettyD(d.elig) + '</td>';
+  dvb.appendChild(tr);
+});
 
 /* ---------------- header + tiles ---------------- */
 document.getElementById("m-week").textContent   = prettyDate(cur.date);
@@ -810,8 +951,103 @@ function drawCounts() {
   });
 }
 
-function drawAll() { drawGPA(); drawCounts(); }
+/* ---------- chart 3: projected eligibility date by week ---------- */
+function drawElig() {
+  const svg = frame(document.getElementById("chart-elig"));
+  const n = DRIVE.length;
+  document.getElementById("elig-title").textContent =
+    "Projected eligibility date, recomputed each week from that week's own pace. " +
+    "The green line is the " + prettyD(dnum(DRIVE_TARGET)) + " target.";
+  svg.setAttribute("aria-label",
+    "Line chart of the projected eligibility date by week. Latest projection " +
+    prettyD(dcur.elig) + ". Every value also appears in the table below.");
+
+  const ML = 88, IWe = W - ML - M.r;              // wider gutter: ticks are dates
+  const xb = i => ML + (IWe / Math.max(n, 1)) * i + (IWe / Math.max(n, 1)) / 2;
+
+  const vals = DRIVE.map(d => d.lateDays);
+  let lo = Math.min(0, ...vals), hi = Math.max(0, ...vals);
+  const pad = Math.max(Math.round((hi - lo) * 0.2), 8);
+  lo -= pad; hi += pad;
+  const y = v => M.t + IH - ((v - lo) / (hi - lo)) * IH;
+
+  const TICKS = 5;
+  for (let i = 0; i <= TICKS; i++) {
+    const v = lo + ((hi - lo) * i) / TICKS;
+    svg.appendChild(el("line", { x1: ML, x2: ML + IWe, y1: y(v), y2: y(v),
+      stroke: css("--rule"), "stroke-width": 1 }));
+    const t = el("text", { x: ML - 10, y: y(v) + 4, "text-anchor": "end",
+      fill: css("--ink-muted"), "font-size": 11.5, "font-family": "var(--sans)" });
+    t.textContent = prettyD(addDays(dnum(DRIVE_TARGET), Math.round(v)));
+    svg.appendChild(t);
+  }
+  svg.appendChild(el("line", { x1: ML, x2: ML + IWe, y1: M.t + IH, y2: M.t + IH,
+    stroke: css("--axis"), "stroke-width": 1 }));
+
+  svg.appendChild(el("line", { x1: ML, x2: ML + IWe, y1: y(0), y2: y(0),
+    stroke: css("--good"), "stroke-width": 1 }));
+  const tgt = el("text", { x: ML + IWe + 10, y: y(0) + 4, fill: css("--good-ink"),
+    "font-size": 11.5, "font-weight": 600, "font-family": "var(--sans)" });
+  tgt.textContent = "Target";
+  svg.appendChild(tgt);
+
+  DRIVE.forEach((d, i) => {
+    const t = el("text", { x: xb(i), y: M.t + IH + 22, "text-anchor": "middle",
+      fill: css("--ink-muted"), "font-size": 11.5, "font-family": "var(--sans)" });
+    t.textContent = "Wk " + d.week;
+    svg.appendChild(t);
+  });
+
+  const color = css("--navy");
+  if (n > 1) {
+    svg.appendChild(el("polyline", {
+      points: DRIVE.map((d, i) => xb(i) + "," + y(d.lateDays)).join(" "),
+      fill: "none", stroke: color, "stroke-width": 2,
+      "stroke-linejoin": "round", "stroke-linecap": "round" }));
+  }
+  DRIVE.forEach((d, i) => {
+    svg.appendChild(el("circle", { cx: xb(i), cy: y(d.lateDays), r: 5,
+      fill: color, stroke: css("--surface"), "stroke-width": 2 }));
+  });
+  const lab = el("text", { x: xb(n - 1), y: y(dcur.lateDays) - 14,
+    "text-anchor": "middle", fill: css("--ink"),
+    "font-size": 13, "font-weight": 600, "font-family": "var(--sans)" });
+  lab.textContent = prettyD(dcur.elig);
+  svg.appendChild(lab);
+
+  const tip  = document.getElementById("tip-elig");
+  const card = document.getElementById("card-elig");
+  const hair = el("line", { y1: M.t, y2: M.t + IH, stroke: css("--axis"),
+    "stroke-width": 1, opacity: 0 });
+  svg.appendChild(hair);
+  DRIVE.forEach((d, i) => {
+    const step = IWe / Math.max(n, 1);
+    const hit = el("rect", { x: ML + step * i, y: M.t, width: step, height: IH,
+      fill: "transparent", style: "cursor:crosshair" });
+    hit.addEventListener("pointerenter", () => {
+      hair.setAttribute("x1", xb(i)); hair.setAttribute("x2", xb(i));
+      hair.setAttribute("opacity", 1);
+      tip.innerHTML = "<strong>Week " + d.week + " \u00b7 " + prettyDate(d.date) + "</strong>" +
+        '<div class="tip-row"><span class="key" style="background:' + color + '"></span>Eligible<b>' + prettyD(d.elig) + "</b></div>" +
+        '<div class="tip-row">Daytime<b>' + d.day.toLocaleString() + " / " + DRIVE_GOAL.day.toLocaleString() + "</b></div>" +
+        '<div class="tip-row">Nighttime<b>' + d.night.toLocaleString() + " / " + DRIVE_GOAL.night.toLocaleString() + "</b></div>" +
+        '<div class="tip-row">Sets the date<b>' + (d.binds === "day" ? "daytime" : "nighttime") + "</b></div>";
+      tip.style.opacity = 1;
+      const rect = card.getBoundingClientRect();
+      const px = (xb(i) / W) * rect.width;
+      tip.style.left = Math.min(Math.max(px - 80, 8), Math.max(rect.width - 230, 8)) + "px";
+      tip.style.top = "64px";
+    });
+    hit.addEventListener("pointerleave", () => { tip.style.opacity = 0; hair.setAttribute("opacity", 0); });
+    svg.appendChild(hit);
+  });
+}
+
+function drawAll() { drawGPA(); drawCounts(); drawElig(); }
 drawAll();
+
+document.getElementById("m-drivestart").textContent  = prettyD(dnum(DRIVE_START));
+document.getElementById("m-drivetarget").textContent = prettyD(dnum(DRIVE_TARGET));
 
 const mq = window.matchMedia("(prefers-color-scheme: dark)");
 mq.addEventListener("change", drawAll);
