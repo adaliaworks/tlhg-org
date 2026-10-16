@@ -1,0 +1,97 @@
+# robots.txt for tlhg.org
+# Goal: keep the /nws audio feed out of search engines and AI crawlers,
+# while leaving the rest of the site crawlable.
+#
+# To block any bot from the WHOLE site instead of just the feed, change its
+# "Disallow: /nws/" line to "Disallow: /".
+#
+# Note: this is a politeness convention. Well-behaved crawlers obey it; a few
+# (e.g. Bytespider, Perplexity-User, ChatGPT-User) do so inconsistently, and
+# anyone you hand the link to can always open it. It stops indexing, not access.
+
+# Every compliant crawler: stay out of the feed.
+User-agent: *
+Disallow: /nws/
+
+# Search engines (explicit, same effect as the line above).
+User-agent: Googlebot
+Disallow: /nws/
+
+User-agent: Bingbot
+Disallow: /nws/
+
+User-agent: DuckDuckBot
+Disallow: /nws/
+
+# AI training / answer-engine crawlers.
+User-agent: GPTBot
+Disallow: /nws/
+
+User-agent: OAI-SearchBot
+Disallow: /nws/
+
+User-agent: ChatGPT-User
+Disallow: /nws/
+
+User-agent: ClaudeBot
+Disallow: /nws/
+
+User-agent: Claude-SearchBot
+Disallow: /nws/
+
+User-agent: Claude-User
+Disallow: /nws/
+
+User-agent: anthropic-ai
+Disallow: /nws/
+
+User-agent: Claude-Web
+Disallow: /nws/
+
+User-agent: Google-Extended
+Disallow: /nws/
+
+User-agent: PerplexityBot
+Disallow: /nws/
+
+User-agent: Perplexity-User
+Disallow: /nws/
+
+User-agent: CCBot
+Disallow: /nws/
+
+User-agent: Applebot-Extended
+Disallow: /nws/
+
+User-agent: Amazonbot
+Disallow: /nws/
+
+User-agent: Bytespider
+Disallow: /nws/
+
+User-agent: Meta-ExternalAgent
+Disallow: /nws/
+
+User-agent: FacebookBot
+Disallow: /nws/
+
+User-agent: cohere-ai
+Disallow: /nws/
+
+User-agent: Diffbot
+Disallow: /nws/
+
+User-agent: Omgilibot
+Disallow: /nws/
+
+User-agent: YouBot
+Disallow: /nws/
+
+User-agent: DuckAssistBot
+Disallow: /nws/
+
+User-agent: PanguBot
+Disallow: /nws/
+
+User-agent: ImagesiftBot
+Disallow: /nws/

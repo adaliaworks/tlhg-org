@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>Naked Without Shame</title>
+<link>https://tlhg.org/nws/</link>
+<atom:link href="https://tlhg.org/nws/feed.xml" rel="self" type="application/rss+xml"/>
+<language>en-us</language>
+<description>A talk series on the Theology of the Body, given by Christopher West.</description>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:summary>A talk series on the Theology of the Body, given by Christopher West.</itunes:summary>
+<itunes:explicit>false</itunes:explicit>
+<itunes:type>serial</itunes:type>
+<itunes:category text="Religion &amp; Spirituality"/>
+<item>
+<title>Introduction</title>
+<itunes:episode>1</itunes:episode>
+<pubDate>Mon, 02 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/01-introduction.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/01-introduction.mp3" length="50780451" type="audio/mpeg"/>
+<itunes:duration>1:45:22</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Original Man</title>
+<itunes:episode>2</itunes:episode>
+<pubDate>Tue, 03 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/02-original-man.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/02-original-man.mp3" length="35317215" type="audio/mpeg"/>
+<itunes:duration>1:13:09</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Historical Man</title>
+<itunes:episode>3</itunes:episode>
+<pubDate>Wed, 04 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/03-historical-man.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/03-historical-man.mp3" length="77042083" type="audio/mpeg"/>
+<itunes:duration>2:40:05</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Eschatological Man</title>
+<itunes:episode>4</itunes:episode>
+<pubDate>Thu, 05 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/04-eschatological-man.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/04-eschatological-man.mp3" length="33432434" type="audio/mpeg"/>
+<itunes:duration>1:09:14</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Celibacy for the Kingdom</title>
+<itunes:episode>5</itunes:episode>
+<pubDate>Fri, 06 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/05-celibacy-for-the-kingdom.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/05-celibacy-for-the-kingdom.mp3" length="31594256" type="audio/mpeg"/>
+<itunes:duration>1:05:24</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Sacramentality of Marriage</title>
+<itunes:episode>6</itunes:episode>
+<pubDate>Sat, 07 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/06-sacramentality-of-marriage.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/06-sacramentality-of-marriage.mp3" length="44902078" type="audio/mpeg"/>
+<itunes:duration>1:33:07</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Love and Fruitfulness</title>
+<itunes:episode>7</itunes:episode>
+<pubDate>Sun, 08 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/07-love-and-fruitfulness.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/07-love-and-fruitfulness.mp3" length="50901284" type="audio/mpeg"/>
+<itunes:duration>1:45:37</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>Conclusion</title>
+<itunes:episode>8</itunes:episode>
+<pubDate>Mon, 09 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/08-conclusion.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/08-conclusion.mp3" length="30795522" type="audio/mpeg"/>
+<itunes:duration>1:03:44</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+<item>
+<title>A Weed in the Garden of Eden (Bonus)</title>
+<itunes:episode>9</itunes:episode>
+<pubDate>Tue, 10 Nov 2015 12:00:00 +0000</pubDate>
+<guid isPermaLink="false">https://tlhg.org/nws/audio/09-a-weed-in-the-garden-of-eden.mp3</guid>
+<enclosure url="https://tlhg.org/nws/audio/09-a-weed-in-the-garden-of-eden.mp3" length="44720729" type="audio/mpeg"/>
+<itunes:duration>1:32:45</itunes:duration>
+<itunes:author>Naked Without Shame</itunes:author>
+<itunes:explicit>false</itunes:explicit>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,89 @@
+# podcast.toml — edit this, then run:  python3 build_feed.py
+# (needs Python 3.11+, or: pip install tomli)
+
+[channel]
+base_url    = "https://tlhg.org"
+path        = "nws"
+title       = "Naked Without Shame"
+description = "A talk series on the Theology of the Body, given by Christopher West."
+author      = "Naked Without Shame"   # set a presenter name here if you like
+language    = "en-us"
+explicit    = false
+category    = "Religion & Spirituality"
+type        = "serial"                 # play in order, 1 -> 9
+# image     = "cover.jpg"              # optional square art in this folder
+# owner_email = ""                     # left out to keep an email out of a public file
+
+# dates below are placeholders in release order; change them if you have the real ones.
+
+[[episode]]
+number = 1
+title  = "Introduction"
+file   = "01-introduction.mp3"
+date   = 2015-11-02
+duration = 6322
+bytes  = 50780451
+
+[[episode]]
+number = 2
+title  = "Original Man"
+file   = "02-original-man.mp3"
+date   = 2015-11-03
+duration = 4389
+bytes  = 35317215
+
+[[episode]]
+number = 3
+title  = "Historical Man"
+file   = "03-historical-man.mp3"
+date   = 2015-11-04
+duration = 9605
+bytes  = 77042083
+
+[[episode]]
+number = 4
+title  = "Eschatological Man"
+file   = "04-eschatological-man.mp3"
+date   = 2015-11-05
+duration = 4154
+bytes  = 33432434
+
+[[episode]]
+number = 5
+title  = "Celibacy for the Kingdom"
+file   = "05-celibacy-for-the-kingdom.mp3"
+date   = 2015-11-06
+duration = 3924
+bytes  = 31594256
+
+[[episode]]
+number = 6
+title  = "Sacramentality of Marriage"
+file   = "06-sacramentality-of-marriage.mp3"
+date   = 2015-11-07
+duration = 5587
+bytes  = 44902078
+
+[[episode]]
+number = 7
+title  = "Love and Fruitfulness"
+file   = "07-love-and-fruitfulness.mp3"
+date   = 2015-11-08
+duration = 6337
+bytes  = 50901284
+
+[[episode]]
+number = 8
+title  = "Conclusion"
+file   = "08-conclusion.mp3"
+date   = 2015-11-09
+duration = 3824
+bytes  = 30795522
+
+[[episode]]
+number = 9
+title  = "A Weed in the Garden of Eden (Bonus)"
+file   = "09-a-weed-in-the-garden-of-eden.mp3"
+date   = 2015-11-10
+duration = 5565
+bytes  = 44720729
