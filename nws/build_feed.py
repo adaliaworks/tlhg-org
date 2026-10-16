@@ -4,7 +4,7 @@
 Needs Python 3.11+ (for tomllib). On 3.10 or earlier: pip install tomli.
 Run from inside the nws/ folder:   python3 build_feed.py
 """
-import os, html
+import os, html, re
 try:
     import tomllib
 except ModuleNotFoundError:
@@ -30,6 +30,9 @@ def rfc822(d):
 
 def esc(s):
     return html.escape(str(s or ""), quote=True)
+
+def linkify(text):
+    return re.sub(r'(https?://[^\s<]+)', r'<a href="\1">\1</a>', esc(text))
 
 def hms(secs):
     try:
@@ -67,6 +70,8 @@ def main():
          f"<itunes:summary>{esc(ch.get('description',''))}</itunes:summary>",
          f"<itunes:explicit>{'true' if ch.get('explicit') else 'false'}</itunes:explicit>",
          f"<itunes:type>{esc(show_type)}</itunes:type>"]
+    if ch.get("copyright"):
+        x.append(f"<copyright>{esc(ch['copyright'])}</copyright>")
     if ch.get("category"):
         x.append(f'<itunes:category text="{esc(ch["category"])}"/>')
     if ch.get("owner_name") or ch.get("owner_email"):
@@ -105,6 +110,7 @@ def main():
     open(os.path.join(HERE, "feed.xml"), "w", encoding="utf-8").write(xml + "\n")
 
     cover = f'<img class="cover" src="{esc(ch["image"])}" alt="">' if ch.get("image") else ""
+    notice_html = f'<div class="notice">{linkify(ch["notice"])}</div>' if ch.get("notice") else ""
     rows = []
     for e in eps:
         num = f'{int(e["number"])}. ' if e.get("number") else ""
@@ -136,6 +142,8 @@ def main():
   button.copy:hover {{ background: rgba(127,127,127,.15); }}
   button.copy svg {{ width: 16px; height: 16px; }}
   .copied {{ font-size: .82em; color: #2e7d32; }}
+  .notice {{ margin-top: 10px; font-size: .82em; color: #777; line-height: 1.45; }}
+  .notice a {{ color: inherit; }}
   ul {{ list-style: none; padding: 0; }}
   li {{ padding: 18px 0; border-top: 1px solid rgba(127,127,127,.25); }}
   li h2 {{ font-size: 1.1em; margin: 0 0 .15em; }}
@@ -149,7 +157,7 @@ def main():
 <h1>{esc(ch['title'])}</h1>
 <p>{esc(ch.get('description',''))}</p>
 <div class="sub"><strong>Listen in a podcast app:</strong> add a show by URL and paste
-<span class="feedrow"><code id="feedurl">{esc(feed_url)}</code><button class="copy" type="button" aria-label="Copy feed address" title="Copy feed address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="copied" hidden>Copied</span></span></div>
+<span class="feedrow"><code id="feedurl">{esc(feed_url)}</code><button class="copy" type="button" aria-label="Copy feed address" title="Copy feed address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="copied" hidden>Copied</span></span>{notice_html}</div>
 <ul>
 {chr(10).join(rows)}
 </ul>

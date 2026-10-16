@@ -11,6 +11,8 @@ language    = "en-us"
 explicit    = false
 category    = "Religion & Spirituality"
 type        = "serial"                 # play in order, 1 -> 9
+copyright   = "© The Gift Foundation®"
+notice      = "All contents © The Gift Foundation® and hosted here as a courtesy. The original audio files may be downloaded from Google Drive by visiting http://nakedwithoutshame.com/"
 # image     = "cover.jpg"              # optional square art in this folder
 # owner_email = ""                     # left out to keep an email out of a public file
 
