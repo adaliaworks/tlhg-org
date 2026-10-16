@@ -128,7 +128,14 @@ def main():
   h1 {{ font-size: 1.9em; margin: 0 0 .2em; }}
   .cover {{ width: 200px; height: 200px; object-fit: cover; border-radius: 10px; }}
   .sub {{ background: rgba(127,127,127,.12); padding: 14px 16px; border-radius: 10px; margin: 24px 0; }}
+  .feedrow {{ display: flex; align-items: center; gap: 8px; margin-top: 6px; flex-wrap: wrap; }}
   .sub code {{ user-select: all; word-break: break-all; }}
+  button.copy {{ display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; padding: 0; flex: none; cursor: pointer; color: inherit;
+    border: 1px solid rgba(127,127,127,.4); border-radius: 6px; background: transparent; }}
+  button.copy:hover {{ background: rgba(127,127,127,.15); }}
+  button.copy svg {{ width: 16px; height: 16px; }}
+  .copied {{ font-size: .82em; color: #2e7d32; }}
   ul {{ list-style: none; padding: 0; }}
   li {{ padding: 18px 0; border-top: 1px solid rgba(127,127,127,.25); }}
   li h2 {{ font-size: 1.1em; margin: 0 0 .15em; }}
@@ -141,11 +148,25 @@ def main():
 {cover}
 <h1>{esc(ch['title'])}</h1>
 <p>{esc(ch.get('description',''))}</p>
-<div class="sub"><strong>Listen in a podcast app:</strong> add a show by URL and paste<br>
-<code>{esc(feed_url)}</code></div>
+<div class="sub"><strong>Listen in a podcast app:</strong> add a show by URL and paste
+<span class="feedrow"><code id="feedurl">{esc(feed_url)}</code><button class="copy" type="button" aria-label="Copy feed address" title="Copy feed address"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><span class="copied" hidden>Copied</span></span></div>
 <ul>
 {chr(10).join(rows)}
 </ul>
+<script>
+(function(){{
+  var b = document.querySelector('button.copy');
+  if (!b || !navigator.clipboard) return;
+  b.addEventListener('click', function(){{
+    navigator.clipboard.writeText(document.getElementById('feedurl').textContent.trim()).then(function(){{
+      var c = document.querySelector('.copied');
+      if (!c) return;
+      c.hidden = false;
+      setTimeout(function(){{ c.hidden = true; }}, 1500);
+    }});
+  }});
+}})();
+</script>
 </body>
 </html>
 """
