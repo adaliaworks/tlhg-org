@@ -3,6 +3,8 @@
 Everything is built and sitting on your Mac in this folder:
 `Dropbox/Public/NakedWithoutShame/NWS-site-build/`
 
+NOTE: 10/21/26: Trey renamed feed.xml > feed-OFF and index.html > index-OFF to prevent these two pages from loading/serving content, per a polite takedown request from TOBI in response to my request to host the podcast. Dropping -OFF from each filename and pushing to GH will restore access.
+
 ```
 NWS-site-build/
   robots.txt            -> goes in your site repo ROOT (next to the site's index.html)
