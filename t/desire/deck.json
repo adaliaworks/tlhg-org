@@ -1,0 +1,984 @@
+{
+ "version": "0.2",
+ "title": "What Do You Want?",
+ "subtitle": "Desire Path · Session Two: Desire",
+ "horizon": "the next five years",
+ "people": [
+  {
+   "id": "ashley",
+   "name": "Ashley",
+   "partner": "anders",
+   "partnerName": "Anders"
+  },
+  {
+   "id": "anders",
+   "name": "Anders",
+   "partner": "ashley",
+   "partnerName": "Ashley"
+  }
+ ],
+ "groups": [
+  {
+   "id": "run",
+   "name": "The Run Itself",
+   "private": false
+  },
+  {
+   "id": "two",
+   "name": "The Two of Us",
+   "private": false
+  },
+  {
+   "id": "money",
+   "name": "Money and Security",
+   "private": false
+  },
+  {
+   "id": "work",
+   "name": "Work That Is Mine",
+   "private": false
+  },
+  {
+   "id": "home",
+   "name": "Home and Place",
+   "private": false
+  },
+  {
+   "id": "family",
+   "name": "Family and Future",
+   "private": false
+  },
+  {
+   "id": "body",
+   "name": "Body and Energy",
+   "private": false
+  },
+  {
+   "id": "time",
+   "name": "Freedom and Time",
+   "private": false
+  },
+  {
+   "id": "seen",
+   "name": "Recognition and Being Seen",
+   "private": false
+  },
+  {
+   "id": "faith",
+   "name": "Faith and Meaning",
+   "private": false
+  },
+  {
+   "id": "friends",
+   "name": "Friendship and Community",
+   "private": false
+  },
+  {
+   "id": "rivals",
+   "name": "The Rivals",
+   "private": true
+  }
+ ],
+ "cards": [
+  {
+   "id": "finding-out-how-good-i-could-have-been",
+   "want": "Finding out how good I could have been.",
+   "group": "run",
+   "costs": {
+    "ashley": "a year you also live inside, with the answer arriving on his schedule.",
+    "anders": "the answer, whatever it turns out to be, and no way to unknow it."
+   }
+  },
+  {
+   "id": "being-able-to-stop-without-wondering",
+   "want": "Being able to stop without wondering.",
+   "group": "run",
+   "costs": {
+    "ashley": "watching him spend the year it takes to earn that peace.",
+    "anders": "going all the way to the end of it, including the ending you did not want."
+   }
+  },
+  {
+   "id": "a-deadline-we-both-agreed-to",
+   "want": "A deadline we both agreed to.",
+   "group": "run",
+   "costs": {
+    "ashley": "saying the date out loud and meaning it.",
+    "anders": "a clock you can hear while you play."
+   }
+  },
+  {
+   "id": "one-more-attempt-fully-resourced",
+   "want": "One more attempt, fully resourced.",
+   "group": "run",
+   "costs": {
+    "ashley": "money leaving the house while it runs.",
+    "anders": "no excuses left if it does not work."
+   }
+  },
+  {
+   "id": "walking-away-on-my-own-terms",
+   "want": "Walking away on my own terms.",
+   "group": "run",
+   "costs": {
+    "ashley": "a decision that stays his, even when you can see where it is going.",
+    "anders": "choosing the ending instead of being handed one."
+   }
+  },
+  {
+   "id": "the-thing-i-trained-my-whole-life-for",
+   "want": "The thing I trained my whole life for.",
+   "group": "run",
+   "costs": {
+    "ashley": "being married to a calling, which is different from being married to a job.",
+    "anders": "everything the training already cost, which is spent and still heavy."
+   }
+  },
+  {
+   "id": "a-result-that-settles-it",
+   "want": "A result that settles it.",
+   "group": "run",
+   "costs": {
+    "ashley": "a year organized around a scoreboard.",
+    "anders": "weeks where the scoreboard says nothing true about how you played."
+   }
+  },
+  {
+   "id": "getting-to-the-level-where-money-stops-being-the",
+   "want": "Getting to the level where money stops being the question.",
+   "group": "run",
+   "costs": {
+    "ashley": "a year of household income pointed at a threshold nobody guarantees.",
+    "anders": "the specific number of made cuts it takes, which you can name."
+   }
+  },
+  {
+   "id": "starting-the-next-thing-while-i-still-have-runwa",
+   "want": "Starting the next thing while I still have runway.",
+   "group": "run",
+   "costs": {
+    "ashley": "a husband beginning at zero in something new.",
+    "anders": "closing a door while it is still open."
+   }
+  },
+  {
+   "id": "being-in-the-same-place-most-nights",
+   "want": "Being in the same place most nights.",
+   "group": "two",
+   "costs": {
+    "ashley": "a version of him that is home, with the question still unanswered.",
+    "anders": "the weeks you would have to not play."
+   }
+  },
+  {
+   "id": "a-marriage-better-in-ten-years-than-it-is-now",
+   "want": "A marriage better in ten years than it is now.",
+   "group": "two",
+   "costs": {
+    "ashley": "attention that is not spent managing the year.",
+    "anders": "hours the game is currently taking from it."
+   }
+  },
+  {
+   "id": "deciding-this-together-and-deciding-it-once",
+   "want": "Deciding this together, and deciding it once.",
+   "group": "two",
+   "costs": {
+    "ashley": "saying what you actually want, out loud, first.",
+    "anders": "hearing it without arranging a solution."
+   }
+  },
+  {
+   "id": "not-being-managed-by-the-person-who-loves-me",
+   "want": "Not being managed by the person who loves me.",
+   "group": "two",
+   "costs": {
+    "ashley": "letting him carry weight you could lift.",
+    "anders": "letting her see the weight unfiltered."
+   }
+  },
+  {
+   "id": "knowing-what-my-spouse-actually-wants",
+   "want": "Knowing what my spouse actually wants.",
+   "group": "two",
+   "costs": {
+    "ashley": "finding out it is not what you assumed.",
+    "anders": "finding out she has been answering a different question."
+   }
+  },
+  {
+   "id": "a-season-where-neither-of-us-is-the-support-act",
+   "want": "A season where neither of us is the support act.",
+   "group": "two",
+   "costs": {
+    "ashley": "naming your own work as equal, which takes room.",
+    "anders": "sharing a year you had planned to spend on one thing."
+   }
+  },
+  {
+   "id": "being-proud-of-what-the-other-one-is-doing",
+   "want": "Being proud of what the other one is doing.",
+   "group": "two",
+   "costs": {
+    "ashley": "pride is easy from a distance and costly up close.",
+    "anders": "letting her work be the main event some weeks."
+   }
+  },
+  {
+   "id": "a-fight-we-can-have-cleanly",
+   "want": "A fight we can have cleanly.",
+   "group": "two",
+   "costs": {
+    "ashley": "bringing it up before it is settled in your head.",
+    "anders": "staying in it without closing it down with a plan."
+   }
+  },
+  {
+   "id": "ten-more-years-of-what-the-last-ten-were",
+   "want": "Ten more years of what the last ten were.",
+   "group": "two",
+   "costs": {
+    "ashley": "deciding whether that sentence is a hope or a worry.",
+    "anders": "answering it before she does."
+   }
+  },
+  {
+   "id": "somebody-who-knows-the-whole-story",
+   "want": "Somebody who knows the whole story.",
+   "group": "two",
+   "costs": {
+    "ashley": "telling the part you have been carrying alone.",
+    "anders": "telling the part you have been protecting her from."
+   }
+  },
+  {
+   "id": "a-number-in-the-bank-that-lets-me-sleep",
+   "want": "A number in the bank that lets me sleep.",
+   "group": "money",
+   "costs": {
+    "ashley": "years of saving that a year like this one can spend.",
+    "anders": "an expense line that looks like a career instead of a hobby."
+   }
+  },
+  {
+   "id": "work-that-pays-the-same-whether-or-not-it-went-w",
+   "want": "Work that pays the same whether or not it went well that week.",
+   "group": "money",
+   "costs": {
+    "ashley": "steadiness that other people quietly build their plans around.",
+    "anders": "being the variable."
+   }
+  },
+  {
+   "id": "not-tracking-every-dollar",
+   "want": "Not tracking every dollar.",
+   "group": "money",
+   "costs": {
+    "ashley": "a season where you track all of them.",
+    "anders": "knowing the burn rate by heart."
+   }
+  },
+  {
+   "id": "coverage-and-benefits-that-are-not-a-question",
+   "want": "Coverage and benefits that are not a question.",
+   "group": "money",
+   "costs": {
+    "ashley": "what a practice has to arrange for itself.",
+    "anders": "what a year without a guaranteed card has to arrange."
+   }
+  },
+  {
+   "id": "savings-that-are-only-ours",
+   "want": "Savings that are only ours.",
+   "group": "money",
+   "costs": {
+    "ashley": "money that could fund the run.",
+    "anders": "spending money she helped put away."
+   }
+  },
+  {
+   "id": "keeping-the-house-through-a-thin-year",
+   "want": "Keeping the house through a thin year.",
+   "group": "money",
+   "costs": {
+    "ashley": "a mortgage as the fixed point everything else moves around.",
+    "anders": "a number that gets covered whether or not you make a cut."
+   }
+  },
+  {
+   "id": "nothing-owed-except-the-house",
+   "want": "Nothing owed except the house.",
+   "group": "money",
+   "costs": {
+    "ashley": "the years it takes.",
+    "anders": "the years it delays."
+   }
+  },
+  {
+   "id": "enough-that-a-bad-year-is-just-a-year",
+   "want": "Enough that a bad year is just a year.",
+   "group": "money",
+   "costs": {
+    "ashley": "building the cushion before you need it.",
+    "anders": "naming how many bad years the cushion actually covers."
+   }
+  },
+  {
+   "id": "money-that-came-from-the-thing-i-love-doing",
+   "want": "Money that came from the thing I love doing.",
+   "group": "money",
+   "costs": {
+    "ashley": "pricing the work at what it is worth, and saying the number out loud.",
+    "anders": "a purse, which requires a leaderboard."
+   }
+  },
+  {
+   "id": "being-excellent-at-one-thing",
+   "want": "Being excellent at one thing.",
+   "group": "work",
+   "costs": {
+    "ashley": "the specialty you turn other work down to build.",
+    "anders": "everything else you will never be good at."
+   }
+  },
+  {
+   "id": "a-practice-or-a-career-that-is-unmistakably-mine",
+   "want": "A practice, or a career, that is unmistakably mine.",
+   "group": "work",
+   "costs": {
+    "ashley": "years of referral relationships in one place.",
+    "anders": "results nobody can attribute to anyone else."
+   }
+  },
+  {
+   "id": "work-that-would-survive-a-move",
+   "want": "Work that would survive a move.",
+   "group": "work",
+   "costs": {
+    "ashley": "re-licensing in a new state, which is its own process on its own timeline.",
+    "anders": "a tour that is a travel schedule by definition."
+   }
+  },
+  {
+   "id": "people-who-stay-with-me-for-years",
+   "want": "People who stay with me for years.",
+   "group": "work",
+   "costs": {
+    "ashley": "being reachable, consistently, in one place.",
+    "anders": "a caddie, a coach, and a trainer you can afford to keep."
+   }
+  },
+  {
+   "id": "getting-better-at-this-every-year",
+   "want": "Getting better at this every year.",
+   "group": "work",
+   "costs": {
+    "ashley": "consultation and continuing education hours that bill at nothing.",
+    "anders": "range time that never shows up on a card."
+   }
+  },
+  {
+   "id": "being-done-at-the-end-of-the-day",
+   "want": "Being done at the end of the day.",
+   "group": "work",
+   "costs": {
+    "ashley": "the caseload you decline.",
+    "anders": "a practice schedule set by daylight."
+   }
+  },
+  {
+   "id": "work-i-could-explain-to-a-stranger-in-one-senten",
+   "want": "Work I could explain to a stranger in one sentence.",
+   "group": "work",
+   "costs": {
+    "ashley": "narrowing to the one thing.",
+    "anders": "a career people think they already understand."
+   }
+  },
+  {
+   "id": "a-career-with-a-ceiling-i-have-not-met",
+   "want": "A career with a ceiling I have not met.",
+   "group": "work",
+   "costs": {
+    "ashley": "pushing in work that already rewards steadiness.",
+    "anders": "a ceiling that is real and set by other people's scores."
+   }
+  },
+  {
+   "id": "help-carrying-the-work",
+   "want": "Help carrying the work.",
+   "group": "work",
+   "costs": {
+    "ashley": "handing a client to someone else.",
+    "anders": "trusting a team with what you have always done alone."
+   }
+  },
+  {
+   "id": "roots-in-one-town",
+   "want": "Roots in one town.",
+   "group": "home",
+   "costs": {
+    "ashley": "the opportunities that are somewhere else.",
+    "anders": "a season you fly out of instead of drive to."
+   }
+  },
+  {
+   "id": "a-home-worth-coming-back-to",
+   "want": "A home worth coming back to.",
+   "group": "home",
+   "costs": {
+    "ashley": "time and money put into a place.",
+    "anders": "the leaving, which does not get easier."
+   }
+  },
+  {
+   "id": "living-near-family",
+   "want": "Living near family.",
+   "group": "home",
+   "costs": {
+    "ashley": "a radius drawn around both careers.",
+    "anders": "tournaments farther from the door."
+   }
+  },
+  {
+   "id": "sleeping-in-my-own-bed",
+   "want": "Sleeping in my own bed.",
+   "group": "home",
+   "costs": {
+    "ashley": "a husband who is there, in a year that may not allow it.",
+    "anders": "the weeks away that are the job itself."
+   }
+  },
+  {
+   "id": "a-life-that-could-move-if-it-had-to",
+   "want": "A life that could move if it had to.",
+   "group": "home",
+   "costs": {
+    "ashley": "a practice you would be rebuilding, in a state that has to license you first.",
+    "anders": "no fixed base to recover in."
+   }
+  },
+  {
+   "id": "neighbors-and-a-table-we-are-regulars-at",
+   "want": "Neighbors, and a table we are regulars at.",
+   "group": "home",
+   "costs": {
+    "ashley": "evenings, consistently, in one place.",
+    "anders": "being around often enough to be known."
+   }
+  },
+  {
+   "id": "a-place-that-slows-me-down",
+   "want": "A place that slows me down.",
+   "group": "home",
+   "costs": {
+    "ashley": "the cost of a second anything.",
+    "anders": "days off in a year with few of them."
+   }
+  },
+  {
+   "id": "being-settled",
+   "want": "Being settled.",
+   "group": "home",
+   "costs": {
+    "ashley": "deciding that now, before the answer arrives.",
+    "anders": "a version of yourself that has not finished moving."
+   }
+  },
+  {
+   "id": "children-on-a-timeline-we-choose",
+   "want": "Children, on a timeline we choose.",
+   "group": "family",
+   "costs": {
+    "ashley": "a year that may not be the year.",
+    "anders": "a season that is hard to be present for."
+   }
+  },
+  {
+   "id": "being-the-kind-of-parent-who-is-there",
+   "want": "Being the kind of parent who is there.",
+   "group": "family",
+   "costs": {
+    "ashley": "the caseload you would reshape.",
+    "anders": "a schedule that is not yours to set."
+   }
+  },
+  {
+   "id": "a-life-that-stays-the-two-of-us",
+   "want": "A life that stays the two of us.",
+   "group": "family",
+   "costs": {
+    "ashley": "saying so plainly, if it is true.",
+    "anders": "letting that be the plan instead of the fallback."
+   }
+  },
+  {
+   "id": "deciding-before-the-decision-gets-made-for-us",
+   "want": "Deciding before the decision gets made for us.",
+   "group": "family",
+   "costs": {
+    "ashley": "naming a year out loud.",
+    "anders": "giving the run an end date for a reason outside golf."
+   }
+  },
+  {
+   "id": "being-present-for-the-people-already-here",
+   "want": "Being present for the people already here.",
+   "group": "family",
+   "costs": {
+    "ashley": "the weekends you currently work.",
+    "anders": "the weekends, which are tournament days."
+   }
+  },
+  {
+   "id": "a-family-story-worth-telling",
+   "want": "A family story worth telling.",
+   "group": "family",
+   "costs": {
+    "ashley": "living something, instead of only steadying it.",
+    "anders": "a story that needs an ending before it can be told."
+   }
+  },
+  {
+   "id": "showing-up-for-aging-parents",
+   "want": "Showing up for aging parents.",
+   "group": "family",
+   "costs": {
+    "ashley": "a radius, again.",
+    "anders": "weeks you cannot move."
+   }
+  },
+  {
+   "id": "energy-left-at-the-end-of-the-day",
+   "want": "Energy left at the end of the day.",
+   "group": "body",
+   "costs": {
+    "ashley": "a smaller number of sessions.",
+    "anders": "shorter practice, which feels like conceding."
+   }
+  },
+  {
+   "id": "a-body-that-holds-up",
+   "want": "A body that holds up.",
+   "group": "body",
+   "costs": {
+    "ashley": "hours in a chair, and what those cost over years.",
+    "anders": "training time, and the honest limits of a window."
+   }
+  },
+  {
+   "id": "sleeping-well",
+   "want": "Sleeping well.",
+   "group": "body",
+   "costs": {
+    "ashley": "putting down other people's weeks.",
+    "anders": "putting down your own round."
+   }
+  },
+  {
+   "id": "a-clear-head",
+   "want": "A clear head.",
+   "group": "body",
+   "costs": {
+    "ashley": "the toll of holding what you hold all day.",
+    "anders": "the part of the game that is played between the ears."
+   }
+  },
+  {
+   "id": "being-strong-at-sixty",
+   "want": "Being strong at sixty.",
+   "group": "body",
+   "costs": {
+    "ashley": "hours a week, every week, starting now.",
+    "anders": "the same hours, pointed at health instead of performance."
+   }
+  },
+  {
+   "id": "moving-for-the-joy-of-it",
+   "want": "Moving for the joy of it.",
+   "group": "body",
+   "costs": {
+    "ashley": "time you do not currently have.",
+    "anders": "play that is not practice, which may be gone for now."
+   }
+  },
+  {
+   "id": "a-year-that-does-not-cost-me-my-health",
+   "want": "A year that does not cost me my health.",
+   "group": "body",
+   "costs": {
+    "ashley": "saying out loud when it has.",
+    "anders": "believing her the first time she says it."
+   }
+  },
+  {
+   "id": "control-of-my-own-calendar",
+   "want": "Control of my own calendar.",
+   "group": "time",
+   "costs": {
+    "ashley": "the clients you do not take.",
+    "anders": "a schedule set by exemptions and entry lists."
+   }
+  },
+  {
+   "id": "saying-no-without-explaining",
+   "want": "Saying no without explaining.",
+   "group": "time",
+   "costs": {
+    "ashley": "income, visibly.",
+    "anders": "opportunities you may not be offered twice."
+   }
+  },
+  {
+   "id": "an-unscheduled-weekend",
+   "want": "An unscheduled weekend.",
+   "group": "time",
+   "costs": {
+    "ashley": "the notes that pile up.",
+    "anders": "a week of the season."
+   }
+  },
+  {
+   "id": "being-unreachable-for-a-while",
+   "want": "Being unreachable for a while.",
+   "group": "time",
+   "costs": {
+    "ashley": "a client who needs you.",
+    "anders": "the people invested in the run."
+   }
+  },
+  {
+   "id": "a-real-break-long-enough-to-feel-it",
+   "want": "A real break, long enough to feel it.",
+   "group": "time",
+   "costs": {
+    "ashley": "closing the practice for a stretch.",
+    "anders": "rust, which is real."
+   }
+  },
+  {
+   "id": "deciding-what-the-week-looks-like",
+   "want": "Deciding what the week looks like.",
+   "group": "time",
+   "costs": {
+    "ashley": "the structure a caseload imposes.",
+    "anders": "the structure a season imposes."
+   }
+  },
+  {
+   "id": "time-that-produces-nothing",
+   "want": "Time that produces nothing.",
+   "group": "time",
+   "costs": {
+    "ashley": "the guilt.",
+    "anders": "the guilt, and the ranking."
+   }
+  },
+  {
+   "id": "not-justifying-how-i-spent-the-day",
+   "want": "Not justifying how I spent the day.",
+   "group": "time",
+   "costs": {
+    "ashley": "to yourself, mostly.",
+    "anders": "to yourself, and to anyone helping fund this."
+   }
+  },
+  {
+   "id": "respect-from-people-who-do-what-i-do",
+   "want": "Respect from people who do what I do.",
+   "group": "seen",
+   "costs": {
+    "ashley": "showing your work to peers before it is polished.",
+    "anders": "a card, which is public."
+   }
+  },
+  {
+   "id": "being-good-at-this-in-a-way-that-is-visible",
+   "want": "Being good at this in a way that is visible.",
+   "group": "seen",
+   "costs": {
+    "ashley": "a field where the best work stays confidential.",
+    "anders": "a field where every number is posted."
+   }
+  },
+  {
+   "id": "my-family-understanding-what-i-actually-do",
+   "want": "My family understanding what I actually do.",
+   "group": "seen",
+   "costs": {
+    "ashley": "describing work you are not free to describe.",
+    "anders": "correcting what people assume about the life."
+   }
+  },
+  {
+   "id": "being-the-one-they-call",
+   "want": "Being the one they call.",
+   "group": "seen",
+   "costs": {
+    "ashley": "a phone that rings on other people's schedules.",
+    "anders": "a reputation built over seasons."
+   }
+  },
+  {
+   "id": "credit-for-what-i-carried",
+   "want": "Credit for what I carried.",
+   "group": "seen",
+   "costs": {
+    "ashley": "saying it out loud in a room that assumes otherwise.",
+    "anders": "naming the part of it that was her."
+   }
+  },
+  {
+   "id": "not-being-defined-by-one-number",
+   "want": "Not being defined by one number.",
+   "group": "seen",
+   "costs": {
+    "ashley": "whatever number you have started measuring the practice by.",
+    "anders": "a world ranking."
+   }
+  },
+  {
+   "id": "being-known-for-more-than-this",
+   "want": "Being known for more than this.",
+   "group": "seen",
+   "costs": {
+    "ashley": "building something outside the practice.",
+    "anders": "becoming someone besides a golfer, starting now."
+   }
+  },
+  {
+   "id": "somebody-in-my-corner-who-is-not-obligated-to-be",
+   "want": "Somebody in my corner who is not obligated to be.",
+   "group": "seen",
+   "costs": {
+    "ashley": "asking for it.",
+    "anders": "accepting it without turning it into a debt."
+   }
+  },
+  {
+   "id": "knowing-we-are-where-we-are-supposed-to-be",
+   "want": "Knowing we are where we are supposed to be.",
+   "group": "faith",
+   "costs": {
+    "ashley": "sitting in the question without rushing it closed.",
+    "anders": "sitting in it with a clock running."
+   }
+  },
+  {
+   "id": "a-clear-conscience-about-how-we-decided",
+   "want": "A clear conscience about how we decided.",
+   "group": "faith",
+   "costs": {
+    "ashley": "saying the hard part.",
+    "anders": "asking for the hard part, and then waiting."
+   }
+  },
+  {
+   "id": "peace-that-does-not-move-with-the-result",
+   "want": "Peace that does not move with the result.",
+   "group": "faith",
+   "costs": {
+    "ashley": "loosening a grip that has been keeping things steady.",
+    "anders": "finding a floor underneath the scoreboard."
+   }
+  },
+  {
+   "id": "belonging-to-something-older-than-us",
+   "want": "Belonging to something older than us.",
+   "group": "faith",
+   "costs": {
+    "ashley": "submitting to it in some way.",
+    "anders": "submitting to it in a life built on self-reliance."
+   }
+  },
+  {
+   "id": "work-that-is-more-than-output",
+   "want": "Work that is more than output.",
+   "group": "faith",
+   "costs": {
+    "ashley": "naming a calling you may rarely name out loud.",
+    "anders": "defending the idea that a game can carry meaning."
+   }
+  },
+  {
+   "id": "silence-regularly",
+   "want": "Silence, regularly.",
+   "group": "faith",
+   "costs": {
+    "ashley": "the hour you currently spend on something else.",
+    "anders": "finding out what is underneath the noise."
+   }
+  },
+  {
+   "id": "gratitude-that-does-not-depend-on-the-outcome",
+   "want": "Gratitude that does not depend on the outcome.",
+   "group": "faith",
+   "costs": {
+    "ashley": "practicing it in a year you did not pick.",
+    "anders": "practicing it after a missed cut."
+   }
+  },
+  {
+   "id": "a-sense-that-this-adds-up",
+   "want": "A sense that this adds up.",
+   "group": "faith",
+   "costs": {
+    "ashley": "deciding what would count.",
+    "anders": "deciding what would count, apart from a card."
+   }
+  },
+  {
+   "id": "three-friends-who-tell-me-the-truth",
+   "want": "Three friends who tell me the truth.",
+   "group": "friends",
+   "costs": {
+    "ashley": "becoming someone who can hear it.",
+    "anders": "a life on the road, which thins a circle."
+   }
+  },
+  {
+   "id": "being-a-regular-somewhere",
+   "want": "Being a regular somewhere.",
+   "group": "friends",
+   "costs": {
+    "ashley": "evenings.",
+    "anders": "weeks at home."
+   }
+  },
+  {
+   "id": "friends-outside-my-field",
+   "want": "Friends outside my field.",
+   "group": "friends",
+   "costs": {
+    "ashley": "a social life that is not adjacent to the work.",
+    "anders": "a social life that is not adjacent to the game."
+   }
+  },
+  {
+   "id": "people-who-knew-us-before-this",
+   "want": "People who knew us before this.",
+   "group": "friends",
+   "costs": {
+    "ashley": "keeping up, which takes effort nobody schedules.",
+    "anders": "visits that do not fit the schedule."
+   }
+  },
+  {
+   "id": "hosting-people",
+   "want": "Hosting people.",
+   "group": "friends",
+   "costs": {
+    "ashley": "the cooking, the cleaning, and being interrupted.",
+    "anders": "being home to do it."
+   }
+  },
+  {
+   "id": "being-useful-to-somebody",
+   "want": "Being useful to somebody.",
+   "group": "friends",
+   "costs": {
+    "ashley": "giving more of what you already give all day.",
+    "anders": "hours that are not practice."
+   }
+  },
+  {
+   "id": "a-community-that-holds-us",
+   "want": "A community that holds us.",
+   "group": "friends",
+   "costs": {
+    "ashley": "showing up when you are depleted.",
+    "anders": "showing up when you are mostly gone."
+   }
+  },
+  {
+   "id": "finding-out-instead-of-wondering-for-forty-years",
+   "want": "Finding out, instead of wondering for forty years.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "a year, so he does not carry that.",
+    "anders": "the finding out, and living with the answer."
+   }
+  },
+  {
+   "id": "not-being-the-one-who-quit",
+   "want": "Not being the one who quit.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "a decision shaped by what other people will think.",
+    "anders": "a decision shaped by people you could name."
+   }
+  },
+  {
+   "id": "not-being-the-reason-the-other-one-let-go",
+   "want": "Not being the reason the other one let go.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "carrying a year you did not choose, quietly.",
+    "anders": "letting her carry it quietly."
+   }
+  },
+  {
+   "id": "showing-the-people-who-said-i-would-not",
+   "want": "Showing the people who said I would not.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "a scoreboard somebody else is keeping.",
+    "anders": "a scoreboard that resets every Thursday."
+   }
+  },
+  {
+   "id": "proving-i-belong-at-that-level",
+   "want": "Proving I belong at that level.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "a year organized around a proof.",
+    "anders": "a proof that expires every week."
+   }
+  },
+  {
+   "id": "not-being-the-one-who-gave-something-up",
+   "want": "Not being the one who gave something up.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "keeping score inside a marriage.",
+    "anders": "keeping a tally you would never say out loud."
+   }
+  },
+  {
+   "id": "never-being-that-broke-again",
+   "want": "Never being that broke again.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "decisions sized to a year that is already over.",
+    "anders": "turning down a risk for reasons that are old."
+   }
+  },
+  {
+   "id": "being-the-strong-one",
+   "want": "Being the strong one.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "help.",
+    "anders": "help."
+   }
+  },
+  {
+   "id": "not-being-found-out",
+   "want": "Not being found out.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "the energy of maintaining it.",
+    "anders": "the energy of maintaining it, on camera."
+   }
+  },
+  {
+   "id": "not-becoming-my-parents",
+   "want": "Not becoming my parents.",
+   "group": "rivals",
+   "costs": {
+    "ashley": "measuring a life against people instead of a purpose.",
+    "anders": "the same measurement, pointed at a different pair."
+   }
+  }
+ ]
+}

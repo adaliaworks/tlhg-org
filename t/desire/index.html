@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What Do You Want? &middot; Desire Path</title>
+<meta name="description" content="A sorting instrument for the Desire session of Desire Path.">
+<meta name="robots" content="noindex">
+<style>
+:root{
+  --ink:#1D1801; --ink-soft:#5a5340; --ink-faint:#8d8672;
+  --paper:#FFFFFF; --card:#FFFFFF; --rule:#e2ded1; --tint:#f6f4ec;
+  --funded:#2f6b4f; --starved:#2f5c8a; --autopilot:#8a6d1f; --notmine:#9a3b2f;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(29,24,1,.08), 0 8px 28px rgba(29,24,1,.10);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Helvetica,"Helvetica Neue",sans-serif;
+  color:var(--ink); background:var(--paper);
+  -webkit-font-smoothing:antialiased; line-height:1.5; overscroll-behavior:none;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#f2eee2; --ink-soft:#b9b3a1; --ink-faint:#8b8574;
+    --paper:#14130f; --card:#1e1c16; --rule:#332f25; --tint:#1b1913;
+    --funded:#79c39b; --starved:#8fb8e0; --autopilot:#d9b95c; --notmine:#e08b7c;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.45);
+  }
+}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+.app{min-height:100svh;display:flex;flex-direction:column}
+
+header.bar{border-bottom:1px solid var(--rule);padding:10px 0;position:sticky;top:0;z-index:20;background:var(--paper)}
+.bar .wrap{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.brand{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.stepper{display:flex;gap:5px;align-items:center;flex:1;justify-content:center}
+.step{width:18px;height:4px;border-radius:2px;background:var(--rule)}
+.step.done{background:var(--ink-soft)} .step.now{background:var(--ink)}
+.linkbtn{background:none;border:0;padding:6px;color:var(--ink-soft);font-size:13px;text-decoration:underline}
+
+main{flex:1;display:flex;flex-direction:column;padding:20px 0 28px}
+h1{font-size:30px;line-height:1.18;letter-spacing:-.02em;margin:0 0 14px}
+h2{font-size:21px;line-height:1.25;margin:0 0 6px;letter-spacing:-.01em}
+h3{font-size:16px;margin:22px 0 6px}
+p{margin:0 0 14px;max-width:62ch}
+.lede{color:var(--ink-soft)}
+.small{font-size:14px;color:var(--ink-soft)}
+.tiny{font-size:12.5px;color:var(--ink-faint)}
+
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:999px;padding:12px 22px;font-size:16px;font-weight:bold}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.35;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.whopick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 26px}
+.whobtn{border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);padding:22px;font-size:24px;font-weight:bold;letter-spacing:-.02em;box-shadow:var(--shadow)}
+.whobtn:hover{border-color:var(--ink)}
+.whobtn span{display:block;font-size:13px;font-weight:normal;color:var(--ink-faint);margin-top:6px;letter-spacing:0}
+
+.quadkey{border-top:1px solid var(--rule);margin:18px 0 22px}
+.quadrow{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.quadrow b{font-size:15px;white-space:nowrap;min-width:104px}
+.quadrow span{font-size:14px;color:var(--ink-soft)}
+.k-funded{color:var(--funded)} .k-starved{color:var(--starved)}
+.k-autopilot{color:var(--autopilot)} .k-notmine{color:var(--notmine)}
+
+.deckarea{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:300px;padding:6px 0 4px}
+.stack{position:relative;width:100%;max-width:400px;height:min(46svh,380px);min-height:260px}
+.tcard{position:absolute;inset:0;background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:24px;display:flex;flex-direction:column;
+  touch-action:none;user-select:none;-webkit-user-select:none;will-change:transform}
+.tcard.under{pointer-events:none}
+.tcard .grouptag{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint)}
+.tcard .want{font-size:clamp(22px,5.6vw,30px);line-height:1.18;letter-spacing:-.02em;margin:auto 0;font-weight:bold}
+.tcard .flipnote{font-size:12.5px;color:var(--ink-faint);margin-top:14px}
+.tcard .front{display:flex;flex-direction:column;height:100%}
+.tcard .back{display:none}
+.tcard.flipped .front{display:none}
+.tcard.flipped .back{display:flex;flex-direction:column;height:100%;overflow-y:auto}
+.back .costlabel{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 4px}
+.back .costtext{font-size:18px;line-height:1.4;color:var(--ink-soft)}
+.verdict{position:absolute;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:bold;
+  padding:6px 11px;border-radius:6px;border:2px solid currentColor;opacity:0;pointer-events:none}
+.v-funded{top:50%;right:16px;transform:translateY(-50%);color:var(--funded)}
+.v-notmine{top:50%;left:16px;transform:translateY(-50%);color:var(--notmine)}
+.v-starved{top:16px;left:50%;transform:translateX(-50%);color:var(--starved)}
+.v-autopilot{bottom:16px;left:50%;transform:translateX(-50%);color:var(--autopilot)}
+
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;max-width:440px;margin:0 auto;width:100%}
+.cbtn{border:1px solid var(--rule);background:var(--card);border-radius:12px;padding:10px 12px;text-align:left;line-height:1.2}
+.cbtn b{display:block;font-size:15px}
+.cbtn i{display:block;font-style:normal;font-size:11.5px;color:var(--ink-faint);margin-top:3px}
+.cbtn[data-v="funded"] b{color:var(--funded)}
+.cbtn[data-v="starved"] b{color:var(--starved)}
+.cbtn[data-v="autopilot"] b{color:var(--autopilot)}
+.cbtn[data-v="notmine"] b{color:var(--notmine)}
+.counts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding-top:12px;font-size:13px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.progress{height:3px;background:var(--rule);border-radius:2px;overflow:hidden;margin:0 0 14px}
+.progress i{display:block;height:100%;background:var(--ink-soft);transition:width .2s}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px;margin:12px 0}
+.chip{border:1px solid var(--rule);background:var(--card);border-radius:10px;padding:11px 12px;text-align:left;line-height:1.3}
+.chip b{display:block;font-size:14.5px;font-weight:bold}
+.chip span{display:block;font-size:12px;color:var(--ink-faint);margin-top:3px}
+.chip.out{opacity:.45;border-style:dashed;background:transparent}
+.chip.out b{text-decoration:line-through}
+.chip.sel{border-color:var(--funded);box-shadow:inset 0 0 0 2px var(--funded)}
+.sticky{position:sticky;bottom:0;background:var(--paper);border-top:1px solid var(--rule);padding:12px 0;margin-top:auto}
+.sticky .wrap{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+@media (max-width:540px){ .duel{grid-template-columns:1fr} }
+.duelcard{border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);padding:20px;text-align:left;
+  min-height:150px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.duelcard:hover{border-color:var(--ink)}
+.duelcard b{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.duelcard span{font-size:14px;color:var(--ink-soft);margin-top:12px}
+.duelcard span i{font-style:normal;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.1em;font-size:11px;display:block;margin-bottom:3px}
+
+.frow{border:1px solid var(--rule);border-radius:12px;padding:12px;margin-bottom:9px;background:var(--card)}
+.frow b{display:block;font-size:15.5px;margin-bottom:8px}
+.fopts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.fopt{border:1px solid var(--rule);background:transparent;border-radius:8px;padding:8px 6px;font-size:12.5px;text-align:center;line-height:1.2}
+.fopt.on{border-color:var(--ink);background:var(--tint);box-shadow:inset 0 0 0 1px var(--ink);font-weight:bold}
+
+.filterbox{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--rule);
+  border-radius:10px;background:var(--card);color:inherit;margin:10px 0}
+.filterbox:focus{outline:none;border-color:var(--ink)}
+.gh{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 0}
+
+/* ---- the printable sheet ---- */
+.toggles{border:1px solid var(--rule);border-radius:12px;padding:14px;margin:14px 0 20px;background:var(--tint)}
+.toggles label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:14.5px;cursor:pointer}
+.toggles input{margin-top:3px;width:17px;height:17px;flex:none}
+.toggles .fixed{opacity:.55;cursor:default}
+
+#sheet{border:1px solid var(--rule);border-radius:12px;padding:26px;background:var(--card)}
+#sheet h2{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);
+  margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--rule);font-weight:bold}
+#sheet h2:first-of-type{margin-top:18px}
+.sheethead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sheethead b{font-size:24px;letter-spacing:-.02em}
+.sheethead span{font-size:13px;color:var(--ink-faint)}
+.sheetnote{font-size:13px;color:var(--ink-faint);margin:4px 0 0}
+ol.ranked{margin:0;padding:0}
+ol.ranked li{list-style:none;display:flex;gap:13px;padding:11px 0;border-bottom:1px solid var(--rule);align-items:flex-start}
+ol.ranked .num{font-size:12.5px;color:var(--ink-faint);width:15px;padding-top:4px;font-variant-numeric:tabular-nums;flex:none}
+ol.ranked b{font-size:16.5px;display:block;line-height:1.3}
+.cost{font-size:13.5px;color:var(--ink-soft);margin-top:4px;border-bottom:1px dotted var(--rule);padding:2px 0;min-height:1.3em}
+.cost:focus{outline:none;border-bottom-color:var(--ink);background:var(--tint)}
+.costtag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+ul.flat{margin:0;padding:0}
+ul.flat li{list-style:none;padding:7px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.fcols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media (max-width:620px){ .fcols{grid-template-columns:1fr} }
+.fcols h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 6px}
+.fcols li{font-size:14px;padding:5px 0;border-bottom:1px solid var(--rule);list-style:none}
+.fcols ul{margin:0;padding:0}
+.pilewrap{display:flex;flex-wrap:wrap;gap:6px}
+.member{border:1px solid var(--rule);border-radius:999px;padding:5px 11px;font-size:13.5px;background:var(--tint)}
+.hidden{display:none !important}
+
+footer.foot{border-top:1px solid var(--rule);padding:16px 0 30px;font-size:12.5px;color:var(--ink-faint)}
+
+@media print{
+  header.bar,.sticky,.noprint,footer.foot{display:none !important}
+  body{color:#000;background:#fff;font-size:11pt}
+  .app{min-height:0}
+  main{padding:0}
+  .wrap{max-width:none;padding:0}
+  #sheet{border:0;border-radius:0;padding:0;background:#fff}
+  #sheet h2{color:#000;border-bottom:1px solid #999;page-break-after:avoid}
+  .cost{border-bottom:0;color:#333}
+  ol.ranked li,ul.flat li,.fcols li{border-bottom:1px solid #ddd;page-break-inside:avoid}
+  .member{border:1px solid #999;background:#fff}
+  .fcols{grid-template-columns:1fr 1fr 1fr}
+  @page{ margin:18mm 16mm; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<header class="bar noprint">
+  <div class="wrap">
+    <div class="brand" id="brand">Desire Path</div>
+    <div class="stepper" id="stepper"></div>
+    <button class="linkbtn hidden" id="switcher">Switch</button>
+    <button class="linkbtn" id="startover">Start over</button>
+  </div>
+</header>
+
+<main id="main" class="wrap"><p class="lede">Loading…</p></main>
+
+<footer class="foot noprint"><div class="wrap">
+  Everything you sort stays in this browser. Nothing you sort is uploaded, saved, or stored beyond your device.
+</div></footer>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var CAP_TOP = 10, CAP_WITHOUT = 10, CAP_PREDICT = 5;
+var DECK = null, CARDS = {}, GROUPS = {}, PEOPLE = {};
+var S = null, WHO = null;
+var main = document.getElementById("main");
+
+var BUCKETS = [
+  { id:"funded",    label:"Funded",       hint:"I want it, and the last month shows it.",      key:"→" },
+  { id:"starved",   label:"Starved",      hint:"I want it, and the last month does not.",      key:"↑" },
+  { id:"autopilot", label:"On autopilot", hint:"I spend here, and I am not sure I want it.",   key:"↓" },
+  { id:"notmine",   label:"Not mine",     hint:"Somebody else's want, honestly.",              key:"←" }
+];
+var FUTURES = [
+  { id:"goes",   label:"More if the run happens" },
+  { id:"stops",  label:"More if the run ends" },
+  { id:"either", label:"Either way" }
+];
+
+var LAST = "dp-desire-last";
+function keyFor(who){ return "dp-desire-v1-" + who; }
+function setLast(who){
+  try{ if(who) localStorage.setItem(LAST, who); else localStorage.removeItem(LAST); }catch(e){}
+}
+function freshState(){
+  return { stage:"triage", order:[], i:0,
+    funded:[], starved:[], autopilot:[], notmine:[], history:[],
+    keepTop:[], keepTopInit:false,
+    rank:null,
+    keepWithout:[], keepWithoutInit:false,
+    futures:{}, predict:[], costEdits:{},
+    share:{ without:true, futures:true, predict:true, autopilot:true, rivals:false },
+    started:null };
+}
+function save(){ if(WHO){ try{ localStorage.setItem(keyFor(WHO), JSON.stringify(S)); }catch(e){} } }
+function load(who){
+  try{ var raw = localStorage.getItem(keyFor(who)); if(!raw) return null;
+    var o = JSON.parse(raw); return (o && o.stage) ? o : null; }catch(e){ return null; }
+}
+function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=(Math.random()*(i+1))|0,t=a[i];a[i]=a[j];a[j]=t; } return a; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+  return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]; }); }
+function me(){ return PEOPLE[WHO]; }
+function cost(c){ return (S.costEdits[c.id] != null && S.costEdits[c.id] !== "")
+  ? S.costEdits[c.id] : c.costs[WHO]; }
+function affirmed(){ return S.funded.concat(S.starved); }
+function capTop(){ return Math.min(CAP_TOP, affirmed().length); }
+function withoutPool(){
+  var t = {}; S.keepTop.forEach(function(id){ t[id]=1; });
+  return affirmed().filter(function(id){ return !t[id]; });
+}
+function capWithout(){ return Math.min(CAP_WITHOUT, withoutPool().length); }
+function ranked(){ return (S.rank && S.rank.sorted.length) ? S.rank.sorted : S.keepTop; }
+function isRival(id){ return CARDS[id] && CARDS[id].group === "rivals"; }
+function visible(ids){ return S.share.rivals ? ids : ids.filter(function(id){ return !isRival(id); }); }
+
+var STAGES = ["triage","keeptop","duel","without","futures","predict","result"];
+function drawStepper(){
+  var el = document.getElementById("stepper");
+  if(!WHO){ el.innerHTML = ""; return; }
+  var now = STAGES.indexOf(S.stage), h = "";
+  for(var i=0;i<STAGES.length;i++){ h += '<i class="step'+(i<now?" done":i===now?" now":"")+'"></i>'; }
+  el.innerHTML = h;
+}
+function go(stage){ S.stage = stage; save(); render(); }
+
+var lastKey = null;
+function render(){
+  drawStepper();
+  document.getElementById("brand").textContent = WHO ? me().name : "Desire Path";
+  document.getElementById("startover").classList.toggle("hidden", !WHO);
+  document.getElementById("switcher").classList.toggle("hidden", !WHO);
+  var k = (WHO||"-") + "/" + (S ? S.stage : "welcome");
+  if(k !== lastKey){ window.scrollTo(0,0); lastKey = k; }
+  main.innerHTML = "";
+  if(!WHO) return vWelcome();
+  ({ triage:vTriage, keeptop:vKeepTop, duel:vDuel, without:vWithout,
+     futures:vFutures, predict:vPredict, result:vResult }[S.stage] || vTriage)();
+}
+
+/* ---------------- welcome ---------------- */
+
+function vWelcome(){
+  main.innerHTML =
+    '<h1>What do you want?</h1>'+
+    '<p class="lede">'+DECK.cards.length+' things a person might want, one per card. '+
+      'Every one of them is worth wanting, so approving of them tells you nothing. '+
+      'This sort is looking for evidence instead.</p>'+
+    '<p class="lede"><b>Answer for '+esc(DECK.horizon)+'.</b> Not for the rest of your life. '+
+      'Five years is long enough to be a real life and short enough to actually answer.</p>'+
+    '<p class="lede"><b>Answer alone, as though the other person’s answer did not exist.</b> '+
+      'That is artificial on purpose. Working out where the two answers meet is what the session is for, '+
+      'and that part goes better when neither answer has already been rounded toward the other.</p>'+
+    '<div class="quadkey">'+ BUCKETS.map(function(b){
+      return '<div class="quadrow"><b class="k-'+b.id+'">'+b.label+'</b><span>'+esc(b.hint)+'</span></div>';
+    }).join("") +'</div>'+
+    '<p class="small">About thirty-five minutes, and it works better in one sitting, on a laptop.</p>'+
+    '<h3>Who is sorting?</h3>'+
+    '<div class="whopick">'+ DECK.people.map(function(p){
+      var prior = load(p.id);
+      return '<button class="whobtn" data-who="'+p.id+'">'+esc(p.name)+
+        '<span>'+(prior && prior.started ? "pick up where you left off" : "start")+'</span></button>';
+    }).join("") +'</div>';
+
+  Array.prototype.forEach.call(document.querySelectorAll(".whobtn"), function(b){
+    b.onclick = function(){
+      WHO = b.getAttribute("data-who");
+      S = load(WHO);
+      if(!S){ S = freshState(); S.order = shuffle(DECK.cards.map(function(c){ return c.id; })); S.started = Date.now(); save(); }
+      setLast(WHO);
+      render();
+    };
+  });
+}
+
+/* ---------------- triage ---------------- */
+
+function cardFace(c){
+  var g = GROUPS[c.group];
+  return ''+
+  '<div class="front">'+
+    '<div class="grouptag">'+esc(g?g.name:"")+'</div>'+
+    '<div class="want">'+esc(c.want)+'</div>'+
+    '<div class="flipnote">Tap for what it costs</div>'+
+  '</div>'+
+  '<div class="back">'+
+    '<div class="grouptag">'+esc(c.want)+'</div>'+
+    '<div class="costlabel">What it would cost you</div>'+
+    '<div class="costtext">'+esc(c.costs[WHO])+'</div>'+
+  '</div>'+
+  BUCKETS.map(function(b){ return '<div class="verdict v-'+b.id+'">'+b.label+'</div>'; }).join("");
+}
+
+function vTriage(){
+  if(S.i >= S.order.length) return go("keeptop");
+  var pct = Math.round(S.i / S.order.length * 100);
+
+  main.innerHTML =
+    '<div class="progress"><i style="width:'+pct+'%"></i></div>'+
+    '<p class="tiny" style="text-align:center;margin:0 0 6px">'+
+      'Over '+esc(DECK.horizon)+'. Where does this one actually sit?</p>'+
+    '<div class="deckarea"><div class="stack" id="stack"></div></div>'+
+    '<div class="controls">'+ ["notmine","funded","starved","autopilot"].map(function(id){
+      var b = BUCKETS.filter(function(x){ return x.id===id; })[0];
+      return '<button class="cbtn" data-v="'+b.id+'"><b>'+b.key+' '+b.label+'</b><i>'+esc(b.hint)+'</i></button>';
+    }).join("") +'</div>'+
+    '<div class="counts">'+
+      '<span>'+(S.i+1)+' of '+S.order.length+'</span>'+
+      '<span>Funded '+S.funded.length+'</span>'+
+      '<span>Starved '+S.starved.length+'</span>'+
+      '<span>Autopilot '+S.autopilot.length+'</span>'+
+      '<button class="linkbtn" id="undo"'+(S.history.length?"":" disabled")+'>Undo</button>'+
+    '</div>'+
+    '<p class="tiny" style="text-align:center;margin-top:10px">Drag the card, use the buttons, or press the arrow keys. Space turns it over.</p>';
+
+  var stack = document.getElementById("stack");
+  var nextId = S.order[S.i+1];
+  if(nextId){
+    var u = document.createElement("div");
+    u.className = "tcard under";
+    u.style.transform = "scale(.965) translateY(10px)";
+    u.innerHTML = cardFace(CARDS[nextId]);
+    stack.appendChild(u);
+  }
+  var el = document.createElement("div");
+  el.className = "tcard";
+  el.innerHTML = cardFace(CARDS[S.order[S.i]]);
+  stack.appendChild(el);
+  wireCard(el);
+
+  Array.prototype.forEach.call(document.querySelectorAll(".controls .cbtn"), function(b){
+    b.onclick = function(){ fly(el, b.getAttribute("data-v")); };
+  });
+  var ub = document.getElementById("undo");
+  if(ub) ub.onclick = undo;
+
+  document.onkeydown = function(e){
+    if(S.stage !== "triage") return;
+    var map = { ArrowRight:"funded", ArrowUp:"starved", ArrowDown:"autopilot", ArrowLeft:"notmine" };
+    if(map[e.key]){ e.preventDefault(); fly(el, map[e.key]); }
+    else if(e.key === " "){ e.preventDefault(); el.classList.toggle("flipped"); }
+    else if(e.key.toLowerCase() === "u"){ e.preventDefault(); undo(); }
+  };
+}
+
+function wireCard(el){
+  var sx=0,sy=0,dx=0,dy=0,dragging=false,moved=false,pid=null,v={};
+  BUCKETS.forEach(function(b){ v[b.id] = el.querySelector(".v-"+b.id); });
+
+  el.addEventListener("pointerdown", function(e){
+    if(e.button) return;
+    dragging=true; moved=false; pid=e.pointerId; sx=e.clientX; sy=e.clientY; dx=dy=0;
+    el.setPointerCapture(pid); el.style.transition="none";
+  });
+  el.addEventListener("pointermove", function(e){
+    if(!dragging || e.pointerId!==pid) return;
+    dx=e.clientX-sx; dy=e.clientY-sy;
+    if(Math.abs(dx)>6 || Math.abs(dy)>6) moved=true;
+    el.style.transform = "translate("+dx+"px,"+dy+"px) rotate("+(dx*0.045)+"deg)";
+    var horiz = Math.abs(dx) >= Math.abs(dy);
+    v.funded.style.opacity    = horiz ? Math.max(0,Math.min(1, dx/90)) : 0;
+    v.notmine.style.opacity   = horiz ? Math.max(0,Math.min(1,-dx/90)) : 0;
+    v.starved.style.opacity   = horiz ? 0 : Math.max(0,Math.min(1,-dy/90));
+    v.autopilot.style.opacity = horiz ? 0 : Math.max(0,Math.min(1, dy/90));
+  });
+  function end(e){
+    if(!dragging || (e && e.pointerId!==pid)) return;
+    dragging=false;
+    el.style.transition="transform .22s ease-out, opacity .22s ease-out";
+    var horiz = Math.abs(dx) >= Math.abs(dy);
+    if(horiz && dx >  95) return fly(el,"funded");
+    if(horiz && dx < -95) return fly(el,"notmine");
+    if(!horiz && dy < -95) return fly(el,"starved");
+    if(!horiz && dy >  95) return fly(el,"autopilot");
+    el.style.transform="";
+    BUCKETS.forEach(function(b){ v[b.id].style.opacity = 0; });
+    if(!moved) el.classList.toggle("flipped");
+  }
+  el.addEventListener("pointerup", end);
+  el.addEventListener("pointercancel", end);
+}
+
+function fly(el, verdict){
+  var id = S.order[S.i];
+  var x = verdict==="funded" ? 520 : verdict==="notmine" ? -520 : 0;
+  var y = verdict==="starved" ? -620 : verdict==="autopilot" ? 620 : 0;
+  el.style.transition = "transform .24s ease-in, opacity .24s ease-in";
+  el.style.transform = "translate("+x+"px,"+y+"px) rotate("+(x*0.03)+"deg)";
+  el.style.opacity = "0";
+  S[verdict].push(id); S.history.push([id, verdict]); S.i++;
+  save();
+  setTimeout(function(){ document.onkeydown = null; render(); }, 170);
+}
+function undo(){
+  var last = S.history.pop(); if(!last) return;
+  var arr = S[last[1]], k = arr.lastIndexOf(last[0]);
+  if(k > -1) arr.splice(k,1);
+  S.i = Math.max(0, S.i-1);
+  save(); document.onkeydown = null; render();
+}
+
+/* ---------------- elimination screens ---------------- */
+
+function cutScreen(o){
+  document.onkeydown = null;
+  var field = o.field, pool = o.pool();
+  if(!S[field+"Init"]){ S[field] = pool.slice(); S[field+"Init"] = true; save(); }
+  S[field] = S[field].filter(function(id){ return pool.indexOf(id) > -1; });
+  var cap = o.cap();
+
+  if(!pool.length){
+    main.innerHTML = '<h2>'+o.title+'</h2><p class="small">'+o.empty+'</p>'+
+      '<div class="row"><button class="btn" id="next">Continue</button></div>';
+    document.getElementById("next").onclick = o.onNext;
+    return;
+  }
+
+  main.innerHTML =
+    '<h2>'+o.title+'</h2>'+
+    '<p class="lede small">'+o.blurb+'</p>'+
+    '<div id="sections"></div>'+
+    '<div class="sticky noprint"><div class="wrap">'+
+      '<div class="small" id="tally"></div>'+
+      '<button class="btn" id="next">Continue</button>'+
+    '</div></div>';
+
+  var sec = document.getElementById("sections");
+  var byGroup = {};
+  pool.forEach(function(id){ (byGroup[CARDS[id].group] = byGroup[CARDS[id].group] || []).push(id); });
+  DECK.groups.forEach(function(g){
+    if(byGroup[g.id]) sec.appendChild(block(g.name, byGroup[g.id]));
+  });
+
+  document.getElementById("next").onclick = function(){ if(S[field].length === cap) o.onNext(); };
+  refresh();
+
+  function refresh(){
+    var n = S[field].length, t;
+    if(n > cap)      t = '<b>'+n+'</b> left standing. Eliminate '+(n-cap)+' more.';
+    else if(n < cap) t = '<b>'+n+'</b> left standing. Bring '+(cap-n)+' back.';
+    else             t = '<b>'+n+'</b> left standing, which is the number.';
+    document.getElementById("tally").innerHTML = t;
+    document.getElementById("next").disabled = (n !== cap);
+  }
+  function block(label, ids){
+    var box = document.createElement("div");
+    box.innerHTML = '<h3 class="gh">'+esc(label)+' · '+ids.length+'</h3><div class="grid">'+
+      ids.map(function(id){
+        return '<button class="chip'+(S[field].indexOf(id)>-1?"":" out")+'" data-id="'+id+'">'+
+               '<b>'+esc(CARDS[id].want)+'</b><span>'+esc(cost(CARDS[id]))+'</span></button>';
+      }).join("")+'</div>';
+    Array.prototype.forEach.call(box.querySelectorAll(".chip"), function(b){
+      b.onclick = function(){
+        var id = b.getAttribute("data-id"), k = S[field].indexOf(id);
+        if(k > -1){ S[field].splice(k,1); b.classList.add("out"); }
+        else { S[field].push(id); b.classList.remove("out"); }
+        save(); refresh();
+      };
+    });
+    return box;
+  }
+}
+
+function vKeepTop(){
+  var cap = capTop();
+  cutScreen({
+    field:"keepTop",
+    title:"Eliminate down to "+cap,
+    blurb:"You called "+affirmed().length+" of these wanted, whether or not you are currently feeding them. "+
+          "Tap a card to eliminate it, and tap it again if you want it back. Leave standing the "+cap+
+          " you want most over "+esc(DECK.horizon)+".",
+    empty:"Nothing landed in the Funded or Starved piles, so there is nothing to narrow here.",
+    pool:affirmed, cap:capTop,
+    onNext:function(){ S.rank = null; go(S.keepTop.length > 1 ? "duel" : "without"); }
+  });
+}
+
+function vWithout(){
+  var cap = capWithout();
+  cutScreen({
+    field:"keepWithout",
+    title:"The "+cap+" you can live without",
+    blurb:"These are the ones you wanted that did not make your ten. They are all real goods, "+
+          "which is what makes this worth doing. Eliminate down to the "+cap+" you are genuinely "+
+          "willing to not have.",
+    empty:"Nothing is left over, so there is no list to build here.",
+    pool:withoutPool, cap:capWithout,
+    onNext:function(){ go("futures"); }
+  });
+}
+
+/* ---------------- duels ---------------- */
+
+function initRank(){
+  var pool = shuffle(S.keepTop.slice());
+  S.rank = { sorted:[pool[0]], queue:pool.slice(1), cur:null, lo:0, hi:0, asked:0 };
+  nextItem();
+}
+function nextItem(){
+  var r = S.rank;
+  if(!r.queue.length){ r.cur = null; return; }
+  r.cur = r.queue.shift(); r.lo = 0; r.hi = r.sorted.length;
+}
+function answer(preferCur){
+  var r = S.rank, mid = (r.lo + r.hi) >> 1;
+  if(preferCur) r.hi = mid; else r.lo = mid + 1;
+  r.asked++;
+  if(r.lo >= r.hi){ r.sorted.splice(r.lo, 0, r.cur); nextItem(); }
+  save(); render();
+}
+function vDuel(){
+  document.onkeydown = null;
+  if(!S.rank) initRank();
+  var r = S.rank;
+  if(!r.cur) return go("without");
+  var mid = (r.lo + r.hi) >> 1;
+  var A = CARDS[r.cur], B = CARDS[r.sorted[mid]];
+  var placed = r.sorted.length, all = S.keepTop.length;
+
+  main.innerHTML =
+    '<div class="progress"><i style="width:'+Math.round((placed-1)/Math.max(1,all-1)*100)+'%"></i></div>'+
+    '<h2>Keep one</h2>'+
+    '<p class="lede small">Both of these cost something, and the price is on each card. '+
+      'If you could carry only one into the next five years, which one? Answer quickly.</p>'+
+    '<div class="duel">'+ dc(A,"a") + dc(B,"b") +'</div>'+
+    '<p class="tiny" style="text-align:center">'+placed+' of '+all+' placed. Press 1 or 2.</p>';
+
+  document.getElementById("d-a").onclick = function(){ answer(true); };
+  document.getElementById("d-b").onclick = function(){ answer(false); };
+  document.onkeydown = function(e){
+    if(S.stage !== "duel") return;
+    if(e.key === "1"){ e.preventDefault(); answer(true); }
+    if(e.key === "2"){ e.preventDefault(); answer(false); }
+  };
+  function dc(c,k){
+    return '<button class="duelcard" id="d-'+k+'"><b>'+esc(c.want)+'</b>'+
+      '<span><i>Costs</i>'+esc(cost(c))+'</span></button>';
+  }
+}
+
+/* ---------------- two futures ---------------- */
+
+function vFutures(){
+  document.onkeydown = null;
+  var ids = ranked();
+  var done = ids.filter(function(id){ return S.futures[id]; }).length;
+
+  main.innerHTML =
+    '<h2>Which future does each one live in?</h2>'+
+    '<p class="lede small">Your ten, one at a time. If the run happens, some of these get easier to have. '+
+      'If the run ends, others do. Plenty of them do not move at all, and that pile matters as much as '+
+      'the other two.</p>'+
+    '<div id="rows"></div>'+
+    '<div class="sticky noprint"><div class="wrap">'+
+      '<div class="small" id="ftally">'+done+' of '+ids.length+' tagged</div>'+
+      '<button class="btn" id="next"'+(done===ids.length?"":" disabled")+'>Continue</button>'+
+    '</div></div>';
+
+  document.getElementById("rows").innerHTML = ids.map(function(id){
+    return '<div class="frow"><b>'+esc(CARDS[id].want)+'</b><div class="fopts">'+
+      FUTURES.map(function(f){
+        return '<button class="fopt'+(S.futures[id]===f.id?" on":"")+'" data-id="'+id+'" data-f="'+f.id+'">'+
+               f.label+'</button>';
+      }).join("")+'</div></div>';
+  }).join("");
+
+  Array.prototype.forEach.call(document.querySelectorAll(".fopt"), function(b){
+    b.onclick = function(){
+      var id = b.getAttribute("data-id");
+      S.futures[id] = b.getAttribute("data-f");
+      save();
+      Array.prototype.forEach.call(document.querySelectorAll('.fopt[data-id="'+id+'"]'), function(o){
+        o.classList.toggle("on", o.getAttribute("data-f") === S.futures[id]);
+      });
+      var n = ids.filter(function(x){ return S.futures[x]; }).length;
+      document.getElementById("ftally").textContent = n + " of " + ids.length + " tagged";
+      document.getElementById("next").disabled = (n !== ids.length);
+    };
+  });
+  document.getElementById("next").onclick = function(){ go("predict"); };
+}
+
+/* ---------------- prediction ---------------- */
+
+function vPredict(){
+  document.onkeydown = null;
+  var partner = PEOPLE[me().partner];
+
+  main.innerHTML =
+    '<h2>Now guess '+esc(partner.name)+'’s five</h2>'+
+    '<p class="lede small">Out of all '+DECK.cards.length+' cards, which five do you think will land in '+
+      esc(partner.name)+'’s top ten? Answer from what you actually believe, and not from what would '+
+      'be generous. Whether you are right is the useful part either way.</p>'+
+    '<input class="filterbox noprint" id="filter" placeholder="Type to narrow the list" autocomplete="off">'+
+    '<div id="pgrid"></div>'+
+    '<div class="sticky noprint"><div class="wrap">'+
+      '<div class="small" id="ptally"></div>'+
+      '<button class="btn" id="next">Continue</button>'+
+    '</div></div>';
+
+  var grid = document.getElementById("pgrid");
+  function draw(q){
+    q = (q||"").trim().toLowerCase();
+    var h = "";
+    DECK.groups.forEach(function(g){
+      var ids = DECK.cards.filter(function(c){
+        return c.group === g.id && (!q || c.want.toLowerCase().indexOf(q) > -1);
+      }).map(function(c){ return c.id; });
+      if(!ids.length) return;
+      h += '<h3 class="gh">'+esc(g.name)+'</h3><div class="grid">'+ ids.map(function(id){
+        return '<button class="chip'+(S.predict.indexOf(id)>-1?" sel":"")+'" data-id="'+id+'">'+
+               '<b>'+esc(CARDS[id].want)+'</b></button>';
+      }).join("") +'</div>';
+    });
+    grid.innerHTML = h || '<p class="small">Nothing matches that.</p>';
+    Array.prototype.forEach.call(grid.querySelectorAll(".chip"), function(b){
+      b.onclick = function(){
+        var id = b.getAttribute("data-id"), k = S.predict.indexOf(id);
+        if(k > -1){ S.predict.splice(k,1); b.classList.remove("sel"); }
+        else {
+          if(S.predict.length >= CAP_PREDICT){
+            b.animate([{transform:"translateX(0)"},{transform:"translateX(-4px)"},
+                       {transform:"translateX(4px)"},{transform:"translateX(0)"}],{duration:180});
+            return;
+          }
+          S.predict.push(id); b.classList.add("sel");
+        }
+        save(); tally();
+      };
+    });
+  }
+  function tally(){
+    document.getElementById("ptally").innerHTML = '<b>'+S.predict.length+'</b> of '+CAP_PREDICT+' chosen';
+    document.getElementById("next").disabled = (S.predict.length !== CAP_PREDICT);
+  }
+  document.getElementById("filter").oninput = function(){ draw(this.value); };
+  draw(""); tally();
+  document.getElementById("next").onclick = function(){ if(S.predict.length === CAP_PREDICT) go("result"); };
+}
+
+/* ---------------- result ---------------- */
+
+function vResult(){
+  document.onkeydown = null;
+  var partner = PEOPLE[me().partner];
+
+  main.innerHTML =
+    '<h1 class="noprint">Your result</h1>'+
+    '<p class="lede small noprint">Choose what goes in the PDF, then print it and send it over. '+
+      'Nothing leaves this browser until you email it yourself.</p>'+
+    '<div class="toggles noprint" id="toggles">'+
+      '<label class="fixed"><input type="checkbox" checked disabled><span>'+
+        '<b>My ten, ranked</b><br><span class="tiny">Always included. This is the point of the exercise.</span></span></label>'+
+      tog("without", "The ten I can live without") +
+      tog("futures", "Which future each one lives in") +
+      tog("predict", "My guess at "+esc(partner.name)+"’s five") +
+      tog("autopilot", "What I have been feeding without wanting") +
+      tog("rivals", "Cards from The Rivals group") +
+    '</div>'+
+    '<div class="row noprint" style="margin:0 0 20px">'+
+      '<button class="btn" id="print">Save as PDF</button>'+
+      '<button class="btn ghost" id="copy">Copy as text</button>'+
+      '<button class="btn ghost" id="back">Back to the futures</button>'+
+    '</div>'+
+    '<p class="tiny noprint" id="hint">On a Mac, Save as PDF opens the print dialog, and the PDF button '+
+      'is at the bottom left. On a phone, choose Print and then pinch out on the preview.</p>'+
+    '<div id="sheet"></div>';
+
+  Array.prototype.forEach.call(document.querySelectorAll("#toggles input[data-k]"), function(inp){
+    inp.onchange = function(){ S.share[inp.getAttribute("data-k")] = inp.checked; save(); drawSheet(); };
+  });
+  document.getElementById("print").onclick = function(){ window.print(); };
+  document.getElementById("back").onclick = function(){ go("futures"); };
+  document.getElementById("copy").onclick = function(){
+    navigator.clipboard.writeText(asText()).then(function(){
+      document.getElementById("hint").textContent = "Copied. Paste it into an email.";
+    }, function(){
+      document.getElementById("hint").textContent = "Copying is blocked here. Use Save as PDF instead.";
+    });
+  };
+  drawSheet();
+
+  function tog(k, label){
+    return '<label><input type="checkbox" data-k="'+k+'"'+(S.share[k]?" checked":"")+
+           '><span><b>'+label+'</b></span></label>';
+  }
+}
+
+function drawSheet(){
+  var sheet = document.getElementById("sheet");
+  if(!sheet) return;
+  var partner = PEOPLE[me().partner];
+  var all = ranked();
+  var top = visible(all);
+  var without = visible(S.keepWithout);
+  var auto = visible(S.autopilot);
+  var pred = visible(S.predict);
+  var h = "";
+
+  // only claim something is held back when something actually is
+  var withheld = 0;
+  if(!S.share.rivals){
+    [all, S.keepWithout, S.autopilot, S.predict].forEach(function(list){
+      withheld += list.filter(isRival).length;
+    });
+  }
+  var rankGap = !S.share.rivals && all.filter(isRival).length > 0;
+
+  h += '<div class="sheethead"><b>'+esc(me().name)+'</b>'+
+       '<span>Desire Path · Session Two · '+new Date().toLocaleDateString()+'</span></div>'+
+       '<p class="sheetnote">Sorted alone, over '+esc(DECK.horizon)+
+       '. Of '+DECK.cards.length+' cards, '+affirmed().length+' were wanted, '+
+       S.funded.length+' of those already funded.'+
+       (withheld ? ' '+withheld+' card'+(withheld===1?' is':'s are')+' held back from The Rivals group'+
+                   (rankGap ? ', so some positions are missing below.' : '.') : '')+'</p>';
+
+  // numbers come from the full ranking, so a withheld card leaves a gap
+  // instead of quietly promoting everything under it
+  h += '<h2>My ten, ranked</h2><ol class="ranked">'+ all.map(function(id, idx){
+    if(top.indexOf(id) < 0) return "";
+    var c = CARDS[id], f = S.futures[id];
+    var fl = f ? (FUTURES.filter(function(x){ return x.id===f; })[0]||{}).label : "";
+    return '<li><span class="num">'+(idx+1)+'</span><div style="flex:1"><b>'+esc(c.want)+'</b>'+
+      '<div class="costtag">Costs me'+(fl && S.share.futures ? ' · '+esc(fl) : '')+'</div>'+
+      '<div class="cost" contenteditable="true" data-id="'+id+'">'+esc(cost(c))+'</div></div></li>';
+  }).join("") +'</ol>'+
+  '<p class="tiny noprint">The cost lines are editable. If one is wrong, write what it actually costs you.</p>';
+
+  if(S.share.without && without.length){
+    h += '<h2>The ten I can live without</h2><ul class="flat">'+
+      without.map(function(id){ return '<li>'+esc(CARDS[id].want)+'</li>'; }).join("")+'</ul>';
+  }
+  if(S.share.futures){
+    h += '<h2>Which future each one lives in</h2><div class="fcols">'+ FUTURES.map(function(f){
+      var ids = top.filter(function(id){ return S.futures[id] === f.id; });
+      return '<div><h4>'+f.label+'</h4><ul>'+
+        (ids.length ? ids.map(function(id){ return '<li>'+esc(CARDS[id].want)+'</li>'; }).join("")
+                    : '<li style="color:#8d8672">none</li>')+'</ul></div>';
+    }).join("") +'</div>';
+  }
+  if(S.share.predict && pred.length){
+    h += '<h2>My guess at '+esc(partner.name)+'’s five</h2><ul class="flat">'+
+      pred.map(function(id){ return '<li>'+esc(CARDS[id].want)+'</li>'; }).join("")+'</ul>';
+  }
+  if(S.share.autopilot && auto.length){
+    h += '<h2>Feeding without wanting</h2>'+
+      '<p class="tiny">'+auto.length+' cards I am spending time, money, or attention on '+
+      'without being sure I want them.</p><div class="pilewrap">'+
+      auto.map(function(id){ return '<span class="member">'+esc(CARDS[id].want)+'</span>'; }).join("")+'</div>';
+  }
+
+  sheet.innerHTML = h;
+  Array.prototype.forEach.call(sheet.querySelectorAll(".cost"), function(d){
+    d.oninput = function(){ S.costEdits[d.getAttribute("data-id")] = d.textContent.trim(); save(); };
+  });
+}
+
+function asText(){
+  var partner = PEOPLE[me().partner], L = [];
+  var top = visible(ranked());
+  L.push("WHAT DO I WANT — Desire Path, Session Two");
+  L.push(me().name + "  ·  " + new Date().toLocaleDateString());
+  L.push("Sorted alone, over " + DECK.horizon + ".");
+  L.push("");
+  L.push("MY TEN, RANKED");
+  ranked().forEach(function(id,i){
+    if(top.indexOf(id) < 0) return;
+    var f = S.futures[id];
+    var fl = (f && S.share.futures) ? "  [" + (FUTURES.filter(function(x){ return x.id===f; })[0]||{}).label + "]" : "";
+    L.push((i+1)+". "+CARDS[id].want+fl);
+    L.push("     costs me: "+cost(CARDS[id]));
+  });
+  if(S.share.without && S.keepWithout.length){
+    L.push(""); L.push("THE TEN I CAN LIVE WITHOUT");
+    visible(S.keepWithout).forEach(function(id){ L.push("- "+CARDS[id].want); });
+  }
+  if(S.share.predict && S.predict.length){
+    L.push(""); L.push("MY GUESS AT "+partner.name.toUpperCase()+"'S FIVE");
+    visible(S.predict).forEach(function(id){ L.push("- "+CARDS[id].want); });
+  }
+  if(S.share.autopilot && S.autopilot.length){
+    L.push(""); L.push("FEEDING WITHOUT WANTING ("+visible(S.autopilot).length+")");
+    L.push(visible(S.autopilot).map(function(id){ return CARDS[id].want; }).join(", "));
+  }
+  L.push("");
+  L.push("Wanted "+affirmed().length+" of "+DECK.cards.length+", already funding "+S.funded.length+".");
+  if(!S.share.rivals){
+    var w = 0;
+    [ranked(), S.keepWithout, S.autopilot, S.predict].forEach(function(list){
+      w += list.filter(isRival).length;
+    });
+    if(w) L.push(w+" card"+(w===1?" is":"s are")+" held back from The Rivals group.");
+  }
+  return L.join("\n");
+}
+
+/* ---------------- boot ---------------- */
+
+document.getElementById("switcher").onclick = function(){
+  WHO = null; S = null; setLast(null); document.onkeydown = null; render();
+};
+document.getElementById("startover").onclick = function(){
+  if(!WHO) return;
+  if(!confirm("Clear " + me().name + "'s sort and start from the beginning?")) return;
+  try{ localStorage.removeItem(keyFor(WHO)); }catch(e){}
+  WHO = null; S = null; setLast(null); document.onkeydown = null; render();
+};
+
+fetch("deck.json", {cache:"no-cache"}).then(function(r){
+  if(!r.ok) throw new Error("deck " + r.status);
+  return r.json();
+}).then(function(d){
+  DECK = d;
+  d.cards.forEach(function(c){ CARDS[c.id] = c; });
+  d.groups.forEach(function(g){ GROUPS[g.id] = g; });
+  d.people.forEach(function(p){ PEOPLE[p.id] = p; });
+  // pick up an in-progress sort in this browser without making them choose again
+  try{
+    var last = localStorage.getItem(LAST);
+    if(last && PEOPLE[last]){
+      var prior = load(last);
+      if(prior){ WHO = last; S = prior; }
+    }
+  }catch(e){}
+  render();
+}).catch(function(e){
+  main.innerHTML = '<h2>The deck did not load</h2><p class="small">'+esc(e.message)+
+    '. This page needs deck.json sitting beside it.</p>';
+});
+
+})();
+</script>
+<script data-goatcounter="https://tlhg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
