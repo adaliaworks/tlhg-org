@@ -1,5 +1,5 @@
 {
- "version": "0.2",
+ "version": "0.3",
  "title": "What Do You Want?",
  "subtitle": "Desire Path · Session Two: Desire",
  "horizon": "the next five years",
@@ -8,13 +8,23 @@
    "id": "ashley",
    "name": "Ashley",
    "partner": "anders",
-   "partnerName": "Anders"
+   "partnerName": "Anders",
+   "futures": {
+    "goes": "Easier if Anders makes the run",
+    "stops": "Easier if he stops",
+    "either": "Same either way"
+   }
   },
   {
    "id": "anders",
    "name": "Anders",
    "partner": "ashley",
-   "partnerName": "Ashley"
+   "partnerName": "Ashley",
+   "futures": {
+    "goes": "Easier if I make the run",
+    "stops": "Easier if I stop",
+    "either": "Same either way"
+   }
   }
  ],
  "groups": [
@@ -83,6 +93,7 @@
   {
    "id": "finding-out-how-good-i-could-have-been",
    "want": "Finding out how good I could have been.",
+   "means": "Knowing where your ceiling actually was, tested against the field.",
    "group": "run",
    "costs": {
     "ashley": "a year you also live inside, with the answer arriving on his schedule.",
@@ -92,6 +103,7 @@
   {
    "id": "being-able-to-stop-without-wondering",
    "want": "Being able to stop without wondering.",
+   "means": "Reaching an ending you can accept, with the question closed.",
    "group": "run",
    "costs": {
     "ashley": "watching him spend the year it takes to earn that peace.",
@@ -101,6 +113,7 @@
   {
    "id": "a-deadline-we-both-agreed-to",
    "want": "A deadline we both agreed to.",
+   "means": "A date on the calendar when this gets decided, set now.",
    "group": "run",
    "costs": {
     "ashley": "saying the date out loud and meaning it.",
@@ -110,6 +123,7 @@
   {
    "id": "one-more-attempt-fully-resourced",
    "want": "One more attempt, fully resourced.",
+   "means": "A season with the coaching, travel, and entries actually funded, so nothing is half done.",
    "group": "run",
    "costs": {
     "ashley": "money leaving the house while it runs.",
@@ -119,6 +133,7 @@
   {
    "id": "walking-away-on-my-own-terms",
    "want": "Walking away on my own terms.",
+   "means": "Ending it by choice, at a moment you picked.",
    "group": "run",
    "costs": {
     "ashley": "a decision that stays his, even when you can see where it is going.",
@@ -128,6 +143,7 @@
   {
    "id": "the-thing-i-trained-my-whole-life-for",
    "want": "The thing I trained my whole life for.",
+   "means": "Spending your working years on the one pursuit you were built for.",
    "group": "run",
    "costs": {
     "ashley": "being married to a calling, which is different from being married to a job.",
@@ -137,6 +153,7 @@
   {
    "id": "a-result-that-settles-it",
    "want": "A result that settles it.",
+   "means": "An outcome clear enough that nobody has to interpret it.",
    "group": "run",
    "costs": {
     "ashley": "a year organized around a scoreboard.",
@@ -146,6 +163,7 @@
   {
    "id": "getting-to-the-level-where-money-stops-being-the",
    "want": "Getting to the level where money stops being the question.",
+   "means": "Earning enough from the game that funding and logistics stop driving decisions.",
    "group": "run",
    "costs": {
     "ashley": "a year of household income pointed at a threshold nobody guarantees.",
@@ -155,6 +173,7 @@
   {
    "id": "starting-the-next-thing-while-i-still-have-runwa",
    "want": "Starting the next thing while I still have runway.",
+   "means": "Beginning a second career early enough to build something real in it.",
    "group": "run",
    "costs": {
     "ashley": "a husband beginning at zero in something new.",
@@ -164,6 +183,7 @@
   {
    "id": "being-in-the-same-place-most-nights",
    "want": "Being in the same place most nights.",
+   "means": "A normal week, where you eat dinner together and wake up in the same house.",
    "group": "two",
    "costs": {
     "ashley": "a version of him that is home, with the question still unanswered.",
@@ -173,6 +193,7 @@
   {
    "id": "a-marriage-better-in-ten-years-than-it-is-now",
    "want": "A marriage better in ten years than it is now.",
+   "means": "A relationship that gains ground across the decade.",
    "group": "two",
    "costs": {
     "ashley": "attention that is not spent managing the year.",
@@ -182,6 +203,7 @@
   {
    "id": "deciding-this-together-and-deciding-it-once",
    "want": "Deciding this together, and deciding it once.",
+   "means": "One real decision you both own, which does not get reopened every few months.",
    "group": "two",
    "costs": {
     "ashley": "saying what you actually want, out loud, first.",
@@ -191,6 +213,7 @@
   {
    "id": "not-being-managed-by-the-person-who-loves-me",
    "want": "Not being managed by the person who loves me.",
+   "means": "Being treated as an adult who can carry hard news.",
    "group": "two",
    "costs": {
     "ashley": "letting him carry weight you could lift.",
@@ -200,6 +223,7 @@
   {
    "id": "knowing-what-my-spouse-actually-wants",
    "want": "Knowing what my spouse actually wants.",
+   "means": "An accurate picture of the other person's wants, current as of now.",
    "group": "two",
    "costs": {
     "ashley": "finding out it is not what you assumed.",
@@ -209,6 +233,7 @@
   {
    "id": "a-season-where-neither-of-us-is-the-support-act",
    "want": "A season where neither of us is the support act.",
+   "means": "A stretch where both careers count, and neither one is the backdrop.",
    "group": "two",
    "costs": {
     "ashley": "naming your own work as equal, which takes room.",
@@ -218,6 +243,7 @@
   {
    "id": "being-proud-of-what-the-other-one-is-doing",
    "want": "Being proud of what the other one is doing.",
+   "means": "Real pride in the other's work, including on the weeks it costs you.",
    "group": "two",
    "costs": {
     "ashley": "pride is easy from a distance and costly up close.",
@@ -227,6 +253,7 @@
   {
    "id": "a-fight-we-can-have-cleanly",
    "want": "A fight we can have cleanly.",
+   "means": "Conflict that gets aired and finished, without a week of weather around it.",
    "group": "two",
    "costs": {
     "ashley": "bringing it up before it is settled in your head.",
@@ -236,6 +263,7 @@
   {
    "id": "ten-more-years-of-what-the-last-ten-were",
    "want": "Ten more years of what the last ten were.",
+   "means": "More of the marriage you have actually had, as it has actually been.",
    "group": "two",
    "costs": {
     "ashley": "deciding whether that sentence is a hope or a worry.",
@@ -245,6 +273,7 @@
   {
    "id": "somebody-who-knows-the-whole-story",
    "want": "Somebody who knows the whole story.",
+   "means": "One person holding the unedited version of your life.",
    "group": "two",
    "costs": {
     "ashley": "telling the part you have been carrying alone.",
@@ -254,6 +283,7 @@
   {
    "id": "a-number-in-the-bank-that-lets-me-sleep",
    "want": "A number in the bank that lets me sleep.",
+   "means": "A specific balance that ends the late-night arithmetic.",
    "group": "money",
    "costs": {
     "ashley": "years of saving that a year like this one can spend.",
@@ -263,6 +293,7 @@
   {
    "id": "work-that-pays-the-same-whether-or-not-it-went-w",
    "want": "Work that pays the same whether or not it went well that week.",
+   "means": "Income that does not swing with performance.",
    "group": "money",
    "costs": {
     "ashley": "steadiness that other people quietly build their plans around.",
@@ -272,6 +303,7 @@
   {
    "id": "not-tracking-every-dollar",
    "want": "Not tracking every dollar.",
+   "means": "Spending without running the math first.",
    "group": "money",
    "costs": {
     "ashley": "a season where you track all of them.",
@@ -281,6 +313,7 @@
   {
    "id": "coverage-and-benefits-that-are-not-a-question",
    "want": "Coverage and benefits that are not a question.",
+   "means": "Insurance and retirement handled, without a scramble each year.",
    "group": "money",
    "costs": {
     "ashley": "what a practice has to arrange for itself.",
@@ -290,6 +323,7 @@
   {
    "id": "savings-that-are-only-ours",
    "want": "Savings that are only ours.",
+   "means": "Money set aside that no project or season has a claim on.",
    "group": "money",
    "costs": {
     "ashley": "money that could fund the run.",
@@ -299,6 +333,7 @@
   {
    "id": "keeping-the-house-through-a-thin-year",
    "want": "Keeping the house through a thin year.",
+   "means": "The mortgage covered even in the worst twelve months you can picture.",
    "group": "money",
    "costs": {
     "ashley": "a mortgage as the fixed point everything else moves around.",
@@ -308,6 +343,7 @@
   {
    "id": "nothing-owed-except-the-house",
    "want": "Nothing owed except the house.",
+   "means": "Every debt cleared apart from the mortgage.",
    "group": "money",
    "costs": {
     "ashley": "the years it takes.",
@@ -317,6 +353,7 @@
   {
    "id": "enough-that-a-bad-year-is-just-a-year",
    "want": "Enough that a bad year is just a year.",
+   "means": "A cushion deep enough that one bad stretch changes nothing structural.",
    "group": "money",
    "costs": {
     "ashley": "building the cushion before you need it.",
@@ -326,6 +363,7 @@
   {
    "id": "money-that-came-from-the-thing-i-love-doing",
    "want": "Money that came from the thing I love doing.",
+   "means": "Earning your living from the work itself, with nothing propping it up.",
    "group": "money",
    "costs": {
     "ashley": "pricing the work at what it is worth, and saying the number out loud.",
@@ -335,6 +373,7 @@
   {
    "id": "being-excellent-at-one-thing",
    "want": "Being excellent at one thing.",
+   "means": "Real mastery in a single discipline, at the cost of breadth.",
    "group": "work",
    "costs": {
     "ashley": "the specialty you turn other work down to build.",
@@ -344,6 +383,7 @@
   {
    "id": "a-practice-or-a-career-that-is-unmistakably-mine",
    "want": "A practice, or a career, that is unmistakably mine.",
+   "means": "Work with your name on it, built by you.",
    "group": "work",
    "costs": {
     "ashley": "years of referral relationships in one place.",
@@ -353,6 +393,7 @@
   {
    "id": "work-that-would-survive-a-move",
    "want": "Work that would survive a move.",
+   "means": "A career that could be rebuilt somewhere else without starting over.",
    "group": "work",
    "costs": {
     "ashley": "re-licensing in a new state, which is its own process on its own timeline.",
@@ -362,6 +403,7 @@
   {
    "id": "people-who-stay-with-me-for-years",
    "want": "People who stay with me for years.",
+   "means": "Long relationships with the people you work with and for.",
    "group": "work",
    "costs": {
     "ashley": "being reachable, consistently, in one place.",
@@ -371,6 +413,7 @@
   {
    "id": "getting-better-at-this-every-year",
    "want": "Getting better at this every year.",
+   "means": "Measurable improvement in the craft, year over year.",
    "group": "work",
    "costs": {
     "ashley": "consultation and continuing education hours that bill at nothing.",
@@ -380,6 +423,7 @@
   {
    "id": "being-done-at-the-end-of-the-day",
    "want": "Being done at the end of the day.",
+   "means": "Work that ends when the day ends and does not follow you home.",
    "group": "work",
    "costs": {
     "ashley": "the caseload you decline.",
@@ -389,6 +433,7 @@
   {
    "id": "work-i-could-explain-to-a-stranger-in-one-senten",
    "want": "Work I could explain to a stranger in one sentence.",
+   "means": "A clear, simple answer to what you do.",
    "group": "work",
    "costs": {
     "ashley": "narrowing to the one thing.",
@@ -398,6 +443,7 @@
   {
    "id": "a-career-with-a-ceiling-i-have-not-met",
    "want": "A career with a ceiling I have not met.",
+   "means": "Room left above you, with the best years still ahead.",
    "group": "work",
    "costs": {
     "ashley": "pushing in work that already rewards steadiness.",
@@ -407,6 +453,7 @@
   {
    "id": "help-carrying-the-work",
    "want": "Help carrying the work.",
+   "means": "Other people sharing the load, with real responsibility handed over.",
    "group": "work",
    "costs": {
     "ashley": "handing a client to someone else.",
@@ -416,6 +463,7 @@
   {
    "id": "roots-in-one-town",
    "want": "Roots in one town.",
+   "means": "Staying in one place long enough to belong to it.",
    "group": "home",
    "costs": {
     "ashley": "the opportunities that are somewhere else.",
@@ -425,6 +473,7 @@
   {
    "id": "a-home-worth-coming-back-to",
    "want": "A home worth coming back to.",
+   "means": "A house you have made into something, and want to return to.",
    "group": "home",
    "costs": {
     "ashley": "time and money put into a place.",
@@ -434,6 +483,7 @@
   {
    "id": "living-near-family",
    "want": "Living near family.",
+   "means": "Close enough to see family without planning a trip.",
    "group": "home",
    "costs": {
     "ashley": "a radius drawn around both careers.",
@@ -443,6 +493,7 @@
   {
    "id": "sleeping-in-my-own-bed",
    "want": "Sleeping in my own bed.",
+   "means": "Most nights at home, in your own place.",
    "group": "home",
    "costs": {
     "ashley": "a husband who is there, in a year that may not allow it.",
@@ -452,6 +503,7 @@
   {
    "id": "a-life-that-could-move-if-it-had-to",
    "want": "A life that could move if it had to.",
+   "means": "Arrangements loose enough that relocating stays possible.",
    "group": "home",
    "costs": {
     "ashley": "a practice you would be rebuilding, in a state that has to license you first.",
@@ -461,6 +513,7 @@
   {
    "id": "neighbors-and-a-table-we-are-regulars-at",
    "want": "Neighbors, and a table we are regulars at.",
+   "means": "Knowing the people on your street, and having a place that knows you.",
    "group": "home",
    "costs": {
     "ashley": "evenings, consistently, in one place.",
@@ -470,6 +523,7 @@
   {
    "id": "a-place-that-slows-me-down",
    "want": "A place that slows me down.",
+   "means": "Somewhere you go to stop, whether that is a cabin, a coast, or a routine.",
    "group": "home",
    "costs": {
     "ashley": "the cost of a second anything.",
@@ -479,6 +533,7 @@
   {
    "id": "being-settled",
    "want": "Being settled.",
+   "means": "The sense that this is the life, and not the staging area.",
    "group": "home",
    "costs": {
     "ashley": "deciding that now, before the answer arrives.",
@@ -488,6 +543,7 @@
   {
    "id": "children-on-a-timeline-we-choose",
    "want": "Children, on a timeline we choose.",
+   "means": "Deciding when and whether, on purpose.",
    "group": "family",
    "costs": {
     "ashley": "a year that may not be the year.",
@@ -497,6 +553,7 @@
   {
    "id": "being-the-kind-of-parent-who-is-there",
    "want": "Being the kind of parent who is there.",
+   "means": "Present for the ordinary days, and not only the big ones.",
    "group": "family",
    "costs": {
     "ashley": "the caseload you would reshape.",
@@ -506,6 +563,7 @@
   {
    "id": "a-life-that-stays-the-two-of-us",
    "want": "A life that stays the two of us.",
+   "means": "A full life as a couple, chosen on purpose.",
    "group": "family",
    "costs": {
     "ashley": "saying so plainly, if it is true.",
@@ -515,6 +573,7 @@
   {
    "id": "deciding-before-the-decision-gets-made-for-us",
    "want": "Deciding before the decision gets made for us.",
+   "means": "Settling the open questions while they are still open.",
    "group": "family",
    "costs": {
     "ashley": "naming a year out loud.",
@@ -524,6 +583,7 @@
   {
    "id": "being-present-for-the-people-already-here",
    "want": "Being present for the people already here.",
+   "means": "Showing up for the family you already have.",
    "group": "family",
    "costs": {
     "ashley": "the weekends you currently work.",
@@ -533,6 +593,7 @@
   {
    "id": "a-family-story-worth-telling",
    "want": "A family story worth telling.",
+   "means": "A decade that will be worth recounting.",
    "group": "family",
    "costs": {
     "ashley": "living something, instead of only steadying it.",
@@ -542,6 +603,7 @@
   {
    "id": "showing-up-for-aging-parents",
    "want": "Showing up for aging parents.",
+   "means": "Being close and available as parents need more.",
    "group": "family",
    "costs": {
     "ashley": "a radius, again.",
@@ -551,6 +613,7 @@
   {
    "id": "energy-left-at-the-end-of-the-day",
    "want": "Energy left at the end of the day.",
+   "means": "Something in the tank after the work is done.",
    "group": "body",
    "costs": {
     "ashley": "a smaller number of sessions.",
@@ -560,6 +623,7 @@
   {
    "id": "a-body-that-holds-up",
    "want": "A body that holds up.",
+   "means": "Physical capacity that never becomes the limiting factor.",
    "group": "body",
    "costs": {
     "ashley": "hours in a chair, and what those cost over years.",
@@ -569,6 +633,7 @@
   {
    "id": "sleeping-well",
    "want": "Sleeping well.",
+   "means": "Consistent, unbroken sleep.",
    "group": "body",
    "costs": {
     "ashley": "putting down other people's weeks.",
@@ -578,6 +643,7 @@
   {
    "id": "a-clear-head",
    "want": "A clear head.",
+   "means": "Mental sharpness that lasts through the day.",
    "group": "body",
    "costs": {
     "ashley": "the toll of holding what you hold all day.",
@@ -587,6 +653,7 @@
   {
    "id": "being-strong-at-sixty",
    "want": "Being strong at sixty.",
+   "means": "Fitness that carries decades forward.",
    "group": "body",
    "costs": {
     "ashley": "hours a week, every week, starting now.",
@@ -596,6 +663,7 @@
   {
    "id": "moving-for-the-joy-of-it",
    "want": "Moving for the joy of it.",
+   "means": "Physical activity that is play, with nothing riding on it.",
    "group": "body",
    "costs": {
     "ashley": "time you do not currently have.",
@@ -605,6 +673,7 @@
   {
    "id": "a-year-that-does-not-cost-me-my-health",
    "want": "A year that does not cost me my health.",
+   "means": "Coming out of this stretch in the shape you went into it.",
    "group": "body",
    "costs": {
     "ashley": "saying out loud when it has.",
@@ -614,6 +683,7 @@
   {
    "id": "control-of-my-own-calendar",
    "want": "Control of my own calendar.",
+   "means": "Deciding what goes on the week, and what does not.",
    "group": "time",
    "costs": {
     "ashley": "the clients you do not take.",
@@ -623,6 +693,7 @@
   {
    "id": "saying-no-without-explaining",
    "want": "Saying no without explaining.",
+   "means": "Declining without owing anyone a reason.",
    "group": "time",
    "costs": {
     "ashley": "income, visibly.",
@@ -632,6 +703,7 @@
   {
    "id": "an-unscheduled-weekend",
    "want": "An unscheduled weekend.",
+   "means": "Two days with nothing claimed on them.",
    "group": "time",
    "costs": {
     "ashley": "the notes that pile up.",
@@ -641,6 +713,7 @@
   {
    "id": "being-unreachable-for-a-while",
    "want": "Being unreachable for a while.",
+   "means": "Stretches where nobody can get to you.",
    "group": "time",
    "costs": {
     "ashley": "a client who needs you.",
@@ -650,6 +723,7 @@
   {
    "id": "a-real-break-long-enough-to-feel-it",
    "want": "A real break, long enough to feel it.",
+   "means": "Time off long enough to actually reset.",
    "group": "time",
    "costs": {
     "ashley": "closing the practice for a stretch.",
@@ -659,6 +733,7 @@
   {
    "id": "deciding-what-the-week-looks-like",
    "want": "Deciding what the week looks like.",
+   "means": "Setting the rhythm of an ordinary week.",
    "group": "time",
    "costs": {
     "ashley": "the structure a caseload imposes.",
@@ -668,6 +743,7 @@
   {
    "id": "time-that-produces-nothing",
    "want": "Time that produces nothing.",
+   "means": "Hours with no output expected from them.",
    "group": "time",
    "costs": {
     "ashley": "the guilt.",
@@ -677,6 +753,7 @@
   {
    "id": "not-justifying-how-i-spent-the-day",
    "want": "Not justifying how I spent the day.",
+   "means": "Spending a day without accounting for it.",
    "group": "time",
    "costs": {
     "ashley": "to yourself, mostly.",
@@ -686,6 +763,7 @@
   {
    "id": "respect-from-people-who-do-what-i-do",
    "want": "Respect from people who do what I do.",
+   "means": "Standing among peers who understand the work.",
    "group": "seen",
    "costs": {
     "ashley": "showing your work to peers before it is polished.",
@@ -695,6 +773,7 @@
   {
    "id": "being-good-at-this-in-a-way-that-is-visible",
    "want": "Being good at this in a way that is visible.",
+   "means": "Excellence other people can actually see.",
    "group": "seen",
    "costs": {
     "ashley": "a field where the best work stays confidential.",
@@ -704,6 +783,7 @@
   {
    "id": "my-family-understanding-what-i-actually-do",
    "want": "My family understanding what I actually do.",
+   "means": "The people closest to you grasping the real work.",
    "group": "seen",
    "costs": {
     "ashley": "describing work you are not free to describe.",
@@ -713,6 +793,7 @@
   {
    "id": "being-the-one-they-call",
    "want": "Being the one they call.",
+   "means": "Being the person others come to first.",
    "group": "seen",
    "costs": {
     "ashley": "a phone that rings on other people's schedules.",
@@ -722,6 +803,7 @@
   {
    "id": "credit-for-what-i-carried",
    "want": "Credit for what I carried.",
+   "means": "Acknowledgment for the part that was yours.",
    "group": "seen",
    "costs": {
     "ashley": "saying it out loud in a room that assumes otherwise.",
@@ -731,6 +813,7 @@
   {
    "id": "not-being-defined-by-one-number",
    "want": "Not being defined by one number.",
+   "means": "An identity that survives a bad figure.",
    "group": "seen",
    "costs": {
     "ashley": "whatever number you have started measuring the practice by.",
@@ -740,6 +823,7 @@
   {
    "id": "being-known-for-more-than-this",
    "want": "Being known for more than this.",
+   "means": "A life larger than the thing you are known for.",
    "group": "seen",
    "costs": {
     "ashley": "building something outside the practice.",
@@ -749,6 +833,7 @@
   {
    "id": "somebody-in-my-corner-who-is-not-obligated-to-be",
    "want": "Somebody in my corner who is not obligated to be.",
+   "means": "Support from someone with no duty to give it.",
    "group": "seen",
    "costs": {
     "ashley": "asking for it.",
@@ -758,6 +843,7 @@
   {
    "id": "knowing-we-are-where-we-are-supposed-to-be",
    "want": "Knowing we are where we are supposed to be.",
+   "means": "Confidence that this life is the right one.",
    "group": "faith",
    "costs": {
     "ashley": "sitting in the question without rushing it closed.",
@@ -767,6 +853,7 @@
   {
    "id": "a-clear-conscience-about-how-we-decided",
    "want": "A clear conscience about how we decided.",
+   "means": "Being able to look back at the decision without flinching.",
    "group": "faith",
    "costs": {
     "ashley": "saying the hard part.",
@@ -776,6 +863,7 @@
   {
    "id": "peace-that-does-not-move-with-the-result",
    "want": "Peace that does not move with the result.",
+   "means": "Steadiness that outcomes cannot shake.",
    "group": "faith",
    "costs": {
     "ashley": "loosening a grip that has been keeping things steady.",
@@ -785,6 +873,7 @@
   {
    "id": "belonging-to-something-older-than-us",
    "want": "Belonging to something older than us.",
+   "means": "A place in a tradition that predates you.",
    "group": "faith",
    "costs": {
     "ashley": "submitting to it in some way.",
@@ -794,6 +883,7 @@
   {
    "id": "work-that-is-more-than-output",
    "want": "Work that is more than output.",
+   "means": "Labor that carries meaning past what it produces.",
    "group": "faith",
    "costs": {
     "ashley": "naming a calling you may rarely name out loud.",
@@ -803,6 +893,7 @@
   {
    "id": "silence-regularly",
    "want": "Silence, regularly.",
+   "means": "Routine time with no input coming in.",
    "group": "faith",
    "costs": {
     "ashley": "the hour you currently spend on something else.",
@@ -812,6 +903,7 @@
   {
    "id": "gratitude-that-does-not-depend-on-the-outcome",
    "want": "Gratitude that does not depend on the outcome.",
+   "means": "Thankfulness that holds in a bad year.",
    "group": "faith",
    "costs": {
     "ashley": "practicing it in a year you did not pick.",
@@ -821,6 +913,7 @@
   {
    "id": "a-sense-that-this-adds-up",
    "want": "A sense that this adds up.",
+   "means": "The feeling that the pieces amount to something.",
    "group": "faith",
    "costs": {
     "ashley": "deciding what would count.",
@@ -830,6 +923,7 @@
   {
    "id": "three-friends-who-tell-me-the-truth",
    "want": "Three friends who tell me the truth.",
+   "means": "A few people who will say the hard thing to your face.",
    "group": "friends",
    "costs": {
     "ashley": "becoming someone who can hear it.",
@@ -839,6 +933,7 @@
   {
    "id": "being-a-regular-somewhere",
    "want": "Being a regular somewhere.",
+   "means": "A place where they know you when you walk in.",
    "group": "friends",
    "costs": {
     "ashley": "evenings.",
@@ -848,6 +943,7 @@
   {
    "id": "friends-outside-my-field",
    "want": "Friends outside my field.",
+   "means": "People in your life who do something else entirely.",
    "group": "friends",
    "costs": {
     "ashley": "a social life that is not adjacent to the work.",
@@ -857,6 +953,7 @@
   {
    "id": "people-who-knew-us-before-this",
    "want": "People who knew us before this.",
+   "means": "Old friendships kept alive.",
    "group": "friends",
    "costs": {
     "ashley": "keeping up, which takes effort nobody schedules.",
@@ -866,6 +963,7 @@
   {
    "id": "hosting-people",
    "want": "Hosting people.",
+   "means": "Your home as a place others come to.",
    "group": "friends",
    "costs": {
     "ashley": "the cooking, the cleaning, and being interrupted.",
@@ -875,6 +973,7 @@
   {
    "id": "being-useful-to-somebody",
    "want": "Being useful to somebody.",
+   "means": "Work or help that matters to a particular person.",
    "group": "friends",
    "costs": {
     "ashley": "giving more of what you already give all day.",
@@ -884,6 +983,7 @@
   {
    "id": "a-community-that-holds-us",
    "want": "A community that holds us.",
+   "means": "A group that would show up if things went badly.",
    "group": "friends",
    "costs": {
     "ashley": "showing up when you are depleted.",
@@ -893,6 +993,7 @@
   {
    "id": "finding-out-instead-of-wondering-for-forty-years",
    "want": "Finding out, instead of wondering for forty years.",
+   "means": "Closing the question now, at whatever it costs.",
    "group": "rivals",
    "costs": {
     "ashley": "a year, so he does not carry that.",
@@ -902,6 +1003,7 @@
   {
    "id": "not-being-the-one-who-quit",
    "want": "Not being the one who quit.",
+   "means": "Avoiding the label, whatever the right call turns out to be.",
    "group": "rivals",
    "costs": {
     "ashley": "a decision shaped by what other people will think.",
@@ -911,6 +1013,7 @@
   {
    "id": "not-being-the-reason-the-other-one-let-go",
    "want": "Not being the reason the other one let go.",
+   "means": "Staying clear of blame for the other person's loss.",
    "group": "rivals",
    "costs": {
     "ashley": "carrying a year you did not choose, quietly.",
@@ -920,6 +1023,7 @@
   {
    "id": "showing-the-people-who-said-i-would-not",
    "want": "Showing the people who said I would not.",
+   "means": "Proving specific doubters wrong.",
    "group": "rivals",
    "costs": {
     "ashley": "a scoreboard somebody else is keeping.",
@@ -929,6 +1033,7 @@
   {
    "id": "proving-i-belong-at-that-level",
    "want": "Proving I belong at that level.",
+   "means": "Demonstrating you are not out of your depth.",
    "group": "rivals",
    "costs": {
     "ashley": "a year organized around a proof.",
@@ -938,6 +1043,7 @@
   {
    "id": "not-being-the-one-who-gave-something-up",
    "want": "Not being the one who gave something up.",
+   "means": "Avoiding the sacrifice that gets counted later.",
    "group": "rivals",
    "costs": {
     "ashley": "keeping score inside a marriage.",
@@ -947,6 +1053,7 @@
   {
    "id": "never-being-that-broke-again",
    "want": "Never being that broke again.",
+   "means": "Staying permanently clear of a past low point.",
    "group": "rivals",
    "costs": {
     "ashley": "decisions sized to a year that is already over.",
@@ -956,6 +1063,7 @@
   {
    "id": "being-the-strong-one",
    "want": "Being the strong one.",
+   "means": "Holding the role of the person who does not need carrying.",
    "group": "rivals",
    "costs": {
     "ashley": "help.",
@@ -965,6 +1073,7 @@
   {
    "id": "not-being-found-out",
    "want": "Not being found out.",
+   "means": "Keeping anyone from seeing the gap you think is there.",
    "group": "rivals",
    "costs": {
     "ashley": "the energy of maintaining it.",
@@ -974,6 +1083,7 @@
   {
    "id": "not-becoming-my-parents",
    "want": "Not becoming my parents.",
+   "means": "Steering away from a pattern you grew up inside.",
    "group": "rivals",
    "costs": {
     "ashley": "measuring a life against people instead of a purpose.",

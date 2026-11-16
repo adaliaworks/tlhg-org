@@ -81,7 +81,14 @@ p{margin:0 0 14px;max-width:62ch}
 .tcard.flipped .front{display:none}
 .tcard.flipped .back{display:flex;flex-direction:column;height:100%;overflow-y:auto}
 .back .costlabel{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin:14px 0 4px}
-.back .costtext{font-size:18px;line-height:1.4;color:var(--ink-soft)}
+.back .meanstext{font-size:16px;line-height:1.4;color:var(--ink)}
+.back .costtext{font-size:16px;line-height:1.4;color:var(--ink-soft)}
+
+.frow .more{background:none;border:0;padding:0;font-size:12.5px;color:var(--ink-faint);
+  text-decoration:underline;margin-bottom:8px}
+.frow .detail{border-left:2px solid var(--rule);padding:2px 0 2px 12px;margin:0 0 10px}
+.frow .detail div{font-size:13.5px;line-height:1.4;margin-bottom:4px}
+.frow .detail .lbl{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1px}
 .verdict{position:absolute;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:bold;
   padding:6px 11px;border-radius:6px;border:2px solid currentColor;opacity:0;pointer-events:none}
 .v-funded{top:50%;right:16px;transform:translateY(-50%);color:var(--funded)}
@@ -216,11 +223,8 @@ var BUCKETS = [
   { id:"autopilot", label:"On autopilot", hint:"I spend here, and I am not sure I want it.",   key:"↓" },
   { id:"notmine",   label:"Not mine",     hint:"Somebody else's want, honestly.",              key:"←" }
 ];
-var FUTURES = [
-  { id:"goes",   label:"More if the run happens" },
-  { id:"stops",  label:"More if the run ends" },
-  { id:"either", label:"Either way" }
-];
+var FUTURES = [{ id:"goes" }, { id:"stops" }, { id:"either" }];
+function flabel(fid){ return (me().futures && me().futures[fid]) || fid; }
 
 var LAST = "dp-desire-last";
 function keyFor(who){ return "dp-desire-v1-" + who; }
@@ -326,10 +330,12 @@ function cardFace(c){
   '<div class="front">'+
     '<div class="grouptag">'+esc(g?g.name:"")+'</div>'+
     '<div class="want">'+esc(c.want)+'</div>'+
-    '<div class="flipnote">Tap for what it costs</div>'+
+    '<div class="flipnote">Tap for more</div>'+
   '</div>'+
   '<div class="back">'+
     '<div class="grouptag">'+esc(c.want)+'</div>'+
+    '<div class="costlabel">What this means</div>'+
+    '<div class="meanstext">'+esc(c.means)+'</div>'+
     '<div class="costlabel">What it would cost you</div>'+
     '<div class="costtext">'+esc(c.costs[WHO])+'</div>'+
   '</div>'+
@@ -588,27 +594,42 @@ function vDuel(){
 function vFutures(){
   document.onkeydown = null;
   var ids = ranked();
+  var labels = me().futures;
   var done = ids.filter(function(id){ return S.futures[id]; }).length;
 
   main.innerHTML =
-    '<h2>Which future does each one live in?</h2>'+
-    '<p class="lede small">Your ten, one at a time. If the run happens, some of these get easier to have. '+
-      'If the run ends, others do. Plenty of them do not move at all, and that pile matters as much as '+
-      'the other two.</p>'+
+    '<h2>Does the run help this, or cost it?</h2>'+
+    '<p class="lede small">Here are your ten again. One more year chasing the card puts some of them '+
+      'within easier reach and pushes others further out. Mark where each one sits. '+
+      'The ones that do not move either way are the ones you get whichever way this goes, '+
+      'and that pile is worth seeing on its own.</p>'+
     '<div id="rows"></div>'+
     '<div class="sticky noprint"><div class="wrap">'+
-      '<div class="small" id="ftally">'+done+' of '+ids.length+' tagged</div>'+
+      '<div class="small" id="ftally">'+done+' of '+ids.length+' marked</div>'+
       '<button class="btn" id="next"'+(done===ids.length?"":" disabled")+'>Continue</button>'+
     '</div></div>';
 
   document.getElementById("rows").innerHTML = ids.map(function(id){
-    return '<div class="frow"><b>'+esc(CARDS[id].want)+'</b><div class="fopts">'+
-      FUTURES.map(function(f){
+    var c = CARDS[id];
+    return '<div class="frow"><b>'+esc(c.want)+'</b>'+
+      '<button class="more" data-more="'+id+'">Tap for more</button>'+
+      '<div class="detail hidden" id="det-'+id+'">'+
+        '<div class="lbl">What this means</div><div>'+esc(c.means)+'</div>'+
+        '<div class="lbl">What it would cost you</div><div>'+esc(cost(c))+'</div>'+
+      '</div>'+
+      '<div class="fopts">'+ FUTURES.map(function(f){
         return '<button class="fopt'+(S.futures[id]===f.id?" on":"")+'" data-id="'+id+'" data-f="'+f.id+'">'+
-               f.label+'</button>';
+               esc(labels[f.id])+'</button>';
       }).join("")+'</div></div>';
   }).join("");
 
+  Array.prototype.forEach.call(document.querySelectorAll(".frow .more"), function(b){
+    b.onclick = function(){
+      var d = document.getElementById("det-" + b.getAttribute("data-more"));
+      var open = d.classList.toggle("hidden");
+      b.textContent = open ? "Tap for more" : "Hide";
+    };
+  });
   Array.prototype.forEach.call(document.querySelectorAll(".fopt"), function(b){
     b.onclick = function(){
       var id = b.getAttribute("data-id");
@@ -618,7 +639,7 @@ function vFutures(){
         o.classList.toggle("on", o.getAttribute("data-f") === S.futures[id]);
       });
       var n = ids.filter(function(x){ return S.futures[x]; }).length;
-      document.getElementById("ftally").textContent = n + " of " + ids.length + " tagged";
+      document.getElementById("ftally").textContent = n + " of " + ids.length + " marked";
       document.getElementById("next").disabled = (n !== ids.length);
     };
   });
@@ -697,7 +718,7 @@ function vResult(){
       '<label class="fixed"><input type="checkbox" checked disabled><span>'+
         '<b>My ten, ranked</b><br><span class="tiny">Always included. This is the point of the exercise.</span></span></label>'+
       tog("without", "The ten I can live without") +
-      tog("futures", "Which future each one lives in") +
+      tog("futures", "Whether the run helps each one or costs it") +
       tog("predict", "My guess at "+esc(partner.name)+"’s five") +
       tog("autopilot", "What I have been feeding without wanting") +
       tog("rivals", "Cards from The Rivals group") +
@@ -764,7 +785,7 @@ function drawSheet(){
   h += '<h2>My ten, ranked</h2><ol class="ranked">'+ all.map(function(id, idx){
     if(top.indexOf(id) < 0) return "";
     var c = CARDS[id], f = S.futures[id];
-    var fl = f ? (FUTURES.filter(function(x){ return x.id===f; })[0]||{}).label : "";
+    var fl = f ? flabel(f) : "";
     return '<li><span class="num">'+(idx+1)+'</span><div style="flex:1"><b>'+esc(c.want)+'</b>'+
       '<div class="costtag">Costs me'+(fl && S.share.futures ? ' · '+esc(fl) : '')+'</div>'+
       '<div class="cost" contenteditable="true" data-id="'+id+'">'+esc(cost(c))+'</div></div></li>';
@@ -776,9 +797,9 @@ function drawSheet(){
       without.map(function(id){ return '<li>'+esc(CARDS[id].want)+'</li>'; }).join("")+'</ul>';
   }
   if(S.share.futures){
-    h += '<h2>Which future each one lives in</h2><div class="fcols">'+ FUTURES.map(function(f){
+    h += '<h2>Does the run help it, or cost it?</h2><div class="fcols">'+ FUTURES.map(function(f){
       var ids = top.filter(function(id){ return S.futures[id] === f.id; });
-      return '<div><h4>'+f.label+'</h4><ul>'+
+      return '<div><h4>'+esc(flabel(f.id))+'</h4><ul>'+
         (ids.length ? ids.map(function(id){ return '<li>'+esc(CARDS[id].want)+'</li>'; }).join("")
                     : '<li style="color:#8d8672">none</li>')+'</ul></div>';
     }).join("") +'</div>';
@@ -811,7 +832,7 @@ function asText(){
   ranked().forEach(function(id,i){
     if(top.indexOf(id) < 0) return;
     var f = S.futures[id];
-    var fl = (f && S.share.futures) ? "  [" + (FUTURES.filter(function(x){ return x.id===f; })[0]||{}).label + "]" : "";
+    var fl = (f && S.share.futures) ? "  [" + flabel(f) + "]" : "";
     L.push((i+1)+". "+CARDS[id].want+fl);
     L.push("     costs me: "+cost(CARDS[id]));
   });
