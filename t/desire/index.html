@@ -49,6 +49,15 @@ p{margin:0 0 14px;max-width:62ch}
 .lede{color:var(--ink-soft)}
 .small{font-size:14px;color:var(--ink-soft)}
 .tiny{font-size:12.5px;color:var(--ink-faint)}
+.stepline{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 6px}
+.whatnow{background:none;border:0;padding:0;font-size:12.5px;color:var(--ink-faint);text-decoration:underline}
+.whatnow-body{font-size:13.5px;color:var(--ink-soft);line-height:1.45;margin:8px 0 0;max-width:62ch}
+.steplist{border-top:1px solid var(--rule);margin:14px 0 22px}
+.steprow{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.steprow i{font-style:normal;font-size:12px;color:var(--ink-faint);width:14px;flex:none;font-variant-numeric:tabular-nums}
+.steprow b{font-size:14.5px;white-space:nowrap}
+.steprow span{font-size:13.5px;color:var(--ink-soft)}
+@media (max-width:520px){ .steprow{flex-wrap:wrap} .steprow span{width:100%;padding-left:26px} }
 
 .btn{border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:999px;padding:12px 22px;font-size:16px;font-weight:bold}
 .btn.ghost{background:transparent;color:var(--ink)}
@@ -264,6 +273,48 @@ function isRival(id){ return CARDS[id] && CARDS[id].group === "rivals"; }
 function visible(ids){ return S.share.rivals ? ids : ids.filter(function(id){ return !isRival(id); }); }
 
 var STAGES = ["triage","keeptop","duel","without","futures","predict","result"];
+var STEPS = {
+  triage: { name:"First pass",
+    heading:"First pass",
+    blurb:"Every card, one at a time. Nothing is being ranked yet. For each one, say where it "+
+          "actually sits in your life right now. Tap a card to see what it means and what it "+
+          "would cost you. Move quickly, because the first instinct is usually the honest one." },
+  keeptop: { name:"Narrowing",
+    heading:"Narrow it to ten",
+    blurb:"Everything you said you want, whether or not you are currently feeding it. Tap a card "+
+          "to eliminate it, and tap it again to bring it back. Keep going until ten are left "+
+          "standing: the ten you want most." },
+  duel: { name:"Choosing",
+    heading:"Two at a time",
+    blurb:"Your ten, paired off, with the price of each one showing. If you could carry only one "+
+          "of these into the next five years, which would it be? Answer fast and skip the "+
+          "deliberating. This is what puts your ten in order." },
+  without: { name:"Letting go",
+    heading:"What you can live without",
+    blurb:"These are the wants that did not make your ten. Every one of them is a real good, "+
+          "which is exactly what makes this worth doing. Eliminate down to the ten you are "+
+          "genuinely willing to not have. This list carries as much as the first one." },
+  futures: { name:"Testing against the run",
+    heading:"Does the run help it, or cost it?",
+    blurb:"Your ten, now in order. For each one, say whether one more year chasing the card "+
+          "brings it closer or pushes it further out. Some will not move at all, and those are "+
+          "the ones you get whichever way this goes." },
+  predict: { name:"Guessing",
+    heading:"Now guess the other ten",
+    blurb:"One step left. Pick the five you believe will land in their ten. Answer from what you "+
+          "actually think, and not from what would be generous. Guessing wrong is as useful "+
+          "here as guessing right." },
+  result: { name:"Your sheet",
+    heading:"Your sheet",
+    blurb:"Choose what goes in, fix any cost line that is wrong, then save it as a PDF and send "+
+          "it over. Nothing leaves this browser until you email it yourself." }
+};
+function stepHead(id, headingOverride){
+  var s = STEPS[id], n = STAGES.indexOf(id) + 1;
+  return '<p class="stepline">Step '+n+' of '+STAGES.length+' · '+s.name+'</p>'+
+         '<h2>'+esc(headingOverride || s.heading)+'</h2>'+
+         '<p class="lede small">'+esc(s.blurb)+'</p>';
+}
 function drawStepper(){
   var el = document.getElementById("stepper");
   if(!WHO){ el.innerHTML = ""; return; }
@@ -289,6 +340,16 @@ function render(){
 
 /* ---------------- welcome ---------------- */
 
+var OVERVIEW = [
+  ["First pass", "Sort all "+"{N}"+" cards into four piles. About six minutes."],
+  ["Narrowing", "Cut the wanted pile down to ten."],
+  ["Choosing", "Two at a time, until the ten are in order."],
+  ["Letting go", "Name the ten you can live without."],
+  ["Testing against the run", "Mark whether the run helps each one or costs it."],
+  ["Guessing", "Pick the five you think will be in theirs."],
+  ["Your sheet", "Choose what to share, and save it as a PDF."]
+];
+
 function vWelcome(){
   main.innerHTML =
     '<h1>What do you want?</h1>'+
@@ -300,10 +361,20 @@ function vWelcome(){
     '<p class="lede"><b>Answer alone, as though the other person’s answer did not exist.</b> '+
       'That is artificial on purpose. Working out where the two answers meet is what the session is for, '+
       'and that part goes better when neither answer has already been rounded toward the other.</p>'+
+
+    '<h3>What you are about to do</h3>'+
+    '<div class="steplist">'+ OVERVIEW.map(function(s, i){
+      return '<div class="steprow"><i>'+(i+1)+'</i><b>'+esc(s[0])+'</b>'+
+             '<span>'+esc(s[1].replace("{N}", DECK.cards.length))+'</span></div>';
+    }).join("") +'</div>'+
+    '<p class="small">About twenty minutes end to end. It works better in one sitting, on a laptop. '+
+      'Your place is saved as you go, so stopping and coming back is fine.</p>'+
+
+    '<h3>The four piles in the first pass</h3>'+
     '<div class="quadkey">'+ BUCKETS.map(function(b){
       return '<div class="quadrow"><b class="k-'+b.id+'">'+b.label+'</b><span>'+esc(b.hint)+'</span></div>';
     }).join("") +'</div>'+
-    '<p class="small">About thirty-five minutes, and it works better in one sitting, on a laptop.</p>'+
+
     '<h3>Who is sorting?</h3>'+
     '<div class="whopick">'+ DECK.people.map(function(p){
       var prior = load(p.id);
@@ -348,6 +419,9 @@ function vTriage(){
 
   main.innerHTML =
     '<div class="progress"><i style="width:'+pct+'%"></i></div>'+
+    '<p class="stepline" style="text-align:center">Step 1 of '+STAGES.length+' · First pass '+
+      '<button class="whatnow" id="whatnow">What am I doing?</button></p>'+
+    '<p class="whatnow-body hidden" id="whatnow-body">'+esc(STEPS.triage.blurb)+'</p>'+
     '<p class="tiny" style="text-align:center;margin:0 0 6px">'+
       'Over '+esc(DECK.horizon)+'. Where does this one actually sit?</p>'+
     '<div class="deckarea"><div class="stack" id="stack"></div></div>'+
@@ -384,6 +458,11 @@ function vTriage(){
   });
   var ub = document.getElementById("undo");
   if(ub) ub.onclick = undo;
+  var wn = document.getElementById("whatnow");
+  wn.onclick = function(){
+    var open = document.getElementById("whatnow-body").classList.toggle("hidden");
+    wn.textContent = open ? "What am I doing?" : "Hide";
+  };
 
   document.onkeydown = function(e){
     if(S.stage !== "triage") return;
@@ -460,15 +539,14 @@ function cutScreen(o){
   var cap = o.cap();
 
   if(!pool.length){
-    main.innerHTML = '<h2>'+o.title+'</h2><p class="small">'+o.empty+'</p>'+
+    main.innerHTML = stepHead(o.stage, o.title)+'<p class="small">'+o.empty+'</p>'+
       '<div class="row"><button class="btn" id="next">Continue</button></div>';
     document.getElementById("next").onclick = o.onNext;
     return;
   }
 
   main.innerHTML =
-    '<h2>'+o.title+'</h2>'+
-    '<p class="lede small">'+o.blurb+'</p>'+
+    stepHead(o.stage, o.title)+
     '<div id="sections"></div>'+
     '<div class="sticky noprint"><div class="wrap">'+
       '<div class="small" id="tally"></div>'+
@@ -515,11 +593,8 @@ function cutScreen(o){
 function vKeepTop(){
   var cap = capTop();
   cutScreen({
-    field:"keepTop",
-    title:"Eliminate down to "+cap,
-    blurb:"You called "+affirmed().length+" of these wanted, whether or not you are currently feeding them. "+
-          "Tap a card to eliminate it, and tap it again if you want it back. Leave standing the "+cap+
-          " you want most over "+esc(DECK.horizon)+".",
+    stage:"keeptop", field:"keepTop",
+    title:"Narrow your "+affirmed().length+" down to "+cap,
     empty:"Nothing landed in the Funded or Starved piles, so there is nothing to narrow here.",
     pool:affirmed, cap:capTop,
     onNext:function(){ S.rank = null; go(S.keepTop.length > 1 ? "duel" : "without"); }
@@ -529,12 +604,10 @@ function vKeepTop(){
 function vWithout(){
   var cap = capWithout();
   cutScreen({
-    field:"keepWithout",
-    title:"The "+cap+" you can live without",
-    blurb:"These are the ones you wanted that did not make your ten. They are all real goods, "+
-          "which is what makes this worth doing. Eliminate down to the "+cap+" you are genuinely "+
-          "willing to not have.",
-    empty:"Nothing is left over, so there is no list to build here.",
+    stage:"without", field:"keepWithout",
+    title: cap ? "Narrow these down to the "+cap+" you can live without"
+               : "Nothing left to live without",
+    empty:"Everything you wanted made your ten, so there is no second list to build.",
     pool:withoutPool, cap:capWithout,
     onNext:function(){ go("futures"); }
   });
@@ -570,9 +643,7 @@ function vDuel(){
 
   main.innerHTML =
     '<div class="progress"><i style="width:'+Math.round((placed-1)/Math.max(1,all-1)*100)+'%"></i></div>'+
-    '<h2>Keep one</h2>'+
-    '<p class="lede small">Both of these cost something, and the price is on each card. '+
-      'If you could carry only one into the next five years, which one? Answer quickly.</p>'+
+    stepHead("duel")+
     '<div class="duel">'+ dc(A,"a") + dc(B,"b") +'</div>'+
     '<p class="tiny" style="text-align:center">'+placed+' of '+all+' placed. Press 1 or 2.</p>';
 
@@ -598,11 +669,7 @@ function vFutures(){
   var done = ids.filter(function(id){ return S.futures[id]; }).length;
 
   main.innerHTML =
-    '<h2>Does the run help this, or cost it?</h2>'+
-    '<p class="lede small">Here are your ten again. One more year chasing the card puts some of them '+
-      'within easier reach and pushes others further out. Mark where each one sits. '+
-      'The ones that do not move either way are the ones you get whichever way this goes, '+
-      'and that pile is worth seeing on its own.</p>'+
+    stepHead("futures")+
     '<div id="rows"></div>'+
     '<div class="sticky noprint"><div class="wrap">'+
       '<div class="small" id="ftally">'+done+' of '+ids.length+' marked</div>'+
@@ -653,10 +720,7 @@ function vPredict(){
   var partner = PEOPLE[me().partner];
 
   main.innerHTML =
-    '<h2>Now guess '+esc(partner.name)+'’s five</h2>'+
-    '<p class="lede small">Out of all '+DECK.cards.length+' cards, which five do you think will land in '+
-      esc(partner.name)+'’s top ten? Answer from what you actually believe, and not from what would '+
-      'be generous. Whether you are right is the useful part either way.</p>'+
+    stepHead("predict", "Now guess "+partner.name+"’s five")+
     '<input class="filterbox noprint" id="filter" placeholder="Type to narrow the list" autocomplete="off">'+
     '<div id="pgrid"></div>'+
     '<div class="sticky noprint"><div class="wrap">'+
@@ -711,9 +775,7 @@ function vResult(){
   var partner = PEOPLE[me().partner];
 
   main.innerHTML =
-    '<h1 class="noprint">Your result</h1>'+
-    '<p class="lede small noprint">Choose what goes in the PDF, then print it and send it over. '+
-      'Nothing leaves this browser until you email it yourself.</p>'+
+    '<div class="noprint">'+stepHead("result")+'</div>'+
     '<div class="toggles noprint" id="toggles">'+
       '<label class="fixed"><input type="checkbox" checked disabled><span>'+
         '<b>My ten, ranked</b><br><span class="tiny">Always included. This is the point of the exercise.</span></span></label>'+
